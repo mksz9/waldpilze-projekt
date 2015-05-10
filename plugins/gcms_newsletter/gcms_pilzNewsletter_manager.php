@@ -20,12 +20,12 @@ class gcms_pilzNewsletter_manager
     function initializePlugin()
     {
         $this->databaseManager->initialize();
+        $this->subscriber->initialize();
 
 
+        //echo '<script>jQuery(document).ready(function(){alert("Learning Hooks");});</script>';
 
-        echo "alsödk";
-        wp_mail('Patrick.Sippl@t-online.de', 'mySubject', 'myMessage');
-        $this->doTestStuff();
+        //$this->doTestStuff();
     }
 
     function doTestStuff()

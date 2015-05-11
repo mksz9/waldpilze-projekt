@@ -21,11 +21,18 @@ class gcms_pilzNewsletter_manager
     {
         $this->databaseManager->initialize();
         $this->subscriber->initialize();
+        $this->newsletterSender->initialize();
 
 
-        //echo '<script>jQuery(document).ready(function(){alert("Learning Hooks");});</script>';
+
+
 
         //$this->doTestStuff();
+    }
+
+    function finalizePlugin()
+    {
+        $this->newsletterSender->finalize();
     }
 
     function doTestStuff()

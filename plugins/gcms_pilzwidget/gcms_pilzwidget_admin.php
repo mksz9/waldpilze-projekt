@@ -14,6 +14,7 @@ class Pilzwidget_Admin {
 		if (!is_admin()) return;
 
 		add_action('init', array($this, 'initSeasonsTaxonomy'), 0);
+		add_action('admin_head', array($this, 'addAdminCSS'));
 		add_action('admin_menu', array($this, 'addSeasonsBoxToPostType'));
 		add_action('save_post', array($this, 'saveSeasonsData'));
 
@@ -50,7 +51,7 @@ class Pilzwidget_Admin {
 		//remove standard box
 		remove_meta_box('tagsdiv-'.self::SEASON_TAXONOMY_NAME, 'pilze', 'core');
 		//adding custom box
-		add_meta_box('theme_box_ID', 'Season', array($this, 'seasonsBoxOutput'), 'pilze', 'side', 'core');
+		add_meta_box('box-'.self::SEASON_TAXONOMY_NAME, 'Season', array($this, 'seasonsBoxOutput'), 'pilze', 'side', 'core');
 	}
 
 	public function seasonsBoxOutput($post) {
@@ -59,22 +60,30 @@ class Pilzwidget_Admin {
 		echo '<input type="hidden" name="taxonomy_noncename" id="taxonomy_noncename" value="' . 
             wp_create_nonce( 'taxonomy_'.self::SEASON_TAXONOMY_NAME ) . '" />';
 
-        $allSeasons = get_terms(self::SEASON_TAXONOMY_NAME, 'hide_empty=0'); //$themes
-        echo '<select name="pilze_seasons" id="pilze_seasons">';
+        $allSeasons = get_terms(self::SEASON_TAXONOMY_NAME, 'hide_empty=0&orderby=id'); //$themes
+        echo '<select name="pilze_seasons[]" id="pilze_seasons" multiple>';
 
-        $pilzSeason = wp_get_object_terms($post->ID, self::SEASON_TAXONOMY_NAME); //$names
-        echo '<option class="season-option" value="" ';
-        echo (!count($pilzSeason)) ? "selected" : '';
-        echo '>'.__('None').'</option>';
+        $pilzSeasons = wp_get_object_terms($post->ID, self::SEASON_TAXONOMY_NAME); //$names
 
         foreach($allSeasons as $season) {
-        	if (!is_wp_error($pilzSeason) && !empty($pilzSeason) && !strcmp($season->slug, $pilzSeason[0]->slug)) {
+        	if (!is_wp_error($pilzSeasons) && !empty($pilzSeasons) && $this->checkSelectedSlug($season, $pilzSeasons)) {
         		echo '<option class="season-option" value="'.$season->slug.'" selected>'.$season->name.'</option>';
         	} else {
         		echo '<option class="season-option" value="'.$season->slug.'">'.$season->name.'</option>';        	
         	}
         }
         echo '</select>';
+	}
+
+	private function checkSelectedSlug($taxonomy, $taxonomyCollection) {
+		if (is_array($taxonomyCollection)) {
+			foreach ($taxonomyCollection as $singleTaxonomy) {
+				if (!strcmp($taxonomy->slug, $singleTaxonomy->slug)) {
+					return true;
+				}
+			}
+		}
+		return false;
 	}
 
 	public function saveSeasonsData($post_id) {
@@ -98,6 +107,17 @@ class Pilzwidget_Admin {
 		}
 
 		return $post_id;
+	}
+
+	public function addAdminCSS() {
+		 echo ' 
+		 	 <style>
+			    #pilze_seasons {
+		 	 		width: 100%;
+		 	 		height: 120px;
+		 		} 
+			 </style>
+		';
 	}
 
 	private function addWidgetBoxToTheme() {

@@ -2,6 +2,13 @@
 
 class gcms_pilzNewsletter_newsletterSender
 {
+    private $databaseManager;
+
+    function __construct($databaseManager)
+    {
+        $this->databaseManager = $databaseManager;
+    }
+
     function initialize()
     {
         $this->startScheduledSending();
@@ -43,8 +50,12 @@ class gcms_pilzNewsletter_newsletterSender
 
     function sendNewsletter()
     {
-        //echo "heyho";
-        error_log("myPeriodicalEvent");
+        foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
+        {
+            // DOO
+            //echo $recipient->email;
+        }
+
 
         wp_mail('Patrick.Sippl@t-online.de', 'mySubject', $this->getCurrentContentToSend());
     }

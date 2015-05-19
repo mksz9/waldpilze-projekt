@@ -1,0 +1,14 @@
+
+
+<?php
+
+//$insertNewEmailAddressForNewsletterQuery = 'INSERT INTO ' . $this->getTableName() . ' (email) VALUES (\'' . $newEmailAddress . '\')';
+//$this->fireSQLQuery($insertNewEmailAddressForNewsletterQuery);
+
+?>
+
+
+
+
+            //$deleteEmailAddressFromNewsletterQuery = 'DELETE FROM ' . $this->getTableName() . ' WHERE email=\'' . $emailAddressToDelete . '\'';
+            //$this->fireSQLQuery($deleteEmailAddressFromNewsletterQuery);

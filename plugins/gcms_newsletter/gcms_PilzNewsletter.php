@@ -7,7 +7,9 @@
      */
 
 
-    add_filter('cron_schedules', 'addNewIntervalToSchedules');
+
+
+add_filter('cron_schedules', 'addNewIntervalToSchedules');
 
 function addNewIntervalToSchedules($schedules)
 {
@@ -26,48 +28,53 @@ wp_schedule_event(time(), 'minutes_1', 'periodicalSendPilzNewsletterHook');
 
 function abc()
 {
-    error_log("myNewErrorlog");
+    //error_log("myNewErrorlog");
 }
 
 
 
-
-
-    if (!class_exists('gcms_pilzNewsletter'))
+if (!class_exists('gcms_pilzNewsletter'))
+{
+    class gcms_pilzNewsletter
     {
-        class gcms_pilzNewsletter
+        private $newsletterManager;
+
+        function __construct()
         {
-            private $newsletterManager;
+            $this->doIncludes();
 
-            function __construct()
-            {
-                include_once('gcms_pilzNewsletter_manager.php');
-                include_once('gcms_pilzNewsletter_databaseManager.php');
-                include_once('gcms_pilzNewsletter_subscriber.php');
-                include_once('gcms_pilzNewsletter_unsubscriber.php');
-                include_once('gcms_pilzNewsletter_newsletterCreator.php');
-                include_once('gcms_pilzNewsletter_newsletterData.php');
-                include_once('gcms_pilzNewsletter_newsletterSender.php');
+            $this->newsletterManager = new gcms_pilzNewsletter_manager();
 
-                $this->newsletterManager = new gcms_pilzNewsletter_manager();
-
-                register_activation_hook( __FILE__, array($this, 'initializePlugin'));
-                register_deactivation_hook( __FILE__, array($this, 'finalizePlugin'));
-            }
-
-            function initializePlugin()
-            {
-                $this->newsletterManager->initializePlugin();
-            }
-
-            function finalizePlugin()
-            {
-                $this->newsletterManager->finalizePlugin();
-            }
+            register_activation_hook( __FILE__, array($this, 'initializePlugin'));
+            register_deactivation_hook( __FILE__, array($this, 'finalizePlugin'));
         }
 
-        $gcms_pilzNewsletter = new gcms_pilzNewsletter();
+        function doIncludes()
+        {
+            include_once('gcms_pilzNewsletter_manager.php');
+            include_once('gcms_pilzNewsletter_databaseManager.php');
+            include_once('gcms_pilzNewsletter_unsubscriber.php');
+            include_once('gcms_pilzNewsletter_newsletterCreator.php');
+            include_once('gcms_pilzNewsletter_newsletterData.php');
+            include_once('gcms_pilzNewsletter_newsletterSender.php');
+            include_once('gcms_pilzNewsletter_formPrinterAndReader.php');
+
+            require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+        }
+
+        function initializePlugin()
+        {
+            $this->newsletterManager->initializePlugin();
+        }
+
+        function finalizePlugin()
+        {
+            $this->newsletterManager->finalizePlugin();
+        }
     }
+
+    $gcms_pilzNewsletter = new gcms_pilzNewsletter();
+}
 
  
 ?>

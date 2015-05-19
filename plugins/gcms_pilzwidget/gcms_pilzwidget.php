@@ -12,24 +12,12 @@ if (!function_exists('add_filter')) {
 	exit();
 }
 
-class Pilzwidget_Main {
-	public function init() {
-		$this->addWidgetBoxToFrontend();
-	}
-
-	//render widget box in frontend
-	private function addWidgetBoxToFrontend() {
-
-	}
-}
-
 if (class_exists('pilzDb')) {
-
 	require_once('gcms_pilzwidget_admin.php');
+	require_once('gcms_pilzwidget_widget.php');
 
 	$pilzWidgetAdmin = new Pilzwidget_Admin();
 	$pilzWidgetAdmin->init();
 
-	$pilzWidget = new Pilzwidget_Main();
-	$pilzWidget->init();
+	add_action( 'widgets_init', create_function('', 'return register_widget("Pilzwidget_Widget");') );
 }

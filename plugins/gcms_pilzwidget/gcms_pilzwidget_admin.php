@@ -17,15 +17,15 @@ class Pilzwidget_Admin {
 		add_action('admin_head', array($this, 'addAdminCSS'));
 		add_action('admin_menu', array($this, 'addSeasonsBoxToPostType'));
 		add_action('save_post', array($this, 'saveSeasonsData'));
-
-		$this->addWidgetSettings();
-		$this->addWidgetBoxToTheme();
 	}
 
 	public function initSeasonsTaxonomy() {
 
 		$theTerms = array(__('January'), __('February'), __('March'), __('April'), __('May'), __('June'), __('July'), __('August'), __('September'), __('October'), __('November'), __('December'));
 		
+		//add filter to terms for editing the initial seasons
+		$theTerms = apply_filters('initSeasonsEntities', $theTerms);
+
 		if(!taxonomy_exists(self::SEASON_TAXONOMY_NAME)) {
 			$args = array(
 				'labels' => array(
@@ -118,13 +118,5 @@ class Pilzwidget_Admin {
 		 		} 
 			 </style>
 		';
-	}
-
-	private function addWidgetBoxToTheme() {
-
-	}
-
-	private function addWidgetSettings() {
-
 	}
 }

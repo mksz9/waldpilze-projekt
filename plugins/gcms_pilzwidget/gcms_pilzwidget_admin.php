@@ -40,6 +40,11 @@ class Pilzwidget_Admin {
 			);
 			register_taxonomy(self::SEASON_TAXONOMY_NAME, 'pilze', $args );
 
+			/*
+				ToDo:
+					- only insert the terms on plugin installation (and remove them on uninstall)!
+			*/
+					
 			foreach($theTerms as $term) {
 				wp_insert_term($term, self::SEASON_TAXONOMY_NAME);
 			}

@@ -9,7 +9,14 @@ class gcms_pf_formPrinterAndReader
     const input_nonce_filed = 'pf_nonce_field';
     const input_toxic_name = 'pf_toxic';
 
-    function printHtmlForm()
+    public function printHtmlFormWithValidationError($errorMessages)
+    {
+        echo $errorMessages;
+        $this->printHtmlForm();
+
+    }
+
+    public function printHtmlForm()
     {
         $data = $this->getFromRawData();
 
@@ -19,7 +26,7 @@ class gcms_pf_formPrinterAndReader
 
         echo '<p>';
         echo 'Name: <br />';
-        echo '<input type="text" name="' . self::input_title_name . '" pattern="[a-zA-Z0-9 ]+" value="' . esc_attr($data->getTitle())  . '" size="40" />';
+        echo '<input type="text" name="' . self::input_title_name . '" pattern="[a-zA-Z0-9 ]+" value="' . esc_attr($data->getTitle()) . '" size="40" />';
         echo '</p>';
 
         echo '<p>';
@@ -30,28 +37,79 @@ class gcms_pf_formPrinterAndReader
 
         echo '<p>';
         echo 'Beschreibung: <br />';
-        echo '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" value="' . esc_attr($data->getContent())  . '" size="200" ></textarea>';
+        echo '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" size="200" >'.esc_attr($data->getContent()).'</textarea>';
         echo '</p>';
+
+        echo '<img src="' . gcms_cap_captcha::getInstance()->getCaptachaImageUrl() .' alt="" />';
+        echo '<p>Captcha: <br /><input type="text" name="captcha" id="captcha" autocomplete="off" /></p>';
 
         echo '<p><input type="submit" name="' . self::input_submit_name . '" value="Pilz absenden"/></p>';
         echo '</form>';
     }
 
-    function hastPostContent()
+    public function hasSubmited()
     {
-        return isset($_POST[self::input_submit_name]);
+        if (isset($_POST[self::input_submit_name])) {
+            return true;
+        }
+
+        return false;
     }
 
-    function getFromData()
+    public function hasPostValidData()
     {
-        if (isset($_POST[self::input_nonce_filed]) && isset($_POST[self::input_submit_name]) &&
-            wp_verify_nonce($_POST[self::input_nonce_filed], self::input_submit_name) === 1
+        if ($this->getInvalidDataMessage() === false) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public function getInvalidDataMessage()
+    {
+        $hasError = false;
+        $resultMessage = '<ul>';
+        $data = $this->getFromRawData();
+
+        if (strlen($data->getTitle()) < 6) {
+            $resultMessage .= '<li>Der Title muss mindestens 6 Zeichen lang sein.</li>';
+            $hasError = true;
+        }
+
+        if (strlen($data->getContent()) < 50 ) {
+            $resultMessage .= '<li>Der Content muss mindestens 50 Zeichen lang sein.</li>';
+            $hasError = true;
+        }
+
+        if (!(gcms_cap_captcha::getInstance()->isValidCaptchaText(trim($_POST['captcha']))))
+        {
+            $resultMessage .= '<li>Der Captcha-Inhalt stimmt nicht mit dem Bild überein.</li>';
+            $hasError = true;
+        }
+
+        if (!(isset($_POST[self::input_nonce_filed]) && isset($_POST[self::input_submit_name]) &&
+            wp_verify_nonce($_POST[self::input_nonce_filed], self::input_submit_name) === 1)
         ) {
+            $resultMessage .= '<li>Es ist ein interner Fehler aufgetreten.</li>';
+            $hasError = true;
+        }
+
+        $resultMessage .= '</ul>';
+
+        if ($hasError === false) {
+            return false;
+        } else {
+            return $resultMessage;
+        }
+    }
+
+    public function getFromData()
+    {
+        if ($this->hasPostValidData() === true) {
             return $this->getFromRawData();
         }
 
-        echo '<h2>Sorry, your nonce did not verify.</h2>';
-        exit;
+        return null;
     }
 
     private function getFromRawData()
@@ -59,11 +117,11 @@ class gcms_pf_formPrinterAndReader
         $data = new gcms_pf_formData();
 
         if (isset($_POST[self::input_title_content])) {
-            $data->setContent(sanitize_text_field($_POST[self::input_title_content]));
+            $data->setContent(sanitize_text_field(trim($_POST[self::input_title_content])));
         }
 
         if (isset($_POST[self::input_title_name])) {
-            $data->setTitle(sanitize_text_field($_POST[self::input_title_name]));
+            $data->setTitle(sanitize_text_field(trim($_POST[self::input_title_name])));
         }
 
         return $data;

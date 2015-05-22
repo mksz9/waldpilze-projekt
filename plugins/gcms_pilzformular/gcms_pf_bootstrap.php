@@ -14,8 +14,8 @@ if (!class_exists('gcms_pf_bootstrap')) {
 
         function __construct()
         {
-            if (class_exists('gcms_pf_pilzPostTypeCreater') &&
-                class_exists('gcms_pf_formManager') &&
+            if (class_exists('gcms_pf_pilzPostTypeCreater') ||
+                class_exists('gcms_pf_formManager') ||
                 class_exists('gcms_pf_formPrinterAndReader')
             ) {
                 echo 'Plugin konnte nicht gestartet werden. Eine PHP Klasse ist schon vorhanden. ERROR';

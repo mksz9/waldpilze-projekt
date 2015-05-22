@@ -1,6 +1,6 @@
 <?php
 
-class gcms_pilzNewsletter_newsletterSender
+class gcms_pilzNewsletter_emailSender
 {
     private $databaseManager;
 
@@ -18,6 +18,38 @@ class gcms_pilzNewsletter_newsletterSender
     {
         $this->stopScheduledSending();
     }
+
+    function sendNewsletter()
+    {
+        foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
+        {
+            // DOO
+            //echo $recipient->email;
+        }
+
+
+        wp_mail('Patrick.Sippl@t-online.de', 'mySubject', $this->getCurrentContentToSend());
+    }
+
+    function sendRegistrationConfirmationEmail($emailAddress, $randomNumber)
+    {
+        wp_mail($emailAddress, 'Confirm your newsletter registration', $this->generateFullURLWithRandomNumberParameter($randomNumber));
+    }
+
+    function  generateFullURLWithRandomNumberParameter($randomNumber)
+    {
+        return "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'&randomNumber='.$randomNumber;
+    }
+
+    function getCurrentContentToSend()
+    {
+        return "myCurrentContentToSend";
+    }
+
+
+
+
+
 
     function startScheduledSending()
     {
@@ -46,23 +78,6 @@ class gcms_pilzNewsletter_newsletterSender
     function  stopScheduledSending()
     {
         wp_clear_scheduled_hook('periodicalSendPilzNewsletterHook');
-    }
-
-    function sendNewsletter()
-    {
-        foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
-        {
-            // DOO
-            //echo $recipient->email;
-        }
-
-
-        wp_mail('Patrick.Sippl@t-online.de', 'mySubject', $this->getCurrentContentToSend());
-    }
-
-    function getCurrentContentToSend()
-    {
-        return "myCurrentContentToSend";
     }
 }
 

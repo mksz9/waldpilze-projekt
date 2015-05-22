@@ -15,9 +15,29 @@
             echo '</form>';
         }
 
+        function printEmailToConfirmNewsletterRegistrationSentHTML()
+        {
+            echo '<p>Email to confirm newsletter registration was sent to the following Email-Address: ' . $this->getNewSubscribedMailAdressForNewsletter() . '</p>';
+        }
+
         function printSuccessfullySubscribedForNewsletterHTML()
         {
-            echo '<p>successfully subscribed for newsletter with the following Email-Address: ' . $this->getNewSubscribedMailAdressForNewsletter() . '</p>';
+            echo '<p>successfully subscribed for newsletter</p>';
+        }
+
+        function printUnsuccessfullNewsletterConfirmationHTML()
+        {
+            echo '<p>Could not confirm newsletter registration</p>';
+        }
+
+        function  printEmailAddressIsAlreadyRecipientHTML()
+        {
+            echo '<p>This email address is already registered for newsletter</p>';
+        }
+
+        function printEmailIsAlreadyAspirantHTML()
+        {
+            echo '<p>Newsletter confirmation was already sent to the folloginw email address: '.$this->getNewSubscribedMailAdressForNewsletter().'<br>New confirmation email was sent.</p>';
         }
 
         function getNewSubscribedMailAdressForNewsletter()
@@ -28,6 +48,16 @@
         function formToSubscribeForNewsletterSent()
         {
             return isset($_POST[self::input_submit_name]);
+        }
+
+        function getRandomNumberFromConfirmationLinkFromEmailLink()
+        {
+            return $_GET['randomNumber'];
+        }
+
+        function confirmationLinkFromEmailClicked()
+        {
+            return isset($_GET['randomNumber']);
         }
     }
 

@@ -56,7 +56,7 @@ if (!class_exists('gcms_pilzNewsletter'))
             include_once('gcms_pilzNewsletter_unsubscriber.php');
             include_once('gcms_pilzNewsletter_newsletterCreator.php');
             include_once('gcms_pilzNewsletter_newsletterData.php');
-            include_once('gcms_pilzNewsletter_newsletterSender.php');
+            include_once('gcms_pilzNewsletter_emailSender.php');
             include_once('gcms_pilzNewsletter_formPrinterAndReader.php');
 
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );

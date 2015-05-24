@@ -9,7 +9,7 @@
 
 
 
-add_filter('cron_schedules', 'addNewIntervalToSchedules');
+/*add_filter('cron_schedules', 'addNewIntervalToSchedules');
 
 function addNewIntervalToSchedules($schedules)
 {
@@ -29,7 +29,7 @@ wp_schedule_event(time(), 'minutes_1', 'periodicalSendPilzNewsletterHook');
 function abc()
 {
     //error_log("myNewErrorlog");
-}
+}*/
 
 
 
@@ -47,6 +47,9 @@ if (!class_exists('gcms_pilzNewsletter'))
 
             register_activation_hook( __FILE__, array($this, 'initializePlugin'));
             register_deactivation_hook( __FILE__, array($this, 'finalizePlugin'));
+
+            add_action('myCustomPilzEvent_newNewsletterStuffToSend', array($this, 'triggerNewsletter'));
+
         }
 
         function doIncludes()
@@ -70,6 +73,11 @@ if (!class_exists('gcms_pilzNewsletter'))
         function finalizePlugin()
         {
             $this->newsletterManager->finalizePlugin();
+        }
+
+        function triggerNewsletter()
+        {
+            $this->newsletterManager->triggerNewsletter();
         }
     }
 

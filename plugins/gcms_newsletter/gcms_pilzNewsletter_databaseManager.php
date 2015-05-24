@@ -59,6 +59,7 @@
             $sqlCreateQuery = "CREATE TABLE $tableName (
                 id mediumint(9) NOT NULL AUTO_INCREMENT,
                 email text NOT NULL,
+                randomNumberToVerifyUnsubscribe mediumint(9),
                 UNIQUE KEY id (id)
                 ) $charset_collate;";
 
@@ -77,12 +78,11 @@
             $wpdb->query('DROP TABLE '.$this->getRecipientsTableName());
         }
 
-
         function insertNewRecipient($emailAddress)
         {
             echo $emailAddress;
             global $wpdb;
-            $wpdb->insert($this->getRecipientsTableName(), array('email' => $emailAddress));
+            $wpdb->insert($this->getRecipientsTableName(), array('email' => $emailAddress, 'randomNumberToVerifyUnsubscribe' => $this->getNewRandomNumberForToVerifyUnsubscribe()));
         }
 
         function isEmailAddressAlreadyAspirant($emailAddress)
@@ -109,10 +109,10 @@
         {
             $updateAspirantQuery = 'UPDATE '.$this->getAspirantsTableName().' SET randomNumber=\''.$newRandomNumber.'\' WHERE email=\''.$aspirantEmailAddress.'\'';
             global $wpdb;
-            $wpdb->query($wpdb->prepare($updateAspirantQuery));
+            $wpdb->query($updateAspirantQuery);
         }
 
-        function deleteRecipient($emailAddressToDelete) // funktioniert, wird aber noch nicht verwendet
+        function deleteRecipient($emailAddressToDelete)
         {
             global $wpdb;
             $wpdb->delete($this->getRecipientsTableName(), array('email' => $emailAddressToDelete));
@@ -142,6 +142,23 @@
             global $wpdb;
             $result = $wpdb->get_row('SELECT email FROM '.$this->getAspirantsTableName().' WHERE randomNumber=\''.$randomNumber.'\'');
             return $result->email;
+        }
+
+        function getRandomNumberToVerifyUnsubscribeForEmailAddressFromDatabase($emailAddress)
+        {
+            global $wpdb;
+            $result = $wpdb->get_row('SELECT randomNumberToVerifyUnsubscribe FROM '.$this->getRecipientsTableName().' WHERE email=\''.$emailAddress.'\'');
+            return $result->randomNumberToVerifyUnsubscribe;
+        }
+
+        function isEmailAddressToUnsubscribeMatchingWithRandomNumberToVerifyUnsubscribe($emailAddress, $randomNumberToVerifyUnsubscribeSentFromForm)
+        {
+            return $this->getRandomNumberToVerifyUnsubscribeForEmailAddressFromDatabase($emailAddress) == $randomNumberToVerifyUnsubscribeSentFromForm;
+        }
+
+        function getNewRandomNumberForToVerifyUnsubscribe()
+        {
+            return rand(0, 99999);
         }
     }
 

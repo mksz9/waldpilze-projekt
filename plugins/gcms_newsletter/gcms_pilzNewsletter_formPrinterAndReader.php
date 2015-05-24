@@ -5,6 +5,17 @@
         const input_submit_name = 'form_subscribeForNewsletter_submit';
         const input_email_name = 'form_subscribeForNewsletter_email';
 
+        const getParameter_randomNumberToVerifyAspirant_name = 'rand1';
+        const getParameter_randomNumberToVerifyUnsubscribe_name = 'rand2';
+        const getParameter_emailToUnsubscribe_name = 'email';
+
+        private $databaseManager;
+
+        function __construct($databaseManager)
+        {
+            $this->databaseManager = $databaseManager;
+        }
+
         function printSubscribeForNewsletterHTML()
         {
             echo '<form method="post" action="' . esc_url($_SERVER['REQUEST_URI']) . '">';
@@ -22,12 +33,12 @@
 
         function printSuccessfullySubscribedForNewsletterHTML()
         {
-            echo '<p>successfully subscribed for newsletter</p>';
+            echo '<p>successfully subscribed for newsletter!</p>';
         }
 
         function printUnsuccessfullNewsletterConfirmationHTML()
         {
-            echo '<p>Could not confirm newsletter registration</p>';
+            echo '<p>Could not confirm newsletter registration. Maybe you clicked not the latest confirmation email.</p>';
         }
 
         function  printEmailAddressIsAlreadyRecipientHTML()
@@ -37,7 +48,17 @@
 
         function printEmailIsAlreadyAspirantHTML()
         {
-            echo '<p>Newsletter confirmation was already sent to the folloginw email address: '.$this->getNewSubscribedMailAdressForNewsletter().'<br>New confirmation email was sent.</p>';
+            echo '<p>Newsletter confirmation was already sent to the folloging email address: '.$this->getNewSubscribedMailAdressForNewsletter().'<br>New confirmation email was sent.</p>';
+        }
+
+        function printSuccessfullUnsubscribeHTML()
+        {
+            echo '<p>you successfully unsubscribed the following email address from our newsletter: '.$this->getEmailAddressToUnsubscribe();
+        }
+
+        function printUnsuccessfullUnsubscribeHTML()
+        {
+            echo '<p>we couldnt unsubscribe the following email address from our newsletter: '.$this->getEmailAddressToUnsubscribe().'<br>you are not authorized</p>';
         }
 
         function getNewSubscribedMailAdressForNewsletter()
@@ -50,14 +71,45 @@
             return isset($_POST[self::input_submit_name]);
         }
 
-        function getRandomNumberFromConfirmationLinkFromEmailLink()
+        function getRandomNumberFromConfirmationLinkFromEmail()
         {
-            return $_GET['randomNumber'];
+            return $_GET[self::getParameter_randomNumberToVerifyAspirant_name];
         }
 
         function confirmationLinkFromEmailClicked()
         {
-            return isset($_GET['randomNumber']);
+            return isset($_GET[self::getParameter_randomNumberToVerifyAspirant_name]);
+        }
+
+        function getEmailAddressToUnsubscribe()
+        {
+            return $_GET[self::getParameter_emailToUnsubscribe_name];
+        }
+
+        function getRandomNumberToVerifyUnsubscribe()
+        {
+            return $_GET[self::getParameter_randomNumberToVerifyUnsubscribe_name];
+        }
+
+        function unsubscribeLinkFromEmailClicked()
+        {
+            return isset($_GET[self::getParameter_emailToUnsubscribe_name]) && isset($_GET[self::getParameter_randomNumberToVerifyUnsubscribe_name]);
+        }
+
+        function generateUnsubscribeURLForEmail($recipientEmailAddress)
+        {
+            $randomNumberToVerifyUnsubscribe = $this->databaseManager->getRandomNumberToVerifyUnsubscribeForEmailAddressFromDatabase($recipientEmailAddress);
+            return $this->getURL().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+        }
+
+        function getURL()
+        {
+            return 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+        }
+
+        function generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber)
+        {
+            return $this->getURL().'&'.self::getParameter_randomNumberToVerifyAspirant_name.'='.$randomNumber;
         }
     }
 

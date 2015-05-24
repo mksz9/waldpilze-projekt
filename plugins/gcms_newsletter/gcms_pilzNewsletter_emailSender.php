@@ -3,10 +3,12 @@
 class gcms_pilzNewsletter_emailSender
 {
     private $databaseManager;
+    private $formPrinterAndReader;
 
-    function __construct($databaseManager)
+    function __construct($databaseManager, $formPrinterAndReader)
     {
         $this->databaseManager = $databaseManager;
+        $this->formPrinterAndReader = $formPrinterAndReader;
     }
 
     function initialize()
@@ -21,30 +23,52 @@ class gcms_pilzNewsletter_emailSender
 
     function sendNewsletter()
     {
+        $this->setEmailContentTypeToHTML();
+
         foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
         {
-            // DOO
-            //echo $recipient->email;
+            $recipientEmailAddress = $recipient->email;
+            wp_mail($recipientEmailAddress, 'Pilz-Newsletter', $this->getContentToSend($recipientEmailAddress));
         }
+    }
 
+    function  setEmailContentTypeToPlain()
+    {
+        add_filter( 'wp_mail_content_type', function( $content_type ) {
+            return 'text/plain';
+        });
+    }
 
-        wp_mail('Patrick.Sippl@t-online.de', 'mySubject', $this->getCurrentContentToSend());
+    function setEmailContentTypeToHTML()
+    {
+        add_filter( 'wp_mail_content_type', function( $content_type ) {
+            return 'text/html';
+        });
     }
 
     function sendRegistrationConfirmationEmail($emailAddress, $randomNumber)
     {
-        wp_mail($emailAddress, 'Confirm your newsletter registration', $this->generateFullURLWithRandomNumberParameter($randomNumber));
+        $this->setEmailContentTypeToPlain();
+
+        wp_mail($emailAddress, 'Confirm your newsletter registration', $this->formPrinterAndReader->generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber));
     }
 
-    function  generateFullURLWithRandomNumberParameter($randomNumber)
+    function getContentToSend($recipientEmailAddress)
     {
-        return "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].'&randomNumber='.$randomNumber;
+        $content = '<h1>myCurrentContentToSend</h1><br><p>mySecondLine</p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
+        return $content;
     }
 
-    function getCurrentContentToSend()
+    function getUnsubscribeContentForEmail($recipientEmailAddress)
     {
-        return "myCurrentContentToSend";
+        return '<br><a href="'.$this->formPrinterAndReader->generateUnsubscribeURLForEmail($recipientEmailAddress).'">Click here to unsubscribe this email address from our newsletter</a><br>';
     }
+
+
+
+
+
+
 
 
 
@@ -55,9 +79,7 @@ class gcms_pilzNewsletter_emailSender
     {
         //$this->addScheduledIntervalToWpSchedules();
 
-
         add_action('periodicalSendPilzNewsletterHook', array($this, 'sendNewsletter'));
-
 
 
         wp_schedule_event(time(), 'minutes_1', 'periodicalSendPilzNewsletterHook');

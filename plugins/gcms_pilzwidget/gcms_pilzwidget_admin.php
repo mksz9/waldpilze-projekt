@@ -35,15 +35,10 @@ class Pilzwidget_Admin {
 				'query_var' => 'season',
 				'hierarchical' => false,
 				'rewrite' => array('slug' => __(self::SEASON_TAXONOMY_NAME)),
-				'show_ui' => false,
+				//'show_ui' => false,
 				'show_admin_column' => true
 			);
 			register_taxonomy(self::SEASON_TAXONOMY_NAME, 'pilze', $args );
-
-			/*
-				ToDo:
-					- only insert the terms on plugin installation (and remove them on uninstall)!
-			*/
 					
 			foreach($theTerms as $term) {
 				wp_insert_term($term, self::SEASON_TAXONOMY_NAME);

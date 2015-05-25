@@ -23,7 +23,8 @@
                     ),
                     'public' => true,
                     'show_ui' => true,
-                    'query_var' => strtolower(self::_POST_TYPE_NAME)
+                    'query_var' => strtolower(self::_POST_TYPE_NAME),
+                    'supports' => array('title', 'editor', 'thumbnail')
                 )
             );
 
@@ -31,6 +32,7 @@
             do_action('pilzdatenbank_posttype_created');
 
         }
+
     }
 
     $pilzDb = new pilzDb();

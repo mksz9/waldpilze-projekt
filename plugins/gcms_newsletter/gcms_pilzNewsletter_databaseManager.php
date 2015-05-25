@@ -4,7 +4,14 @@
     {
         function initialize()
         {
-            $this->createRecipientsDatabase();
+            $this->createRecipientsTable();
+            $this->createAspirantsTable();
+        }
+
+        function  finalize()
+        {
+            $this->dropAspirantsTable();
+            $this->dropRecipientsTable();
         }
 
         function getDbPrefix()
@@ -19,46 +26,139 @@
             return $wpdb->get_charset_collate();
         }
 
-        function getTableName()
+        function getRecipientsTableName()
         {
             return $this->getDbPrefix()."newsletterRecipients";
         }
 
-        function createRecipientsDatabase()
+        function getAspirantsTableName()
+        {
+            return $this->getDbPrefix()."newsletterAspirants";
+        }
+
+        function createAspirantsTable()
         {
             $charset_collate = $this->getDbCharsetCollate();
-            $tableName = $this->getTableName();
+            $tableName = $this->getAspirantsTableName();
 
             $sqlCreateQuery = "CREATE TABLE $tableName (
                 id mediumint(9) NOT NULL AUTO_INCREMENT,
                 email text NOT NULL,
+                randomNumber mediumint(9),
                 UNIQUE KEY id (id)
                 ) $charset_collate;";
 
             dbDelta($sqlCreateQuery);
         }
 
-        function insertNewEmailAddressForNewsletter($newEmailAddress)
+        function createRecipientsTable()
         {
-            global $wpdb;
-            $wpdb->insert($this->getTableName(), array('email' => $newEmailAddress));
+            $charset_collate = $this->getDbCharsetCollate();
+            $tableName = $this->getRecipientsTableName();
+
+            $sqlCreateQuery = "CREATE TABLE $tableName (
+                id mediumint(9) NOT NULL AUTO_INCREMENT,
+                email text NOT NULL,
+                randomNumberToVerifyUnsubscribe mediumint(9),
+                UNIQUE KEY id (id)
+                ) $charset_collate;";
+
+            dbDelta($sqlCreateQuery);
         }
 
-        function deleteEmailAddressFromNewsletter($emailAddressToDelete) // funktioniert, wird aber noch nicht verwendet
+        function dropAspirantsTable()
         {
             global $wpdb;
-            $wpdb->delete($this->getTableName(), array('email' => $emailAddressToDelete));
+            $wpdb->query('DROP TABLE '.$this->getAspirantsTableName());
+        }
+
+        function dropRecipientsTable()
+        {
+            global $wpdb;
+            $wpdb->query('DROP TABLE '.$this->getRecipientsTableName());
+        }
+
+        function insertNewRecipient($emailAddress)
+        {
+            echo $emailAddress;
+            global $wpdb;
+            $wpdb->insert($this->getRecipientsTableName(), array('email' => $emailAddress, 'randomNumberToVerifyUnsubscribe' => $this->getNewRandomNumberForToVerifyUnsubscribe()));
+        }
+
+        function isEmailAddressAlreadyAspirant($emailAddress)
+        {
+            global $wpdb;
+            $result = $wpdb->query('SELECT * FROM '.$this->getAspirantsTableName().' WHERE email=\''.$emailAddress.'\'');
+            return $result >= 1;
+        }
+
+        function isEmailAddressAlreadyRecipient($emailAddress)
+        {
+            global $wpdb;
+            $result = $wpdb->query('SELECT * FROM '.$this->getRecipientsTableName().' WHERE email=\''.$emailAddress.'\'');
+            return $result >= 1;
+        }
+
+        function insertNewAspirant($aspirantEmailAddress, $randomNumber)
+        {
+            global $wpdb;
+            $wpdb->insert($this->getAspirantsTableName(), array('email' => $aspirantEmailAddress, 'randomNumber' => $randomNumber));
+        }
+
+        function updateAspirant($aspirantEmailAddress, $newRandomNumber)
+        {
+            $updateAspirantQuery = 'UPDATE '.$this->getAspirantsTableName().' SET randomNumber=\''.$newRandomNumber.'\' WHERE email=\''.$aspirantEmailAddress.'\'';
+            global $wpdb;
+            $wpdb->query($updateAspirantQuery);
+        }
+
+        function deleteRecipient($emailAddressToDelete)
+        {
+            global $wpdb;
+            $wpdb->delete($this->getRecipientsTableName(), array('email' => $emailAddressToDelete));
+        }
+
+        function deleteAspirant($emailAddressToDelete)
+        {
+            global $wpdb;
+            $wpdb->delete($this->getAspirantsTableName(), array('email' => $emailAddressToDelete));
         }
 
         function getAllNewsletterRecipients()
         {
             global $wpdb;
-            return $wpdb->get_results("SELECT * FROM " . $this->getTableName());
+            return $wpdb->get_results("SELECT * FROM " . $this->getRecipientsTableName());
         }
 
-        function fireSQLQuery($query)
+        function isRandomNumberFromConfirmationEmailInAspirantTable($randomNumber)
         {
-            dbDelta($query);
+            global $wpdb;
+            $result = $wpdb->query('SELECT * FROM '.$this->getAspirantsTableName().' WHERE randomNumber='.$randomNumber);
+            return $result >= 1;
+        }
+
+        function getEmailAddressForRandomNumberFromConfirmationEmail($randomNumber)
+        {
+            global $wpdb;
+            $result = $wpdb->get_row('SELECT email FROM '.$this->getAspirantsTableName().' WHERE randomNumber=\''.$randomNumber.'\'');
+            return $result->email;
+        }
+
+        function getRandomNumberToVerifyUnsubscribeForEmailAddressFromDatabase($emailAddress)
+        {
+            global $wpdb;
+            $result = $wpdb->get_row('SELECT randomNumberToVerifyUnsubscribe FROM '.$this->getRecipientsTableName().' WHERE email=\''.$emailAddress.'\'');
+            return $result->randomNumberToVerifyUnsubscribe;
+        }
+
+        function isEmailAddressToUnsubscribeMatchingWithRandomNumberToVerifyUnsubscribe($emailAddress, $randomNumberToVerifyUnsubscribeSentFromForm)
+        {
+            return $this->getRandomNumberToVerifyUnsubscribeForEmailAddressFromDatabase($emailAddress) == $randomNumberToVerifyUnsubscribeSentFromForm;
+        }
+
+        function getNewRandomNumberForToVerifyUnsubscribe()
+        {
+            return rand(0, 99999);
         }
     }
 

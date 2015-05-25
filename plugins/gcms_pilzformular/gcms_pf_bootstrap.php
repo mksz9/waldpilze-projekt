@@ -7,6 +7,12 @@
  * Author: Grundlagen CMS
  */
 
+if (!function_exists('add_filter')) {
+    header('Status: 403 Forbidden');
+    header('HTTP/1.1 403 Forbidden');
+    exit();
+}
+
 if (!class_exists('gcms_pf_bootstrap')) {
     class gcms_pf_bootstrap
     {

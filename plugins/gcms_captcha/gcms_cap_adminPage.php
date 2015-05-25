@@ -1,5 +1,11 @@
 <?php
 
+if (!function_exists('add_filter')) {
+    header('Status: 403 Forbidden');
+    header('HTTP/1.1 403 Forbidden');
+    exit();
+}
+
 class gcms_cap_adminPage
 {
     const captchaSettingsAdminPage = 'captcha_settings_admin_page';
@@ -26,7 +32,7 @@ class gcms_cap_adminPage
         // This page will be under "Settings"
         add_options_page(
             'Settings Admin',
-            'Captcha',
+            __('Captcha', gcms_cap_constant::captcha_localization),
             'manage_options',
             self::captchaSettingsAdminPage,
             array($this, 'create_admin_page')
@@ -42,7 +48,7 @@ class gcms_cap_adminPage
         $this->options = get_option(gcms_cap_constant::captcha_options);
         ?>
         <div class="wrap">
-            <h2>My Settings</h2>
+            <h2><?php _e('Captcha Plugin', gcms_cap_constant::captcha_localization) ?></h2>
 
             <form method="post" action="options.php">
                 <?php
@@ -71,14 +77,14 @@ class gcms_cap_adminPage
 
         add_settings_section(
             $captchaSettingSection, // ID
-            'My Custom Settings', // Title
+            __('Settings of the Captcha Plugin', gcms_cap_constant::captcha_localization), // Title
             array($this, 'print_section_info'), // Callback
             self::captchaSettingsAdminPage // Page
         );
 
         add_settings_field(
             gcms_cap_constant::captcha_height, // ID
-            'Captcha Image Width', // Title
+            __('Captcha Image Width',gcms_cap_constant::captcha_localization), // Title
             array($this, 'id_number_callback'), // Callback
             self::captchaSettingsAdminPage, // Page
             $captchaSettingSection // Section
@@ -86,7 +92,7 @@ class gcms_cap_adminPage
 
         add_settings_field(
             gcms_cap_constant::captcha_width,
-            'Captcha Image Height',
+            __('Captcha Image Height',gcms_cap_constant::captcha_localization),
             array($this, 'title_callback'),
             self::captchaSettingsAdminPage,
             $captchaSettingSection
@@ -94,7 +100,7 @@ class gcms_cap_adminPage
 
         add_settings_field(
             gcms_cap_constant::captcha_textSize,
-            'Captcha Text Size',
+            __('Captcha Text Size',gcms_cap_constant::captcha_localization),
             array($this, 'textSize_callback'),
             self::captchaSettingsAdminPage,
             $captchaSettingSection
@@ -103,7 +109,7 @@ class gcms_cap_adminPage
 
         add_settings_field(
             gcms_cap_constant::captcha_letterCount,
-            'Captcha Letter Count',
+            __('Captcha Letter Count', gcms_cap_constant::captcha_localization),
             array($this, 'letterCount_callback'),
             self::captchaSettingsAdminPage,
             $captchaSettingSection
@@ -138,7 +144,7 @@ class gcms_cap_adminPage
      */
     public function print_section_info()
     {
-        print 'Enter your settings below:';
+        print __('Enter your settings below:', gcms_cap_constant::captcha_localization);
     }
 
     public function id_number_callback()

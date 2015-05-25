@@ -1,5 +1,11 @@
 <?php
 
+if (!function_exists('add_filter')) {
+    header('Status: 403 Forbidden');
+    header('HTTP/1.1 403 Forbidden');
+    exit();
+}
+
 class gcms_cap_captcha
 {
     const session_name = 'captchacode';
@@ -45,6 +51,7 @@ class gcms_cap_captcha
 
     function getCaptachaImageUrl()
     {
+        //return plugin_dir_url( __FILE__ ).'gcms_cap_captchaImage.php';
         return $_SERVER['PHP_SELF'] . '?captcha=true';
     }
 

@@ -1,0 +1,134 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: gcmsCaptcha\n"
+"POT-Creation-Date: 2015-05-21 18:25+0100\n"
+"PO-Revision-Date: 2015-05-21 18:26+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de_DE\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-SearchPath-0: ..\n"
+
+#: ../gcms_captcha/gcms_cap_adminPage.php:29
+msgid "Captcha"
+msgstr "Captcha"
+
+#: ../gcms_captcha/gcms_cap_adminPage.php:45
+msgid "Captcha Plugin"
+msgstr "Captcha Plugin"
+
+#: ../gcms_captcha/gcms_cap_adminPage.php:74
+msgid "Settings of the Captcha Plugin"
+msgstr "Einstellungen des Captcha-Plugins"
+
+#: ../gcms_captcha/gcms_cap_adminPage.php:81
+msgid "Captcha Image Width"
+msgstr "Breite des Captchas"
+
+#: ../gcms_captcha/gcms_cap_adminPage.php:89
+msgid "Captcha Image Height"
+msgstr "Höche des Captchas"
+
+#: ../gcms_captcha/gcms_cap_adminPage.php:97
+msgid "Captcha Text Size"
+msgstr "Schriftgröße der Buchstaben"
+
+#: ../gcms_captcha/gcms_cap_adminPage.php:106
+msgid "Captcha Letter Count"
+msgstr "Anzahl de Buchstaben"
+
+#: ../gcms_captcha/gcms_cap_adminPage.php:141
+msgid "Enter your settings below:"
+msgstr "Geben Sie Ihre Einstellungen ein:"
+
+#: ../gcms_captcha/gcms_cap_bootstrap.php:19
+msgid ""
+"Plugin konnte nicht gestartet werden. Eine PHP Klasse ist schon vorhanden."
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "January"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "February"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "March"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "April"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "May"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "June"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "July"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "August"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "September"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "October"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "November"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_admin.php:24
+msgid "December"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:6
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:10
+msgid "Seasonal Mushrooms"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:6
+msgid "Displays the Mushrooms depending on their season."
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:16
+msgid "Title:"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:17
+msgid "Number of Mushrooms to show:"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:18
+msgid "Display post thumbnail?"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:19
+msgid "Display post exception?"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:36
+msgid "Current mushrooms by season"
+msgstr ""
+
+#: ../gcms_pilzwidget/gcms_pilzwidget_widget.php:51
+msgid "Sorry but there aren't any mushrooms in this month"
+msgstr ""

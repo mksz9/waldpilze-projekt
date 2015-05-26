@@ -48,6 +48,8 @@ if (!class_exists('gcms_pilzNewsletter'))
             register_activation_hook( __FILE__, array($this, 'initializePlugin'));
             register_deactivation_hook( __FILE__, array($this, 'finalizePlugin'));
 
+
+
             add_action('myCustomPilzEvent_newNewsletterStuffToSend', array($this, 'triggerNewsletter'));
 
         }
@@ -61,8 +63,11 @@ if (!class_exists('gcms_pilzNewsletter'))
             include_once('gcms_pilzNewsletter_newsletterData.php');
             include_once('gcms_pilzNewsletter_emailSender.php');
             include_once('gcms_pilzNewsletter_formPrinterAndReader.php');
+            include_once('gcms_pilzNewsletter_adminPage.php');
 
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+            require_once( ABSPATH . 'wp-includes/pluggable.php' );
+            require_once( ABSPATH . 'wp-includes/capabilities.php' );
         }
 
         function initializePlugin()

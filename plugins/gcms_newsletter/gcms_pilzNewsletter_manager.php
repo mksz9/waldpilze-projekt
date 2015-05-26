@@ -14,8 +14,12 @@ class gcms_pilzNewsletter_manager
         $this->newsletterFormPrinterAndReader = new gcms_pilzNewsletter_formPrinterAndReader($this->databaseManager);
         $this->emailSender = new gcms_pilzNewsletter_emailSender($this->databaseManager, $this->newsletterFormPrinterAndReader);
 
-        add_shortcode('newsletterHTMLPrint', array($this, 'handleNewsletterHTMLPrintShortCode'));
+        if(is_admin())
+        {
+            //new gcms_pilzNewsletter_adminPage($this->emailSender);
+        }
 
+        add_shortcode('newsletterHTMLPrint', array($this, 'handleNewsletterHTMLPrintShortCode'));
     }
 
     function sendNewsletterForDebugging()
@@ -53,7 +57,7 @@ class gcms_pilzNewsletter_manager
         // registration form sent => add email address to newsletteraspirants and send email to confirm registration for user
         if($this->newsletterFormPrinterAndReader->formToSubscribeForNewsletterSent())
         {
-            $this->sendNewsletterForDebugging();
+            //$this->sendNewsletterForDebugging();
 
             $emailAddressToSubscribe = $this->newsletterFormPrinterAndReader->getNewSubscribedMailAdressForNewsletter();
 
@@ -74,8 +78,16 @@ class gcms_pilzNewsletter_manager
             {
                 $randomNumber = $this->getRandomNumber();
                 $this->databaseManager->insertNewAspirant($emailAddressToSubscribe, $randomNumber);
-                $this->emailSender->sendRegistrationConfirmationEmail($emailAddressToSubscribe, $randomNumber);
-                $this->newsletterFormPrinterAndReader->printEmailToConfirmNewsletterRegistrationSentHTML();
+                $registrationMailSuccess = $this->emailSender->sendRegistrationConfirmationEmail($emailAddressToSubscribe, $randomNumber);
+                if($registrationMailSuccess == true)
+                {
+                    $this->newsletterFormPrinterAndReader->printEmailToConfirmNewsletterRegistrationSentHTML();
+                }
+                else
+                {
+                    $this->databaseManager->deleteAspirant($emailAddressToSubscribe);
+                    $this->newsletterFormPrinterAndReader->printUnsuccessfullRegistrationHTML();
+                }
             }
         }
         // confirmation link in confirmation email clicked => add email address to newsletterrecipients

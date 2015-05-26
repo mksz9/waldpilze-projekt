@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gcms_PilzNewsletter.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gcms_PilzNewsletter.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.35274357" vertical-offset="365" max-vertical-offset="1581">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state vertical-scroll-proportion="-27.461538" vertical-offset="391" max-vertical-offset="1666">
+              <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
               <folding>
                 <element signature="e#10#203#0#PHP" expanded="true" />
               </folding>
@@ -40,8 +40,18 @@
       <file leaf-file-name="gcms_pilzNewsletter_manager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.538462" vertical-offset="1096" max-vertical-offset="2210">
-              <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="2414">
+              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcms_pilzNewsletter_adminPage.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.3807391" vertical-offset="0" max-vertical-offset="969">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -50,8 +60,8 @@
       <file leaf-file-name="gcms_pilzNewsletter_emailSender.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.2181816" vertical-offset="431" max-vertical-offset="1887">
-              <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+            <state vertical-scroll-proportion="-9.5" vertical-offset="331" max-vertical-offset="1887">
+              <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
               <folding />
             </state>
           </provider>
@@ -60,8 +70,8 @@
       <file leaf-file-name="gcms_pilzNewsletter_formPrinterAndReader.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8" vertical-offset="1122" max-vertical-offset="2057">
-              <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+            <state vertical-scroll-proportion="-24.538462" vertical-offset="1249" max-vertical-offset="2142">
+              <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -70,7 +80,7 @@
       <file leaf-file-name="gcms_pilzNewsletter_databaseManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-45.745453" vertical-offset="0" max-vertical-offset="2890">
+            <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="2890">
               <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
               <folding>
                 <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
@@ -115,11 +125,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_newsletterSender.php" />
-        <option value="$PROJECT_DIR$/gcms_PilzNewsletter.php" />
-        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php" />
-        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php" />
+        <option value="$PROJECT_DIR$/sendNewsletterFromAdminPage.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_sendNewsletterFromAdminPage.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_manager.php" />
+        <option value="$PROJECT_DIR$/gcms_PilzNewsletter.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php" />
       </list>
     </option>
   </component>
@@ -156,7 +169,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -177,11 +189,13 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="FullScreen" value="false" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -213,6 +227,9 @@
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="187273df-55d1-423d-bb9d-ad18a6beaf87" name="Default" comment="" />
@@ -223,23 +240,23 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20260416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -268,6 +285,162 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="569" max-vertical-offset="1666">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#10#203#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="5" max-vertical-offset="2465">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1377">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="102" max-vertical-offset="1887">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2142">
+          <caret line="50" column="75" selection-start-line="50" selection-start-column="75" selection-end-line="50" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="2890">
+          <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
+          <folding>
+            <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
+            <marker date="1432505205652" expanded="true" signature="1922:1933" placeholder="DROP TABLE $..." />
+            <marker date="1432505205652" expanded="true" signature="2080:2091" placeholder="DROP TABLE $..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2596" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2597" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2644" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2646" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2647" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2665" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2666" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2667" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2700" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2910" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2912" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2931" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2932" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2933" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="4091:4105" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="4309:4323" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="4309:4377" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4614" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4615" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4669" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4670" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4671" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4672" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4690" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4691" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4692" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4706" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4908:5021" placeholder="SELECT rando..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1581">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#10#203#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1096" max-vertical-offset="2210">
+          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="431" max-vertical-offset="1887">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="2057">
+          <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2516" max-vertical-offset="2890">
+          <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
+          <folding>
+            <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
+            <marker date="1432505205652" expanded="true" signature="1922:1933" placeholder="DROP TABLE $..." />
+            <marker date="1432505205652" expanded="true" signature="2080:2091" placeholder="DROP TABLE $..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2596" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2597" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2644" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2646" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2647" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2665" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2666" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2667" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2583:2700" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2910" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2912" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2931" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2932" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="2848:2933" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="4091:4105" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="4309:4323" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="4309:4377" placeholder="SELECT * FRO..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4614" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4615" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4669" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4670" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4671" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4672" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4690" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4691" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4692" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4597:4706" placeholder="SELECT email..." />
+            <marker date="1432505205652" expanded="true" signature="4908:5021" placeholder="SELECT rando..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1445">
@@ -344,7 +517,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-45.745453" vertical-offset="0" max-vertical-offset="2890">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="2890">
           <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
           <folding>
             <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
@@ -384,35 +557,43 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8" vertical-offset="1122" max-vertical-offset="2057">
-          <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.2181816" vertical-offset="431" max-vertical-offset="1887">
-          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+        <state vertical-scroll-proportion="-24.538462" vertical-offset="1249" max-vertical-offset="2142">
+          <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.538462" vertical-offset="1096" max-vertical-offset="2210">
-          <caret line="102" column="0" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="2414">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.35274357" vertical-offset="365" max-vertical-offset="1581">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state vertical-scroll-proportion="-27.461538" vertical-offset="391" max-vertical-offset="1666">
+          <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
           <folding>
             <element signature="e#10#203#0#PHP" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.5" vertical-offset="331" max-vertical-offset="1887">
+          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3807391" vertical-offset="0" max-vertical-offset="969">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

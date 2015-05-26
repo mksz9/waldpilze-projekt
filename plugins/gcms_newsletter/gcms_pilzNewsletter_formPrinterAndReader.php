@@ -48,7 +48,7 @@
 
         function printEmailIsAlreadyAspirantHTML()
         {
-            echo '<p>Newsletter confirmation was already sent to the folloging email address: '.$this->getNewSubscribedMailAdressForNewsletter().'<br>New confirmation email was sent.</p>';
+            echo '<p>Newsletter confirmation was already sent to the following email address: '.$this->getNewSubscribedMailAdressForNewsletter().'<br>New confirmation email was sent.</p>';
         }
 
         function printSuccessfullUnsubscribeHTML()
@@ -59,6 +59,11 @@
         function printUnsuccessfullUnsubscribeHTML()
         {
             echo '<p>we couldnt unsubscribe the following email address from our newsletter: '.$this->getEmailAddressToUnsubscribe().'<br>you are not authorized</p>';
+        }
+
+        function printUnsuccessfullRegistrationHTML()
+        {
+            echo '<p>We couldnt send the email to complete your registration to the entered email address: '.$this->getNewSubscribedMailAdressForNewsletter().'</p>';
         }
 
         function getNewSubscribedMailAdressForNewsletter()

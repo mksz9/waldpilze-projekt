@@ -49,8 +49,8 @@ class gcms_pilzNewsletter_emailSender
     function sendRegistrationConfirmationEmail($emailAddress, $randomNumber)
     {
         $this->setEmailContentTypeToPlain();
-
-        wp_mail($emailAddress, 'Confirm your newsletter registration', $this->formPrinterAndReader->generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber));
+        $mailSuccess = wp_mail($emailAddress, 'Confirm your newsletter registration', $this->formPrinterAndReader->generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber));
+        return $mailSuccess;
     }
 
     function getContentToSend($recipientEmailAddress)
@@ -61,7 +61,7 @@ class gcms_pilzNewsletter_emailSender
 
     function getUnsubscribeContentForEmail($recipientEmailAddress)
     {
-        return '<br><a href="'.$this->formPrinterAndReader->generateUnsubscribeURLForEmail($recipientEmailAddress).'">Click here to unsubscribe this email address from our newsletter</a><br>';
+        return '<br><a href="'.$this->formPrinterAndReader->generateUnsubscribeURLForEmail($recipientEmailAddress).'">Click here to unsubscribe this email address from our newsletter!</a><br>';
     }
 
 

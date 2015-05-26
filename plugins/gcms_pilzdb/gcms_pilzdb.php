@@ -11,7 +11,7 @@
         const _POST_TYPE_NAME = "pilze";
 
         public function __construct() {
-            add_action('init', array($this, 'createCustomPostType'));
+            add_action('init', array($this, 'createCustomPostType'), 1);
         }
 
         public function createCustomPostType() {

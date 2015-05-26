@@ -44,13 +44,13 @@ class Pilzwidget_Widget_View {
 				return;
 			}
 		}
-		echo __('Sorry but there aren\'t any mushrooms in this month', 'pilz-widget');
+		echo __('Sorry but there aren\'t any mushrooms in this month', 'gcms_pilzwidget');
 	}
 
 	private function fetchPostThumbnail($postId) {
-		$thumbnail = ''; //default thumbnail
+		$thumbnail = plugins_url().'/gcms_pilzwidget/img/default_thumb.png'; //default thumbnail
 		if (has_post_thumbnail($postId)) {
-			//postthumbnail
+			$thumbnail =  wp_get_attachment_url(get_post_thumbnail_id($postId));
 		}
 		return $thumbnail;
 	}

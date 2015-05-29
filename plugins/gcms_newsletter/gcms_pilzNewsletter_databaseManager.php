@@ -49,6 +49,9 @@
                 ) $charset_collate;";
 
             dbDelta($sqlCreateQuery);
+
+
+
         }
 
         function createRecipientsTable()

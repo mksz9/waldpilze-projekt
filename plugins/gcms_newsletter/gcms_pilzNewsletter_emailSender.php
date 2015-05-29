@@ -11,16 +11,6 @@ class gcms_pilzNewsletter_emailSender
         $this->formPrinterAndReader = $formPrinterAndReader;
     }
 
-    function initialize()
-    {
-        $this->startScheduledSending();
-    }
-
-    function finalize()
-    {
-        $this->stopScheduledSending();
-    }
-
     function sendNewsletter()
     {
         $this->setEmailContentTypeToHTML();
@@ -32,7 +22,7 @@ class gcms_pilzNewsletter_emailSender
         }
     }
 
-    function  setEmailContentTypeToPlain()
+    function setEmailContentTypeToPlain()
     {
         add_filter( 'wp_mail_content_type', function( $content_type ) {
             return 'text/plain';
@@ -48,9 +38,18 @@ class gcms_pilzNewsletter_emailSender
 
     function sendRegistrationConfirmationEmail($emailAddress, $randomNumber)
     {
-        $this->setEmailContentTypeToPlain();
-        $mailSuccess = wp_mail($emailAddress, 'Confirm your newsletter registration', $this->formPrinterAndReader->generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber));
+        $this->setEmailContentTypeToHTML();
+        $mailSuccess = false;
+        if($this->isValidEmailAddress($emailAddress))
+        {
+            $mailSuccess = wp_mail($emailAddress, 'Confirm your newsletter registration', 'To confirm you newsletter registration please click on the following link<br>' . $this->formPrinterAndReader->generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber));
+        }
         return $mailSuccess;
+    }
+
+    function isValidEmailAddress($emailAddress)
+    {
+        return filter_var($emailAddress, FILTER_VALIDATE_EMAIL);
     }
 
     function getContentToSend($recipientEmailAddress)

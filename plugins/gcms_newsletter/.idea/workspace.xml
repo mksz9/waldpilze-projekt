@@ -28,8 +28,8 @@
       <file leaf-file-name="gcms_PilzNewsletter.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-27.461538" vertical-offset="391" max-vertical-offset="1666">
-              <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+            <state vertical-scroll-proportion="-13.076923" vertical-offset="204" max-vertical-offset="1156">
+              <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
               <folding>
                 <element signature="e#10#203#0#PHP" expanded="true" />
               </folding>
@@ -40,18 +40,18 @@
       <file leaf-file-name="gcms_pilzNewsletter_manager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="2414">
-              <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+            <state vertical-scroll-proportion="-73.88461" vertical-offset="0" max-vertical-offset="2346">
+              <caret line="113" column="141" selection-start-line="113" selection-start-column="141" selection-end-line="113" selection-end-column="141" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gcms_pilzNewsletter_adminPage.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gcms_pilzNewsletter_adminPage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.3807391" vertical-offset="0" max-vertical-offset="969">
-              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+            <state vertical-scroll-proportion="-28.461538" vertical-offset="144" max-vertical-offset="1190">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -60,8 +60,8 @@
       <file leaf-file-name="gcms_pilzNewsletter_emailSender.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-9.5" vertical-offset="331" max-vertical-offset="1887">
-              <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+            <state vertical-scroll-proportion="-23.884615" vertical-offset="161" max-vertical-offset="1870">
+              <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -70,50 +70,62 @@
       <file leaf-file-name="gcms_pilzNewsletter_formPrinterAndReader.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.538462" vertical-offset="1249" max-vertical-offset="2142">
-              <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="50" />
+            <state vertical-scroll-proportion="29.036364" vertical-offset="1886" max-vertical-offset="2737">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+              <folding>
+                <marker date="1432903004055" expanded="true" signature="2944:3224" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gcms_pilzNewsletter_captcha.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_captcha.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="493">
+              <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gcms_pilzNewsletter_databaseManager.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gcms_pilzNewsletter_databaseManager.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="2890">
-              <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.4669653" vertical-offset="2048" max-vertical-offset="2941">
+              <caret line="145" column="68" selection-start-line="145" selection-start-column="68" selection-end-line="145" selection-end-column="68" />
               <folding>
-                <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
-                <marker date="1432505205652" expanded="true" signature="1922:1933" placeholder="DROP TABLE $..." />
-                <marker date="1432505205652" expanded="true" signature="2080:2091" placeholder="DROP TABLE $..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2596" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2597" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2644" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2646" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2647" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2665" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2666" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2667" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2583:2700" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2848:2910" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2848:2912" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2848:2931" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2848:2932" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="2848:2933" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="4091:4105" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="4309:4323" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="4309:4377" placeholder="SELECT * FRO..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4614" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4615" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4669" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4670" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4671" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4672" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4690" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4691" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4692" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4597:4706" placeholder="SELECT email..." />
-                <marker date="1432505205652" expanded="true" signature="4908:5021" placeholder="SELECT rando..." />
+                <marker date="1432905341253" expanded="true" signature="1520:1755" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
+                <marker date="1432905341253" expanded="true" signature="1925:1936" placeholder="DROP TABLE $..." />
+                <marker date="1432905341253" expanded="true" signature="2083:2094" placeholder="DROP TABLE $..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2599" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2600" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2647" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2649" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2650" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2668" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2669" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2670" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2586:2703" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2851:2913" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2851:2915" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2851:2934" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2851:2935" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="2851:2936" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="4094:4108" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="4312:4326" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="4312:4380" placeholder="SELECT * FRO..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4617" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4618" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4672" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4673" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4674" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4675" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4693" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4694" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4695" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4600:4709" placeholder="SELECT email..." />
+                <marker date="1432905341253" expanded="true" signature="4911:5024" placeholder="SELECT rando..." />
               </folding>
             </state>
           </provider>
@@ -125,14 +137,16 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_newsletterSender.php" />
-        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php" />
-        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php" />
-        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php" />
         <option value="$PROJECT_DIR$/sendNewsletterFromAdminPage.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_sendNewsletterFromAdminPage.php" />
-        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_manager.php" />
-        <option value="$PROJECT_DIR$/gcms_PilzNewsletter.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_Captcha.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_captcha.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php" />
+        <option value="$PROJECT_DIR$/gcms_PilzNewsletter.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_manager.php" />
+        <option value="$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php" />
       </list>
     </option>
   </component>
@@ -169,6 +183,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -189,7 +204,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -212,6 +226,9 @@
       <BehatRunner />
       <method />
     </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
+      <method />
+    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -219,9 +236,6 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
-      <method />
-    </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -250,7 +264,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20260416" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2265625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -285,6 +299,90 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1666">
+          <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
+          <folding>
+            <element signature="e#10#203#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="2414">
+          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="331" max-vertical-offset="1887">
+          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1249" max-vertical-offset="2142">
+          <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="50" />
+          <folding>
+            <marker date="1432903004055" expanded="true" signature="2944:3224" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="2890">
+          <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
+          <folding>
+            <marker date="1432905341253" expanded="true" signature="1520:1755" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
+            <marker date="1432905341253" expanded="true" signature="1925:1936" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2083:2094" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2599" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2600" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2647" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2649" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2650" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2668" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2669" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2670" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2703" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2913" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2915" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2934" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2935" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2936" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4094:4108" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4326" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4380" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4617" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4618" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4672" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4673" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4674" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4675" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4693" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4694" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4695" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4709" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4911:5024" placeholder="SELECT rando..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="569" max-vertical-offset="1666">
@@ -323,7 +421,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="2142">
           <caret line="50" column="75" selection-start-line="50" selection-start-column="75" selection-end-line="50" selection-end-column="75" />
-          <folding />
+          <folding>
+            <marker date="1432903004055" expanded="true" signature="2944:3224" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -332,37 +432,37 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="2890">
           <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
           <folding>
-            <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
-            <marker date="1432505205652" expanded="true" signature="1922:1933" placeholder="DROP TABLE $..." />
-            <marker date="1432505205652" expanded="true" signature="2080:2091" placeholder="DROP TABLE $..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2596" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2597" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2644" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2646" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2647" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2665" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2666" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2667" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2700" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2910" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2912" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2931" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2932" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2933" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4091:4105" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4309:4323" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4309:4377" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4614" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4615" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4669" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4670" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4671" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4672" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4690" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4691" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4692" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4706" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4908:5021" placeholder="SELECT rando..." />
+            <marker date="1432905341253" expanded="true" signature="1520:1755" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
+            <marker date="1432905341253" expanded="true" signature="1925:1936" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2083:2094" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2599" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2600" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2647" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2649" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2650" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2668" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2669" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2670" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2703" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2913" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2915" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2934" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2935" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2936" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4094:4108" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4326" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4380" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4617" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4618" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4672" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4673" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4674" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4675" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4693" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4694" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4695" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4709" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4911:5024" placeholder="SELECT rando..." />
           </folding>
         </state>
       </provider>
@@ -397,7 +497,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1122" max-vertical-offset="2057">
           <caret line="88" column="51" selection-start-line="88" selection-start-column="51" selection-end-line="88" selection-end-column="51" />
-          <folding />
+          <folding>
+            <marker date="1432903004055" expanded="true" signature="2944:3224" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -406,37 +508,37 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="2516" max-vertical-offset="2890">
           <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
           <folding>
-            <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
-            <marker date="1432505205652" expanded="true" signature="1922:1933" placeholder="DROP TABLE $..." />
-            <marker date="1432505205652" expanded="true" signature="2080:2091" placeholder="DROP TABLE $..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2596" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2597" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2644" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2646" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2647" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2665" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2666" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2667" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2700" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2910" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2912" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2931" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2932" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2933" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4091:4105" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4309:4323" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4309:4377" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4614" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4615" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4669" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4670" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4671" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4672" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4690" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4691" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4692" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4706" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4908:5021" placeholder="SELECT rando..." />
+            <marker date="1432905341253" expanded="true" signature="1520:1755" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
+            <marker date="1432905341253" expanded="true" signature="1925:1936" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2083:2094" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2599" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2600" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2647" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2649" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2650" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2668" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2669" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2670" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2703" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2913" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2915" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2934" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2935" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2936" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4094:4108" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4326" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4380" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4617" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4618" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4672" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4673" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4674" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4675" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4693" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4694" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4695" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4709" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4911:5024" placeholder="SELECT rando..." />
           </folding>
         </state>
       </provider>
@@ -471,7 +573,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="1173">
           <caret line="39" column="188" selection-start-line="39" selection-start-column="188" selection-end-line="39" selection-end-column="188" />
-          <folding />
+          <folding>
+            <marker date="1432903004055" expanded="true" signature="2944:3224" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -480,120 +584,130 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="1465" max-vertical-offset="2601">
           <caret line="123" column="56" selection-start-line="123" selection-start-column="56" selection-end-line="123" selection-end-column="56" />
           <folding>
-            <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
-            <marker date="1432505205652" expanded="true" signature="1922:1933" placeholder="DROP TABLE $..." />
-            <marker date="1432505205652" expanded="true" signature="2080:2091" placeholder="DROP TABLE $..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2596" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2597" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2644" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2646" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2647" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2665" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2666" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2667" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2700" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2910" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2912" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2931" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2932" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2933" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4091:4105" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4309:4323" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4309:4377" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4614" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4615" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4669" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4670" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4671" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4672" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4690" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4691" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4692" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4706" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4908:5021" placeholder="SELECT rando..." />
+            <marker date="1432905341253" expanded="true" signature="1520:1755" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
+            <marker date="1432905341253" expanded="true" signature="1925:1936" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2083:2094" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2599" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2600" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2647" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2649" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2650" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2668" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2669" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2670" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2703" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2913" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2915" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2934" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2935" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2936" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4094:4108" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4326" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4380" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4617" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4618" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4672" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4673" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4674" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4675" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4693" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4694" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4695" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4709" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4911:5024" placeholder="SELECT rando..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_captcha.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1997" max-vertical-offset="2890">
-          <caret line="148" column="23" selection-start-line="148" selection-start-column="23" selection-end-line="148" selection-end-column="23" />
-          <folding>
-            <marker date="1432505205652" expanded="true" signature="1517:1752" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
-            <marker date="1432505205652" expanded="true" signature="1922:1933" placeholder="DROP TABLE $..." />
-            <marker date="1432505205652" expanded="true" signature="2080:2091" placeholder="DROP TABLE $..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2596" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2597" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2644" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2646" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2647" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2665" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2666" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2667" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2583:2700" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2910" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2912" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2931" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2932" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="2848:2933" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4091:4105" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4309:4323" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4309:4377" placeholder="SELECT * FRO..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4614" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4615" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4669" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4670" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4671" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4672" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4690" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4691" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4692" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4597:4706" placeholder="SELECT email..." />
-            <marker date="1432505205652" expanded="true" signature="4908:5021" placeholder="SELECT rando..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.538462" vertical-offset="1249" max-vertical-offset="2142">
-          <caret line="111" column="19" selection-start-line="111" selection-start-column="19" selection-end-line="111" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="2414">
-          <caret line="18" column="14" selection-start-line="18" selection-start-column="14" selection-end-line="18" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-27.461538" vertical-offset="391" max-vertical-offset="1666">
-          <caret line="65" column="12" selection-start-line="65" selection-start-column="12" selection-end-line="65" selection-end-column="12" />
-          <folding>
-            <element signature="e#10#203#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-9.5" vertical-offset="331" max-vertical-offset="1887">
-          <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
+        <state vertical-scroll-proportion="-15.038462" vertical-offset="0" max-vertical-offset="493">
+          <caret line="23" column="2" selection-start-line="23" selection-start-column="2" selection-end-line="23" selection-end-column="2" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3807391" vertical-offset="0" max-vertical-offset="969">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+        <state vertical-scroll-proportion="-28.461538" vertical-offset="144" max-vertical-offset="1190">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-23.884615" vertical-offset="161" max-vertical-offset="1870">
+          <caret line="46" column="28" selection-start-line="46" selection-start-column="28" selection-end-line="46" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="29.036364" vertical-offset="1886" max-vertical-offset="2737">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <marker date="1432903004055" expanded="true" signature="2944:3224" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-13.076923" vertical-offset="204" max-vertical-offset="1156">
+          <caret line="32" column="39" selection-start-line="32" selection-start-column="39" selection-end-line="32" selection-end-column="39" />
+          <folding>
+            <element signature="e#10#203#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-73.88461" vertical-offset="0" max-vertical-offset="2346">
+          <caret line="113" column="141" selection-start-line="113" selection-start-column="141" selection-end-line="113" selection-end-column="141" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4669653" vertical-offset="2048" max-vertical-offset="2941">
+          <caret line="145" column="68" selection-start-line="145" selection-start-column="68" selection-end-line="145" selection-end-column="68" />
+          <folding>
+            <marker date="1432905341253" expanded="true" signature="1520:1755" placeholder="CREATE TABLE..getNewsletterRecipientsTableName..." />
+            <marker date="1432905341253" expanded="true" signature="1925:1936" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2083:2094" placeholder="DROP TABLE $..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2599" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2600" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2647" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2649" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2650" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2668" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2669" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2670" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2586:2703" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2913" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2915" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2934" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2935" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="2851:2936" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4094:4108" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4326" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4312:4380" placeholder="SELECT * FRO..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4617" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4618" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4672" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4673" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4674" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4675" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4693" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4694" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4695" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4600:4709" placeholder="SELECT email..." />
+            <marker date="1432905341253" expanded="true" signature="4911:5024" placeholder="SELECT rando..." />
+          </folding>
         </state>
       </provider>
     </entry>

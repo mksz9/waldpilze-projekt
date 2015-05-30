@@ -8,29 +8,10 @@
 
 
 
-
-/*add_filter('cron_schedules', 'addNewIntervalToSchedules');
-
-function addNewIntervalToSchedules($schedules)
-{
-    $schedules['minutes_1'] = array('interval'=>10, 'display'=>'Every 10 seconds');
-    return $schedules;
-}
-
-
-add_action('periodicalSendPilzNewsletterHook', 'abc');
-
-
-
-wp_schedule_event(time(), 'minutes_1', 'periodicalSendPilzNewsletterHook');
-
-
-
-function abc()
-{
-    //error_log("myNewErrorlog");
-}*/
-
+	 
+	 // input feld auslesen: sanitize_text_field
+	 // esc_attr: html attribute aus variablen zusammenbauen
+	 // sanitize_mail beim auslesen aus post
 
 
 if (!class_exists('gcms_pilzNewsletter'))
@@ -47,23 +28,17 @@ if (!class_exists('gcms_pilzNewsletter'))
 
             register_activation_hook( __FILE__, array($this, 'initializePlugin'));
             register_deactivation_hook( __FILE__, array($this, 'finalizePlugin'));
-
-
-
-            add_action('myCustomPilzEvent_newNewsletterStuffToSend', array($this, 'triggerNewsletter'));
-
         }
 
+        // include all neccessary files
         function doIncludes()
         {
             include_once('gcms_pilzNewsletter_manager.php');
             include_once('gcms_pilzNewsletter_databaseManager.php');
-            include_once('gcms_pilzNewsletter_unsubscriber.php');
-            include_once('gcms_pilzNewsletter_newsletterCreator.php');
-            include_once('gcms_pilzNewsletter_newsletterData.php');
             include_once('gcms_pilzNewsletter_emailSender.php');
             include_once('gcms_pilzNewsletter_formPrinterAndReader.php');
             include_once('gcms_pilzNewsletter_adminPage.php');
+            include_once('gcms_pilzNewsletter_captcha.php');
 
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
             require_once( ABSPATH . 'wp-includes/pluggable.php' );
@@ -78,11 +53,6 @@ if (!class_exists('gcms_pilzNewsletter'))
         function finalizePlugin()
         {
             $this->newsletterManager->finalizePlugin();
-        }
-
-        function triggerNewsletter()
-        {
-            $this->newsletterManager->triggerNewsletter();
         }
     }
 

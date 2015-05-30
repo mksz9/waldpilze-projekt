@@ -11,6 +11,7 @@ class gcms_pf_formPrinterAndReader
     const input_submit_name = 'pf_submit';
     const input_title_name = 'pf_name';
     const input_title_content = 'pf_content';
+    const input_thumbnail = 'pf_thumbnail';
     const input_nonce_filed = 'pf_nonce_field';
     const input_toxic_name = 'pf_toxic';
 
@@ -25,13 +26,13 @@ class gcms_pf_formPrinterAndReader
     {
         $data = $this->getFromRawData();
 
-        echo '<form action="' . esc_url($_SERVER['REQUEST_URI']) . '" method="post">';
+        echo '<form action="' . esc_url($_SERVER['REQUEST_URI']) . '" method="post" enctype="multipart/form-data">';
 
         wp_nonce_field(self::input_submit_name, self::input_nonce_filed);
 
         echo '<p>';
         echo 'Name: <br />';
-        echo '<input type="text" name="' . self::input_title_name . '" pattern="[a-zA-Z0-9 ]+" value="' . esc_attr($data->getTitle()) . '" size="40" />';
+        echo '<input type="text" name="' . self::input_title_name . '" pattern="[a-zA-Z0-9 öäüÖÜÄ]+" value="' . esc_attr($data->getTitle()) . '" size="40" />';
         echo '</p>';
 
         echo '<p>';
@@ -42,10 +43,14 @@ class gcms_pf_formPrinterAndReader
 
         echo '<p>';
         echo 'Beschreibung: <br />';
-        echo '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" size="200" >'.esc_attr($data->getContent()).'</textarea>';
+        echo '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" size="200" >' . esc_attr($data->getContent()) . '</textarea>';
         echo '</p>';
 
-        echo '<img src="' . gcms_cap_captcha::getInstance()->getCaptachaImageUrl() .' alt="" />';
+        echo '<p>';
+        echo '<input type="file" name="' . self::input_thumbnail . '" multiple="false" />';
+        echo '</p>';
+
+        echo '<img src="' . esc_url(gcms_cap_captcha::getInstance()->getCaptachaImageUrl()) . ' alt="" />';
         echo '<p>Captcha: <br /><input type="text" name="captcha" id="captcha" autocomplete="off" /></p>';
 
         echo '<p><input type="submit" name="' . self::input_submit_name . '" value="Pilz absenden"/></p>';
@@ -81,15 +86,29 @@ class gcms_pf_formPrinterAndReader
             $hasError = true;
         }
 
-        if (strlen($data->getContent()) < 50 ) {
+        if (strlen($data->getContent()) < 50) {
             $resultMessage .= '<li>Der Content muss mindestens 50 Zeichen lang sein.</li>';
             $hasError = true;
         }
 
-        if (!(gcms_cap_captcha::getInstance()->isValidCaptchaText(trim($_POST['captcha']))))
-        {
+        if (!(gcms_cap_captcha::getInstance()->isValidCaptchaText(trim($_POST['captcha'])))) {
             $resultMessage .= '<li>Der Captcha-Inhalt stimmt nicht mit dem Bild überein.</li>';
             $hasError = true;
+        }
+
+        if($_FILES[self::input_thumbnail]['size'] == 0)
+        {
+            $resultMessage .= '<li>Sie müssen ein Bild angben.</li>';
+            $hasError = true;
+        }
+        else
+        {
+            $fileType = strtolower($_FILES[self::input_thumbnail]['type']);
+            if(!($fileType == 'image/jpeg' || $fileType == 'image/png'))
+            {
+                $resultMessage .= '<li>Das Bild muss eine jpg, jpeg oder png Datei sein.</li>';
+                $hasError = true;
+            }
         }
 
         if (!(isset($_POST[self::input_nonce_filed]) && isset($_POST[self::input_submit_name]) &&
@@ -128,6 +147,7 @@ class gcms_pf_formPrinterAndReader
         if (isset($_POST[self::input_title_name])) {
             $data->setTitle(sanitize_text_field(trim($_POST[self::input_title_name])));
         }
+
 
         return $data;
     }

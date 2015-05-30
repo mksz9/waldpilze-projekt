@@ -84,7 +84,7 @@ class gcms_cap_adminPage
 
         add_settings_field(
             gcms_cap_constant::captcha_height, // ID
-            __('Captcha Image Width',gcms_cap_constant::captcha_localization), // Title
+            __('Captcha Image Width', gcms_cap_constant::captcha_localization), // Title
             array($this, 'id_number_callback'), // Callback
             self::captchaSettingsAdminPage, // Page
             $captchaSettingSection // Section
@@ -92,7 +92,7 @@ class gcms_cap_adminPage
 
         add_settings_field(
             gcms_cap_constant::captcha_width,
-            __('Captcha Image Height',gcms_cap_constant::captcha_localization),
+            __('Captcha Image Height', gcms_cap_constant::captcha_localization),
             array($this, 'title_callback'),
             self::captchaSettingsAdminPage,
             $captchaSettingSection
@@ -100,7 +100,7 @@ class gcms_cap_adminPage
 
         add_settings_field(
             gcms_cap_constant::captcha_textSize,
-            __('Captcha Text Size',gcms_cap_constant::captcha_localization),
+            __('Captcha Text Size', gcms_cap_constant::captcha_localization),
             array($this, 'textSize_callback'),
             self::captchaSettingsAdminPage,
             $captchaSettingSection
@@ -123,20 +123,20 @@ class gcms_cap_adminPage
      */
     public function sanitize($input)
     {
-        $new_input = array();
+        $options = array();
         if (isset($input[gcms_cap_constant::captcha_width]))
-            $new_input[gcms_cap_constant::captcha_width] = absint($input[gcms_cap_constant::captcha_width]);
+            $options[gcms_cap_constant::captcha_width] = absint($input[gcms_cap_constant::captcha_width]);
 
         if (isset($input[gcms_cap_constant::captcha_height]))
-            $new_input[gcms_cap_constant::captcha_height] = absint($input[gcms_cap_constant::captcha_height]);
+            $options[gcms_cap_constant::captcha_height] = absint($input[gcms_cap_constant::captcha_height]);
 
         if (isset($input[gcms_cap_constant::captcha_textSize]))
-            $new_input[gcms_cap_constant::captcha_textSize] = absint($input[gcms_cap_constant::captcha_textSize]);
+            $options[gcms_cap_constant::captcha_textSize] = absint($input[gcms_cap_constant::captcha_textSize]);
 
         if (isset($input[gcms_cap_constant::captcha_letterCount]))
-            $new_input[gcms_cap_constant::captcha_letterCount] = absint($input[gcms_cap_constant::captcha_letterCount]);
+            $options[gcms_cap_constant::captcha_letterCount] = absint($input[gcms_cap_constant::captcha_letterCount]);
 
-        return $new_input;
+        return $options;
     }
 
     /**
@@ -177,6 +177,18 @@ class gcms_cap_adminPage
             '<input type="number" id="' . gcms_cap_constant::captcha_letterCount . '" name="' . gcms_cap_constant::captcha_options . '[' . gcms_cap_constant::captcha_letterCount . ']' . '" value="%s" />',
             isset($this->options[gcms_cap_constant::captcha_letterCount]) ? esc_attr($this->options[gcms_cap_constant::captcha_letterCount]) : ''
         );
+    }
+
+    public function setDefaultSettings()
+    {
+        if (get_option(gcms_cap_constant::captcha_options) === false) {
+            $options = array();
+            $options[gcms_cap_constant::captcha_width] = 250;
+            $options[gcms_cap_constant::captcha_height] = 60;
+            $options[gcms_cap_constant::captcha_textSize] = 40;
+            $options[gcms_cap_constant::captcha_letterCount] = 4;
+            add_option(gcms_cap_constant::captcha_options, $options, '', 'no');
+        }
     }
 }
 

@@ -16,6 +16,8 @@ if (!function_exists('add_filter')) {
 if (!class_exists('gcms_cap_bootstrap')) {
     class gcms_cap_bootstrap
     {
+        private $adminPage;
+
         function __construct()
         {
             if (class_exists('gcms_cap_captcha') ||
@@ -32,28 +34,23 @@ if (!class_exists('gcms_cap_bootstrap')) {
 
             gcms_cap_captcha::getInstance()->initRedirection();
             if (is_admin())
-                new gcms_cap_adminPage();
+                $this->adminPage = new gcms_cap_adminPage();
 
             add_action('init', array($this, 'init'));
 
-            //register_activation_hook(__FILE__, array($this, 'plugin_activated'));
-            //add_action('init', array($this, 'load_my_transl'));
+            register_activation_hook(__FILE__, array($this, 'plugin_activated'));
 
         }
 
         function init()
         {
             load_plugin_textdomain(gcms_cap_constant::captcha_localization, FALSE, dirname(plugin_basename(__FILE__)) . '/languages/');
-
         }
 
-        public function load_my_transl()
-        {
-        }
 
         function plugin_activated()
         {
-
+            $this->adminPage->setDefaultSettings();
         }
     }
 

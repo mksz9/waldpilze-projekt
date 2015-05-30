@@ -10,6 +10,7 @@ class gcms_pf_formData
 {
     private $content = '';
     private $title = '';
+    private $filename = '';
 
     public function setContent($content)
     {
@@ -21,6 +22,7 @@ class gcms_pf_formData
         $this->title = $title;
     }
 
+
     public function getTitle()
     {
         return $this->title;
@@ -30,4 +32,6 @@ class gcms_pf_formData
     {
         return $this->content;
     }
+
+
 }

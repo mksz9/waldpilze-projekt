@@ -28,7 +28,7 @@ class gcms_pf_titleAndContentField
     function printTitleHtml($data)
     {
         echo '<p>';
-        echo 'Name: <br />';
+        echo  __('Name', 'gcms_pilzformular') . ': <br />';
         echo '<input type="text" name="' . self::input_title_name . '" pattern="[a-zA-Z0-9 öäüÖÜÄ]+" value="' . esc_attr($data[self::input_title_name]) . '" size="40" />';
         echo '</p>';
 
@@ -37,8 +37,8 @@ class gcms_pf_titleAndContentField
 
     function validateTitle($validationResult, $data)
     {
-        if (strlen($data[self::input_title_name]) < 6) {
-            $validationResult->appendErrorMessage('<li>Der Title muss mindestens 6 Zeichen lang sein.</li>');
+        if (strlen($data[self::input_title_name]) < 3) {
+            $validationResult->appendErrorMessage('<li>' . __('The Title must be at least 3 characters long', 'gcms_pilzformular') . '</li>');
         }
         return $validationResult;
     }
@@ -46,7 +46,7 @@ class gcms_pf_titleAndContentField
     function validateContent($validationResult, $data)
     {
         if (strlen($data[self::input_title_content]) < 50) {
-            $validationResult->appendErrorMessage('<li>Der Content muss mindestens 50 Zeichen lang sein.</li>');
+            $validationResult->appendErrorMessage('<li>' . __('The content must be at least 50 characters long', 'gcms_pilzformular') . '</li>');
             $validationResult->setError();
         }
         return $validationResult;
@@ -55,7 +55,7 @@ class gcms_pf_titleAndContentField
     function  printContentHtml($data)
     {
         echo '<p>';
-        echo 'Beschreibung: <br />';
+        echo __('Description', 'gcms_pilzformular') . ': <br />';
         echo '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" size="200" >' . esc_attr($data[self::input_title_content]) . '</textarea>';
         echo '</p>';
 

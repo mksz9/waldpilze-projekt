@@ -37,7 +37,7 @@ class gcms_pf_imageField
     function printHtml($data)
     {
         echo '<p>';
-        echo 'Bild: <br />';
+        echo '' . __('Picture', 'gcms_pilzformular') . ': <br />';
         echo '<input type="file" name="' . self::input_thumbnail . '" multiple="false" />';
         echo '</p>';
 
@@ -50,15 +50,14 @@ class gcms_pf_imageField
             is_array($_FILES[self::input_thumbnail]['error']) ||
             $_FILES[self::input_thumbnail]['error'] != UPLOAD_ERR_OK
         ) {
-            $validationResult->appendErrorMessage('<li>Sie müssen ein Bild angben.</li>');
+            $validationResult->appendErrorMessage('<li>' . __('You must specify an image', 'gcms_pilzformular') . '</li>');
             $validationResult->setError();
 
         } else {
             $fileType = strtolower($_FILES[self::input_thumbnail]['type']);
             if (!($fileType == 'image/jpeg' || $fileType == 'image/png')) {
-                $validationResult->appendErrorMessage('<li>Das Bild muss eine jpg, jpeg oder png Datei sein.</li>');
+                $validationResult->appendErrorMessage('<li>' . __('The image must be a jpg, jpeg or png file', 'gcms_pilzformular') . '</li>');
                 $validationResult->setError();
-
             }
         }
 

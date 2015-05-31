@@ -1,0 +1,10 @@
+Es ist ein interner Fehler aufgetreten
+Ihr Pilz wurde erfolgreich an die Pilzredaktion versendet
+
+The mushroom was successfully send to the editors
+Der Captcha-Inhalt stimmt nicht mit dem Bild überein.
+
+Sie müssen ein Bild angeben.
+Das Bild muss eine jpg, jpeg oder png Datei sein.
+Der Title muss mindestens 6 Zeichen lang sein.
+Der Content muss mindestens 50 Zeichen lang sein.

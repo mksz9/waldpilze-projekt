@@ -51,7 +51,6 @@ class gcms_cap_captcha
 
     function getCaptachaImageUrl()
     {
-        //return plugin_dir_url( __FILE__ ).'gcms_cap_captchaImage.php';
         return $_SERVER['PHP_SELF'] . '?captcha=true';
     }
 
@@ -59,7 +58,6 @@ class gcms_cap_captcha
     {
         $this->options = get_option(gcms_cap_constant::captcha_options);
 
-        //error_reporting(E_ALL);
         $captchaText = $this->generateCaptchaText();
         $captchaImage = $this->generatePNG($captchaText);
 
@@ -88,13 +86,22 @@ class gcms_cap_captcha
             $x = ($imageWidth / (2 * strlen($catchaText) + 1)) * (2 * $i + 1);
             imagettftext($captchaImage, $fontSize, rand(-20, 20), $x, $y, imagecolorallocate($captchaImage, 69, 103, 137), $font, $catchaText[$i]);
         }
+
+        for ($i = 0; $i < 5; $i++) {
+            $x1 = rand(0, $imageWidth -1);
+            $x2 = rand(0, $imageWidth -1);
+            $y1 = rand(0, $imageHeight -1);
+            $y2 = rand(0, $imageHeight -1);
+
+            imageline($captchaImage, $x1, $y1, $x2, $y2, imagecolorallocate($captchaImage, 69, 103, 137));
+        }
+
         return $captchaImage;
     }
 
     private function generateCaptchaText()
     {
-        //$signs = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNpPqQrRsStTuUvVwWxXyYzZ123456789';
-        $signs = "A";
+        $signs = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNpPqQrRsStTuUvVwWxXyYzZ123456789';
         $captchaText = '';
         $letterCount = intval($this->options[gcms_cap_constant::captcha_letterCount]);
 

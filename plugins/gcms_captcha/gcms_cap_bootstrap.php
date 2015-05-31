@@ -1,8 +1,8 @@
 <?php
 
 /**
- * Plugin Name: Captcha
- * Description:
+ * Plugin Name: Captcha GCMS
+ * Description: Stellt ein Captcha zur Verfügung
  * Version: 0.1
  * Author: Grundlagen CMS
  */
@@ -24,7 +24,7 @@ if (!class_exists('gcms_cap_bootstrap')) {
                 class_exists('gcms_cap_adminPage') ||
                 class_exists('gcms_cap_constant')
             ) {
-                trigger_error(__('Plugin konnte nicht gestartet werden. Eine PHP Klasse ist schon vorhanden.', 'captcha_localization'), E_USER_ERROR);
+                trigger_error('Plugin konnte nicht gestartet werden. Eine PHP Klasse ist schon vorhanden.', E_USER_ERROR);
                 return;
             }
 
@@ -46,6 +46,7 @@ if (!class_exists('gcms_cap_bootstrap')) {
         {
             load_plugin_textdomain(gcms_cap_constant::captcha_localization, FALSE, dirname(plugin_basename(__FILE__)) . '/languages/');
         }
+
 
 
         function plugin_activated()

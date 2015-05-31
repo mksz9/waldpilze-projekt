@@ -10,7 +10,6 @@ class gcms_pf_formManagerHelper
 {
     const input_submit_name = 'pf_submit';
 
-    const input_toxic_name = 'pf_toxic';
     private $data = array();
 
 
@@ -26,7 +25,7 @@ class gcms_pf_formManagerHelper
 
         apply_filters('pilzformular_addFormField', $this->data);
 
-        echo '<p><input type="submit" name="' . self::input_submit_name . '" value="Pilz absenden"/></p>';
+        echo '<p><input type="submit" name="' . self::input_submit_name . '" value="' . __('Submit mushroom', 'gcms_pilzformular') . '"/></p>';
         echo '</form>';
     }
 
@@ -78,9 +77,9 @@ class gcms_pf_formManagerHelper
         }
 
         if (is_wp_error($postId)) {
-            echo '<h2 > Es ist ein interner Fehler aufgetreten .</h2 >';
+            echo '<h2>' . __('The server encountered an internal error', 'gcms_pilzformular') . '</h2 >';
         } else {
-            echo '<h2>Ihr Pilz wurde erfolgreich an die Pilzredaktion versendet.</h2>';
+            echo '<h2>' . __('The mushroom was successfully sent', 'gcms_pilzformular') . '</h2>';
         }
 
     }

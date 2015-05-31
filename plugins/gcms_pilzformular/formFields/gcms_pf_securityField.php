@@ -27,7 +27,7 @@ class gcms_pf_securityField
         if (!(isset($_POST[self::input_nonce_filed]) && isset($_POST[gcms_pf_formManagerHelper::input_submit_name]) &&
             wp_verify_nonce($_POST[self::input_nonce_filed], gcms_pf_formManagerHelper::input_submit_name) === 1)
         ) {
-            $validationResult->appendErrorMessage('<li>Es ist ein interner Fehler aufgetreten.</li>');
+            $validationResult->appendErrorMessage('<li>' . __('The server encountered an internal error', 'gcms_pilzformular') . '</li>');
             $validationResult->setError();
         }
 

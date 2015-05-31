@@ -2,7 +2,7 @@
 
 /**
  * Plugin Name: Import-Pilz-Formular
- * Description:
+ * Description: Mit dem Shortcode [pilzformular] wird eine Formular für ein neuen Pilz erstellt
  * Version: 0.2
  * Author: Grundlagen CMS
  */
@@ -39,9 +39,13 @@ if (class_exists('pilzDb')) {
             include_once('formFields/gcms_pf_securityField.php');
             include_once('formFields/gcms_pf_titleAndContentField.php');
             include_once('formFields/gcms_pf_imageField.php');
+            include_once('formFields/gcms_pf_toxicField.php');
             new gcms_pf_securityField();
             new gcms_pf_titleAndContentField();
             new gcms_pf_imageField();
+            new gcms_pf_toxicField();
+
+            load_plugin_textdomain('gcms_pilzformular', FALSE, dirname(plugin_basename(__FILE__)) . '/languages/');
         }
 
     }

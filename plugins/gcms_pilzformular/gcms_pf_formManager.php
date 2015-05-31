@@ -8,19 +8,15 @@ if (!function_exists('add_filter')) {
 
 class gcms_pf_formManager
 {
-    private $formPrinterAndReader;
-    private $pilzPostTypeCreater;
-
+    private $helper;
 
     function __construct()
     {
         session_start();
 
-        $this->formPrinterAndReader = new gcms_pf_formPrinterAndReader();
-        $this->pilzPostTypeCreater = new gcms_pf_pilzPostTypeCreater();
+        $this->helper = new gcms_pf_formManagerHelper();
 
         add_shortcode('pilzformular', array($this, 'managePilzFormShortcode'));
-
     }
 
 
@@ -28,22 +24,16 @@ class gcms_pf_formManager
     {
         ob_start();
 
-        if (!class_exists('gcms_cap_captcha')) {
-            echo '<p>Das Forumlar kann nicht angezeigt werden, da das Captcha-Plugin nicht gefunden wurde!</p>';
-            return ob_get_clean();
-        }
-
-
-        if ($this->formPrinterAndReader->hasSubmited() === true) {
-            if ($this->formPrinterAndReader->hasPostValidData() === true) {
-                $formData = $this->formPrinterAndReader->getFromData();
-                $this->pilzPostTypeCreater->createNewPilz($formData);
+        $this->helper->readFieldData();
+        if ($this->helper->hasSubmited() === true) {
+            $validationResult = $this->helper->validate();
+            if ($validationResult->hasError() == true) {
+                $this->helper->printHtmlFormWithValidationError($validationResult->getMessage());
             } else {
-                $errorMessages = $this->formPrinterAndReader->getInvalidDataMessage();
-                $this->formPrinterAndReader->printHtmlFormWithValidationError($errorMessages);
+               $this->helper->saveData();
             }
         } else {
-            $this->formPrinterAndReader->printHtmlForm();
+            $this->helper->printHtmlForm();
         }
 
         return ob_get_clean();

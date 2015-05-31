@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: Captcha_GrCMS
+ * Plugin Name: Captcha
  * Description:
  * Version: 0.1
  * Author: Grundlagen CMS

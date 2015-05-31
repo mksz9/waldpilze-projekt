@@ -93,8 +93,8 @@ class gcms_cap_captcha
 
     private function generateCaptchaText()
     {
-        $signs = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNpPqQrRsStTuUvVwWxXyYzZ123456789';
-
+        //$signs = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNpPqQrRsStTuUvVwWxXyYzZ123456789';
+        $signs = "A";
         $captchaText = '';
         $letterCount = intval($this->options[gcms_cap_constant::captcha_letterCount]);
 

@@ -13,28 +13,37 @@ if (!function_exists('add_filter')) {
     exit();
 }
 
-if (!class_exists('gcms_pf_bootstrap')) {
+if (class_exists('pilzDb')) {
     class gcms_pf_bootstrap
     {
         private $formManager;
 
         function __construct()
         {
-            if (class_exists('gcms_pf_pilzPostTypeCreater') ||
-                class_exists('gcms_pf_formManager') ||
-                class_exists('gcms_pf_formPrinterAndReader')
-            ) {
-                echo 'Plugin konnte nicht gestartet werden. Eine PHP Klasse ist schon vorhanden. ERROR';
-                return;
+            include_once('gcms_pf_formManagerHelper.php');
+            include_once('gcms_pf_validationResult.php');
+            include_once('gcms_pf_formManager.php');
+            $this->formManager = new gcms_pf_formManager();
+
+            add_action('init', array($this, 'init'));
+        }
+
+        function init()
+        {
+            if(class_exists('gcms_cap_captcha'))
+            {
+                include_once('formFields/gcms_pf_captchaField.php');
+                new gcms_pf_captchaField();
             }
 
-            include_once('gcms_pf_pilzPostTypeCreater.php');
-            include_once('gcms_pf_formManager.php');
-            include_once('gcms_pf_formPrinterAndReader.php');
-            include_once('gcms_pf_formData.php');
-
-            $this->formManager = new gcms_pf_formManager();
+            include_once('formFields/gcms_pf_securityField.php');
+            include_once('formFields/gcms_pf_titleAndContentField.php');
+            include_once('formFields/gcms_pf_imageField.php');
+            new gcms_pf_securityField();
+            new gcms_pf_titleAndContentField();
+            new gcms_pf_imageField();
         }
+
     }
 
     $gcms_pf_boostrap = new gcms_pf_bootstrap();

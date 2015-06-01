@@ -99,12 +99,12 @@ class Pilzwidget_Admin {
 		
 		//add security nonce check
 		echo '<input type="hidden" name="taxonomy_noncename" id="taxonomy_noncename" value="' . 
-            wp_create_nonce( 'taxonomy_'.self::SEASON_TAXONOMY_NAME ) . '" />';
+        wp_create_nonce( 'taxonomy_'.self::SEASON_TAXONOMY_NAME ) . '" />';
 
-        $allSeasons = get_terms(self::SEASON_TAXONOMY_NAME, 'hide_empty=0&orderby=id'); //$themes
+        $allSeasons = get_terms(self::SEASON_TAXONOMY_NAME, 'hide_empty=0&orderby=id');
         echo '<select name="pilze_seasons[]" id="pilze_seasons" multiple>';
 
-        $pilzSeasons = wp_get_object_terms($post->ID, self::SEASON_TAXONOMY_NAME); //$names
+        $pilzSeasons = wp_get_object_terms($post->ID, self::SEASON_TAXONOMY_NAME);
 
         foreach($allSeasons as $season) {
         	if (!is_wp_error($pilzSeasons) && !empty($pilzSeasons) && $this->checkSelectedSlug($season, $pilzSeasons)) {

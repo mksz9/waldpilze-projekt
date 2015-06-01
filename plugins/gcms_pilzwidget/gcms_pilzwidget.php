@@ -33,4 +33,10 @@ if (class_exists('pilzDb')) {
 	
 	//other initital functions
 	$pilzWidgetAdmin->init();
+
+	//if pilzformular is active -> add the season tax for submitting mushrooms
+	if (class_exists('gcms_pf_bootstrap')) {
+		require_once('formFields/gcms_pf_widgetTaxonomy.php');
+		new gcms_pf_widgetTaxonomy();
+	}
 }

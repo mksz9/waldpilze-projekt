@@ -13,47 +13,38 @@ if (!function_exists('add_filter')) {
     exit();
 }
 
-if (!class_exists('gcms_cap_bootstrap')) {
-    class gcms_cap_bootstrap
+class gcms_cap_bootstrap
+{
+    private $adminPage;
+
+    function __construct()
     {
-        private $adminPage;
-
-        function __construct()
-        {
-            if (class_exists('gcms_cap_captcha') ||
-                class_exists('gcms_cap_adminPage') ||
-                class_exists('gcms_cap_constant')
-            ) {
-                trigger_error('Plugin konnte nicht gestartet werden. Eine PHP Klasse ist schon vorhanden.', E_USER_ERROR);
-                return;
-            }
-
-            include_once('gcms_cap_captcha.php');
-            include_once('gcms_cap_adminPage.php');
-            include_once('gcms_cap_constant.php');
-
-            gcms_cap_captcha::getInstance()->initRedirection();
-            if (is_admin())
-                $this->adminPage = new gcms_cap_adminPage(plugin_basename(__FILE__));
-
-            add_action('init', array($this, 'init'));
-
-            register_activation_hook(__FILE__, array($this, 'plugin_activated'));
-
-        }
-
-        function init()
-        {
-            load_plugin_textdomain(gcms_cap_constant::captcha_localization, FALSE, dirname(plugin_basename(__FILE__)) . '/languages/');
-        }
-
-
-
-        function plugin_activated()
-        {
-            $this->adminPage->setDefaultSettings();
-        }
+        add_action('init', array($this, 'init'));
+        register_activation_hook(__FILE__, array($this, 'pluginActivated'));
     }
 
-    $gcms_cap_bootstrap = new gcms_cap_bootstrap();
+    function init()
+    {
+        //init session, constants and localization
+        session_start();
+        include_once('gcms_cap_constant.php');
+        load_plugin_textdomain(gcms_cap_constant::captcha_localization, FALSE, dirname(plugin_basename(__FILE__)) . '/languages/');
+
+        //init the captcha
+        include_once('gcms_cap_captcha.php');
+        gcms_cap_captcha::getInstance()->initRedirection();
+
+        //init admin setting page
+        include_once('gcms_cap_adminPage.php');
+        if (is_admin())
+            $this->adminPage = new gcms_cap_adminPage(plugin_basename(__FILE__));
+
+    }
+
+    function pluginActivated()
+    {
+        $this->adminPage->setDefaultSettings();
+    }
 }
+
+$gcms_cap_bootstrap = new gcms_cap_bootstrap();

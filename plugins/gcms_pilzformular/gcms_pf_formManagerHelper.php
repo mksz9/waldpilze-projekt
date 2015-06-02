@@ -10,8 +10,7 @@ class gcms_pf_formManagerHelper
 {
     const input_submit_name = 'pf_submit';
 
-    private $data = array();
-
+    private $formDataArray = array();
 
     public function printHtmlFormWithValidationError($errorMessages)
     {
@@ -23,7 +22,7 @@ class gcms_pf_formManagerHelper
     {
         echo '<form action="' . esc_url($_SERVER['REQUEST_URI']) . '" method="post" enctype="multipart/form-data">';
 
-        apply_filters('pilzformular_addFormField', $this->data);
+        apply_filters('pilzformular_addFormField', $this->formDataArray);
 
         echo '<p><input type="submit" name="' . self::input_submit_name . '" value="' . __('Submit mushroom', 'gcms_pilzformular') . '"/></p>';
         echo '</form>';
@@ -38,10 +37,9 @@ class gcms_pf_formManagerHelper
         return false;
     }
 
-
     public function readFieldData()
     {
-        $this->data = apply_filters('pilzformular_getFieldData', $this->data);
+        $this->formDataArray = apply_filters('pilzformular_getFieldData', $this->formDataArray);
     }
 
     public function validate()
@@ -50,12 +48,11 @@ class gcms_pf_formManagerHelper
 
         $validationResult->appendErrorMessage('<ul>');
 
-        $validationResult = apply_filters('pilzformular_validateInput', $validationResult, $this->data);
+        $validationResult = apply_filters('pilzformular_validateInput', $validationResult, $this->formDataArray);
 
         $validationResult->appendErrorMessage('</ul>');
 
         return $validationResult;
-
     }
 
     public function saveData()
@@ -65,13 +62,13 @@ class gcms_pf_formManagerHelper
             'post_type' => pilzDb::_POST_TYPE_NAME
         );
 
-        $post = apply_filters('pilzformular_editPost', $post, $this->data);
+        $post = apply_filters('pilzformular_editPost', $post, $this->formDataArray);
 
         // Insert the post into the database
         $postId = wp_insert_post($post);
 
         if (!is_wp_error($postId)) {
-            $postId = apply_filters('pilzformular_postInserted', $postId, $this->data);
+            $postId = apply_filters('pilzformular_postInserted', $postId, $this->formDataArray);
         }
 
         if (is_wp_error($postId)) {
@@ -79,7 +76,6 @@ class gcms_pf_formManagerHelper
         } else {
             echo '<h2>' . __('The mushroom was successfully sent', 'gcms_pilzformular') . '</h2>';
         }
-
     }
 }
 

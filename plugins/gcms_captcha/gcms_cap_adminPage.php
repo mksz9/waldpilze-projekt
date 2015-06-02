@@ -15,18 +15,19 @@ class gcms_cap_adminPage
     /**
      * Start up
      */
-    public function __construct($startPlugInFile)
+    public function __construct($startPlugInFileName)
     {
-        add_filter( 'plugin_action_links_'.$startPlugInFile, array($this, 'add_settings_link' ));
+        add_filter('plugin_action_links_' . $startPlugInFileName, array($this, 'add_settings_link'));
         add_action('admin_menu', array($this, 'add_plugin_page'));
         add_action('admin_init', array($this, 'page_init'));
     }
 
-    function add_settings_link ( $links ) {
-        $mylinks = array(
-            '<a href="' . admin_url( 'options-general.php?page='.captchaSettingsAdminPage ) . '">'.__('Settings', gcms_cap_constant::captcha_localization).'</a>',
+    function add_settings_link($links)
+    {
+        $captchaAdminLink = array(
+            '<a href="' . admin_url('options-general.php?page=' . captchaSettingsAdminPage) . '">' . __('Settings', gcms_cap_constant::captcha_localization) . '</a>',
         );
-        return array_merge( $links, $mylinks );
+        return array_merge($links, $captchaAdminLink);
     }
 
     /**
@@ -110,7 +111,6 @@ class gcms_cap_adminPage
             self::captchaSettingsAdminPage,
             $captchaSettingSection
         );
-
 
         add_settings_field(
             gcms_cap_constant::captcha_letterCount,

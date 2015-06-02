@@ -31,7 +31,6 @@ class gcms_cap_captcha
 
     function initRedirection()
     {
-        session_start();
         add_filter('template_include', array($this, 'my_callback'));
     }
 
@@ -56,7 +55,7 @@ class gcms_cap_captcha
 
     public function generateCaptchaImage()
     {
-        error_reporting(E_ALL);
+        //error_reporting(E_ALL);
         $this->options = get_option(gcms_cap_constant::captcha_options);
 
         $captchaText = $this->generateCaptchaText();

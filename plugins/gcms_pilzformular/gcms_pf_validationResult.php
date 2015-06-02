@@ -30,6 +30,4 @@ class gcms_pf_validationResult
     {
         return $this->message;
     }
-
-
 }

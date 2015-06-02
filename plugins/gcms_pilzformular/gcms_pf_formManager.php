@@ -12,13 +12,9 @@ class gcms_pf_formManager
 
     function __construct()
     {
-        session_start();
-
         $this->helper = new gcms_pf_formManagerHelper();
-
         add_shortcode('pilzformular', array($this, 'managePilzFormShortcode'));
     }
-
 
     function managePilzFormShortcode()
     {
@@ -30,7 +26,7 @@ class gcms_pf_formManager
             if ($validationResult->hasError() == true) {
                 $this->helper->printHtmlFormWithValidationError($validationResult->getMessage());
             } else {
-               $this->helper->saveData();
+                $this->helper->saveData();
             }
         } else {
             $this->helper->printHtmlForm();

@@ -15,10 +15,10 @@ class gcms_pf_imageField
     {
         add_filter('pilzformular_addFormField', array($this, 'printHtml'), 20);
         add_filter('pilzformular_validateInput', array($this, 'validate'));
-        add_filter('pilzformular_postInserted', array($this, 'insertImage'), 10,2);
+        add_filter('pilzformular_postInserted', array($this, 'insertImage'));
     }
 
-    function insertImage($postId, $data)
+    function insertImage($postId)
     {
         $thumbnailId = $this->createImage();
 

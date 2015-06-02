@@ -71,7 +71,7 @@ class gcms_cap_captcha
         imagedestroy($captchaImage);
     }
 
-    private function generatePNG($catchaText)
+    private function generatePNG($captchaText)
     {
         $imageWidth = intval($this->options[gcms_cap_constant::captcha_width]);
         $imageHeight = intval($this->options[gcms_cap_constant::captcha_height]);
@@ -82,27 +82,18 @@ class gcms_cap_captcha
         $captchaImage = imagecreate($imageWidth, $imageHeight);
         imagecolorallocate($captchaImage, 255, 255, 255);
 
-        for ($i = 0; $i < strlen($catchaText); $i++) {
-            $y = 45 + rand(-4, 4);
-            $x = ($imageWidth / (2 * strlen($catchaText) + 1)) * (2 * $i + 1);
-            imagettftext($captchaImage, $fontSize, rand(-20, 20), $x, $y, imagecolorallocate($captchaImage, 69, 103, 137), $font, $catchaText[$i]);
-        }
+        $this->drawCaptchaText($captchaText, $imageWidth, $captchaImage, $fontSize, $font);
 
-        for ($i = 0; $i < 5; $i++) {
-            $x1 = rand(0, $imageWidth -1);
-            $x2 = rand(0, $imageWidth -1);
-            $y1 = rand(0, $imageHeight -1);
-            $y2 = rand(0, $imageHeight -1);
-
-            imageline($captchaImage, $x1, $y1, $x2, $y2, imagecolorallocate($captchaImage, 69, 103, 137));
-        }
+        $this->drawRandomLines($imageWidth, $imageHeight, $captchaImage);
 
         return $captchaImage;
     }
 
+
     private function generateCaptchaText()
     {
-        $signs = 'aAbBcCdDeEfFgGhHiIjJkKlLmMnNpPqQrRsStTuUvVwWxXyYzZ123456789';
+        //all letters an numbers without i,o
+        $signs = 'aAbBcCdDeEfFgGhHIjJkKlLmMnNpPqQrRsStTuUvVwWxXyYzZ123456789';
         $captchaText = '';
         $letterCount = intval($this->options[gcms_cap_constant::captcha_letterCount]);
 
@@ -112,6 +103,37 @@ class gcms_cap_captcha
         }
 
         return $captchaText;
+    }
+
+
+    private function drawCaptchaText($captchaText, $imageWidth, $captchaImage, $fontSize, $font)
+    {
+        for ($i = 0; $i < strlen($captchaText); $i++) {
+            $y = 45 + rand(-4, 4);
+            $x = ($imageWidth / (2 * strlen($captchaText) + 1)) * (2 * $i + 1);
+            imagettftext($captchaImage, $fontSize, rand(-20, 20), $x, $y, imagecolorallocate($captchaImage, 69, 103, 137), $font, $captchaText[$i]);
+        }
+    }
+
+    private function drawRandomLines($imageWidth, $imageHeight, $captchaImage)
+    {
+        for ($i = 0; $i < 5; $i++) {
+            $x1 = rand(0, $imageWidth - 1);
+            $x2 = rand(0, $imageWidth - 1);
+            $y1 = rand(0, $imageHeight - 1);
+            $y2 = rand(0, $imageHeight - 1);
+
+            imageline($captchaImage, $x1, $y1, $x2, $y2, imagecolorallocate($captchaImage, 69, 103, 137));
+        }
+
+        for ($i = 0; $i < 400; $i++) {
+            $x1 = rand(4, $imageWidth - 4);
+            $x2 = $x1 + rand(-3, 3);
+            $y1 = rand(4, $imageHeight - 4);
+            $y2 = $y1 + rand(-3, 3);
+
+            imageline($captchaImage, $x1, $y1, $x2, $y2, imagecolorallocate($captchaImage, 69, 103, 137));
+        }
     }
 }
 

@@ -34,8 +34,8 @@ class gcms_pf_bootstrap
 
     function pluginActivated()
     {
-        if (!class_exists('pilzDb')) {
-            trigger_error('You have to install the Pilzdatenbank-Plugin (gcms_pilzdb).', E_USER_ERROR);
+        if(!class_exists('pilzDb') || !is_plugin_active( 'gcms_pilzdb/gcms_pilzdb.php' ) ) {
+            trigger_error('You have to install and activate the Pilzdatenbank-Plugin (gcms_pilzdb).', E_USER_ERROR);
         }
     }
 

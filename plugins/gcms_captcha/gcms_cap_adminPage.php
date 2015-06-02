@@ -25,7 +25,7 @@ class gcms_cap_adminPage
     function add_settings_link($links)
     {
         $captchaAdminLink = array(
-            '<a href="' . admin_url('options-general.php?page=' . captchaSettingsAdminPage) . '">' . __('Settings', gcms_cap_constant::captcha_localization) . '</a>',
+            '<a href="' . admin_url('options-general.php?page=' . self::captchaSettingsAdminPage) . '">' . __('Settings', gcms_cap_constant::captcha_localization) . '</a>',
         );
         return array_merge($links, $captchaAdminLink);
     }

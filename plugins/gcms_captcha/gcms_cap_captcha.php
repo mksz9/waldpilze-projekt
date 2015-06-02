@@ -97,7 +97,7 @@ class gcms_cap_captcha
         $letterCount = intval($this->options[gcms_cap_constant::captcha_letterCount]);
 
         for ($i = 1; $i <= $letterCount; $i++) {
-            $sign = $signs{rand(0, strlen($signs) - 1)};
+            $sign = $signs{mt_rand(0, strlen($signs) - 1)};
             $captchaText .= $sign;
         }
 
@@ -108,28 +108,28 @@ class gcms_cap_captcha
     private function drawCaptchaText($captchaText, $imageWidth, $captchaImage, $fontSize, $font)
     {
         for ($i = 0; $i < strlen($captchaText); $i++) {
-            $y = 45 + rand(-4, 4);
+            $y = 45 + mt_rand(-4, 4);
             $x = ($imageWidth / (2 * strlen($captchaText) + 1)) * (2 * $i + 1);
-            imagettftext($captchaImage, $fontSize, rand(-20, 20), $x, $y, imagecolorallocate($captchaImage, 69, 103, 137), $font, $captchaText[$i]);
+            imagettftext($captchaImage, $fontSize, mt_rand(-20, 20), $x, $y, imagecolorallocate($captchaImage, 69, 103, 137), $font, $captchaText[$i]);
         }
     }
 
     private function drawRandomLines($imageWidth, $imageHeight, $captchaImage)
     {
         for ($i = 0; $i < 5; $i++) {
-            $x1 = rand(0, $imageWidth - 1);
-            $x2 = rand(0, $imageWidth - 1);
-            $y1 = rand(0, $imageHeight - 1);
-            $y2 = rand(0, $imageHeight - 1);
+            $x1 = mt_rand(0, $imageWidth - 1);
+            $x2 = mt_rand(0, $imageWidth - 1);
+            $y1 = mt_rand(0, $imageHeight - 1);
+            $y2 = mt_rand(0, $imageHeight - 1);
 
             imageline($captchaImage, $x1, $y1, $x2, $y2, imagecolorallocate($captchaImage, 69, 103, 137));
         }
 
         for ($i = 0; $i < 400; $i++) {
-            $x1 = rand(4, $imageWidth - 4);
+            $x1 = mt_rand(4, $imageWidth - 4);
             $x2 = $x1 + rand(-3, 3);
-            $y1 = rand(4, $imageHeight - 4);
-            $y2 = $y1 + rand(-3, 3);
+            $y1 = mt_rand(4, $imageHeight - 4);
+            $y2 = $y1 + mt_rand(-3, 3);
 
             imageline($captchaImage, $x1, $y1, $x2, $y2, imagecolorallocate($captchaImage, 69, 103, 137));
         }

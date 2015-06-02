@@ -18,7 +18,6 @@ class gcms_pf_titleAndContentField
         add_filter('pilzformular_getFieldData', array($this, 'getTitleData'));
         add_filter('pilzformular_editPost', array($this, 'addTitleToPost'), 10, 2);
 
-
         add_filter('pilzformular_addFormField', array($this, 'printContentHtml'));
         add_filter('pilzformular_validateInput', array($this, 'validateContent'), 10, 2);
         add_filter('pilzformular_getFieldData', array($this, 'getContentData'));
@@ -68,7 +67,6 @@ class gcms_pf_titleAndContentField
             $data[self::input_title_content] = sanitize_text_field(trim($_POST[self::input_title_content]));
         } else {
             $data[self::input_title_content] = '';
-
         }
 
         return $data;

@@ -62,8 +62,6 @@ class gcms_pf_formManagerHelper
     {
         $post = array(
             'post_status' => 'draft',
-            //todo change post author
-            'post_author' => 1,
             'post_type' => pilzDb::_POST_TYPE_NAME
         );
 

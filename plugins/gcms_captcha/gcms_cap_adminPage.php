@@ -8,20 +8,25 @@ if (!function_exists('add_filter')) {
 
 class gcms_cap_adminPage
 {
-    const captchaSettingsAdminPage = 'captcha_settings_admin_page';
+    const captchaSettingsAdminPage = 'captchaSettingsAdminPage';
 
-    /**
-     * Holds the values to be used in the fields callbacks
-     */
     private $options;
 
     /**
      * Start up
      */
-    public function __construct()
+    public function __construct($startPlugInFile)
     {
+        add_filter( 'plugin_action_links_'.$startPlugInFile, array($this, 'add_settings_link' ));
         add_action('admin_menu', array($this, 'add_plugin_page'));
         add_action('admin_init', array($this, 'page_init'));
+    }
+
+    function add_settings_link ( $links ) {
+        $mylinks = array(
+            '<a href="' . admin_url( 'options-general.php?page='.captchaSettingsAdminPage ) . '">'.__('Settings', gcms_cap_constant::captcha_localization).'</a>',
+        );
+        return array_merge( $links, $mylinks );
     }
 
     /**

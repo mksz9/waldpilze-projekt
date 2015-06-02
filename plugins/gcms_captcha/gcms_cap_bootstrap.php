@@ -34,7 +34,7 @@ if (!class_exists('gcms_cap_bootstrap')) {
 
             gcms_cap_captcha::getInstance()->initRedirection();
             if (is_admin())
-                $this->adminPage = new gcms_cap_adminPage();
+                $this->adminPage = new gcms_cap_adminPage(plugin_basename(__FILE__));
 
             add_action('init', array($this, 'init'));
 

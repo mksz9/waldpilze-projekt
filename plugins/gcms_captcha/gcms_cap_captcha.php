@@ -38,7 +38,7 @@ class gcms_cap_captcha
     function my_callback($original_template)
     {
         if (isset($_GET['captcha']) && $_GET['captcha'] == true) {
-            return plugin_dir_path(__FILE__) . '\gcms_cap_captchaImage.php';
+            return plugin_dir_path(__FILE__) . 'gcms_cap_captchaImage.php';
         } else {
             return $original_template;
         }
@@ -56,6 +56,7 @@ class gcms_cap_captcha
 
     public function generateCaptchaImage()
     {
+        error_reporting(E_ALL);
         $this->options = get_option(gcms_cap_constant::captcha_options);
 
         $captchaText = $this->generateCaptchaText();

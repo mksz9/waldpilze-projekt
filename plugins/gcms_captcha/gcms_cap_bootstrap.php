@@ -35,15 +35,21 @@ class gcms_cap_bootstrap
 
         //init admin setting page
         include_once('gcms_cap_adminPage.php');
-        if (is_admin())
+        if (is_admin() && is_null($this->adminPage))
             $this->adminPage = new gcms_cap_adminPage(plugin_basename(__FILE__));
-
     }
 
     function pluginActivated()
     {
+        include_once('gcms_cap_captcha.php');
         gcms_cap_captcha::getInstance()->createCaptchaUploadDir();
-        $this->adminPage->setDefaultSettings();
+
+        include_once('gcms_cap_constant.php');
+        include_once('gcms_cap_adminPage.php');
+        if (is_admin()) {
+            $this->adminPage = new gcms_cap_adminPage(plugin_basename(__FILE__));
+            $this->adminPage->setDefaultSettings();
+        }
     }
 }
 

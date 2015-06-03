@@ -32,7 +32,6 @@ class gcms_cap_bootstrap
 
         //init the captcha
         include_once('gcms_cap_captcha.php');
-        gcms_cap_captcha::getInstance()->initRedirection();
 
         //init admin setting page
         include_once('gcms_cap_adminPage.php');
@@ -43,6 +42,7 @@ class gcms_cap_bootstrap
 
     function pluginActivated()
     {
+        gcms_cap_captcha::getInstance()->createCaptchaUploadDir();
         $this->adminPage->setDefaultSettings();
     }
 }

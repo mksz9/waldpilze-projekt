@@ -12,6 +12,7 @@ class gcms_cap_constant {
     const captcha_width = 'capcha_width';
     const captcha_letterCount = 'captcha_letterCount';
     const captcha_textSize = 'captcha_textSize';
+    const captcha_disturbance = 'captcha_disturbance';
 
     const captcha_localization = 'gcmsCaptcha';
 }

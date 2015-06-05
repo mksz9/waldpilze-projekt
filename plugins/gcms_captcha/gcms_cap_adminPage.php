@@ -119,6 +119,14 @@ class gcms_cap_adminPage
             self::captchaSettingsAdminPage,
             $captchaSettingSection
         );
+
+        add_settings_field(
+            gcms_cap_constant::captcha_disturbance,
+            __('Captcha Disturbance', gcms_cap_constant::captcha_localization),
+            array($this, 'disturbance_callback'),
+            self::captchaSettingsAdminPage,
+            $captchaSettingSection
+        );
     }
 
     /**
@@ -140,6 +148,9 @@ class gcms_cap_adminPage
 
         if (isset($input[gcms_cap_constant::captcha_letterCount]))
             $options[gcms_cap_constant::captcha_letterCount] = absint($input[gcms_cap_constant::captcha_letterCount]);
+
+        if (isset($input[gcms_cap_constant::captcha_disturbance]))
+            $options[gcms_cap_constant::captcha_disturbance] = absint($input[gcms_cap_constant::captcha_disturbance]);
 
         return $options;
     }
@@ -184,6 +195,15 @@ class gcms_cap_adminPage
         );
     }
 
+    public function disturbance_callback()
+    {
+        printf(
+            '<input type="number" id="' . gcms_cap_constant::captcha_disturbance . '" name="' . gcms_cap_constant::captcha_options . '[' . gcms_cap_constant::captcha_disturbance . ']' . '" value="%s" />',
+            isset($this->options[gcms_cap_constant::captcha_disturbance]) ? esc_attr($this->options[gcms_cap_constant::captcha_disturbance]) : ''
+        );
+
+    }
+
     public function setDefaultSettings()
     {
         if (get_option(gcms_cap_constant::captcha_options) === false) {
@@ -192,6 +212,7 @@ class gcms_cap_adminPage
             $options[gcms_cap_constant::captcha_height] = 60;
             $options[gcms_cap_constant::captcha_textSize] = 40;
             $options[gcms_cap_constant::captcha_letterCount] = 4;
+            $options[gcms_cap_constant::captcha_disturbance] = 50;
             add_option(gcms_cap_constant::captcha_options, $options, '', 'no');
         }
     }

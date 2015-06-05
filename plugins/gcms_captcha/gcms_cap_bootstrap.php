@@ -21,6 +21,7 @@ class gcms_cap_bootstrap
     {
         add_action('init', array($this, 'init'));
         register_activation_hook(__FILE__, array($this, 'pluginActivated'));
+        register_deactivation_hook(__FILE__, 'pluginDeactivation');
     }
 
     function init()
@@ -37,6 +38,12 @@ class gcms_cap_bootstrap
         include_once('gcms_cap_adminPage.php');
         if (is_admin() && is_null($this->adminPage))
             $this->adminPage = new gcms_cap_adminPage(plugin_basename(__FILE__));
+
+        if (!wp_next_scheduled('captchaHourlyEvent')) {
+            wp_schedule_event(time(), 'daily', 'captchaHourlyEvent');
+        }
+
+        add_filter('template_include', array($this, 'registerCaptchaRelaod'));
     }
 
     function pluginActivated()
@@ -49,6 +56,21 @@ class gcms_cap_bootstrap
         if (is_admin()) {
             $this->adminPage = new gcms_cap_adminPage(plugin_basename(__FILE__));
             $this->adminPage->setDefaultSettings();
+        }
+    }
+
+    function pluginDeactivation()
+    {
+        wp_clear_scheduled_hook('captchaHourlyEvent');
+    }
+
+
+    function registerCaptchaRelaod($original_template)
+    {
+        if (isset($_GET['captchaReload']) && $_GET['captchaReload'] == true) {
+            return plugin_dir_path(__FILE__) . '\gcms_cap_reload.php';
+        } else {
+            return $original_template;
         }
     }
 }

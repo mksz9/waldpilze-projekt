@@ -6,6 +6,7 @@ if (!function_exists('add_filter')) {
     exit();
 }
 
+
 class gcms_cap_captcha
 {
     const sesssion_captchaFileName = 'captchaFileName';
@@ -25,11 +26,12 @@ class gcms_cap_captcha
 
     private function __construct()
     {
-        $this->captchaUploadsDir = wp_upload_dir()['basedir'].DIRECTORY_SEPARATOR .'gcms_captcha'.DIRECTORY_SEPARATOR;
+        add_action('captchaHourlyEvent', 'deleteFilesOlderThenOneHour');
 
-        $accessFile = $this->captchaUploadsDir.'.htaccess';
-        if(!file_exists($accessFile))
-        {
+        $this->captchaUploadsDir = wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'gcms_captcha' . DIRECTORY_SEPARATOR;
+
+        $accessFile = $this->captchaUploadsDir . '.htaccess';
+        if (!file_exists($accessFile)) {
             file_put_contents($accessFile, '
 Order deny,allow
 Deny from all
@@ -45,39 +47,47 @@ Deny from all
     {
     }
 
-    function isValidCaptchaText($input)
+    public function deleteFilesOlderThenOneHour()
+    {
+        foreach (array_merge(glob($this->captchaUploadsDir . "*.captchaKey"),
+            glob($this->captchaUploadsDir . "*.png")) as $file) {
+            if (filemtime($file) < time() - 86400) {
+                unlink($file);
+            }
+        }
+    }
+
+    public function isValidCaptchaText($captchaText)
     {
         $this->filePrefix = $_SESSION[self::sesssion_captchaFileName];
 
-        $hashFile = $this->captchaUploadsDir.$this->filePrefix.'.captchaKey';
+        $hashFile = $this->captchaUploadsDir . $this->filePrefix . '.captchaKey';
 
         $fileContent = file_get_contents($hashFile);
 
         unlink($hashFile);
-        unlink($this->captchaUploadsDir.$this->filePrefix.'.png');
+        unlink($this->captchaUploadsDir . $this->filePrefix . '.png');
 
-        $inputHash = $this->captchaHash($input);
+        $inputHash = $this->createCaptchaHash($captchaText);
 
-        if(strlen($fileContent) != 32)
-        {
+        if (strlen($fileContent) != 32) {
             return false;
         }
 
-        if($fileContent === $inputHash)
-        {
+        if ($fileContent === $inputHash) {
             return true;
         }
 
         return false;
     }
 
-    function getCaptachaImageUrl()
+    public function getCaptachaImageUrl()
     {
         $this->generateCaptchaImage();
-        return esc_url(wp_upload_dir()['baseurl'].'/gcms_captcha/'.$this->filePrefix.'.png');
+        return esc_url(wp_upload_dir()['baseurl'] . '/gcms_captcha/' . $this->filePrefix . '.png');
     }
 
-    public function generateCaptchaImage()
+    private function generateCaptchaImage()
     {
         $this->options = get_option(gcms_cap_constant::captcha_options);
         $this->createFilePrefix();
@@ -93,29 +103,27 @@ Deny from all
 
     public function createCaptchaUploadDir()
     {
-        if(!is_dir($this->captchaUploadsDir))
-        {
+        if (!is_dir($this->captchaUploadsDir)) {
             $result = mkdir($this->captchaUploadsDir);
-            if($result === false)
-            {
-                trigger_error('The Plugin can´t create folder:'.$this->captchaUploadsDir, E_USER_ERROR);
+            if ($result === false) {
+                trigger_error('The Plugin can´t create folder:' . $this->captchaUploadsDir, E_USER_ERROR);
             }
         }
     }
 
     private function saveCaptchaTextFile($captchaText)
     {
-        $hashFile = $this->captchaUploadsDir.$this->filePrefix.'.captchaKey';
-        file_put_contents ($hashFile, $this->captchaHash($captchaText));
+        $hashFile = $this->captchaUploadsDir . $this->filePrefix . '.captchaKey';
+        file_put_contents($hashFile, $this->createCaptchaHash($captchaText));
     }
 
     private function saveCaptchaImage($captchaImage)
     {
-        $path = $this->captchaUploadsDir.$this->filePrefix. '.png';
+        $path = $this->captchaUploadsDir . $this->filePrefix . '.png';
         imagepng($captchaImage, $path);
     }
 
-    private function captchaHash($data)
+    private function createCaptchaHash($data)
     {
         return wp_hash($data, 'nonce');
     }
@@ -137,7 +145,6 @@ Deny from all
 
         return $captchaImage;
     }
-
 
     private function generateCaptchaText()
     {
@@ -174,7 +181,7 @@ Deny from all
             imageline($captchaImage, $x1, $y1, $x2, $y2, imagecolorallocate($captchaImage, 69, 103, 137));
         }
 
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < intval($this->options[gcms_cap_constant::captcha_disturbance]); $i++) {
             $x1 = mt_rand(4, $imageWidth - 4);
             $x2 = $x1 + rand(-3, 3);
             $y1 = mt_rand(4, $imageHeight - 4);
@@ -186,10 +193,8 @@ Deny from all
 
     private function createFilePrefix()
     {
-        $this->filePrefix = $this->captchaHash(uniqid());
+        $this->filePrefix = $this->createCaptchaHash(uniqid());
         $_SESSION[self::sesssion_captchaFileName] = $this->filePrefix;
     }
-
-
 }
 

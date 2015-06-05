@@ -44,6 +44,7 @@ class gcms_cap_bootstrap
         }
 
         add_filter('template_include', array($this, 'registerCaptchaRelaod'));
+        add_action('wp_enqueue_scripts', array($this, 'captchaScripts'));
     }
 
     function pluginActivated()
@@ -72,6 +73,11 @@ class gcms_cap_bootstrap
         } else {
             return $original_template;
         }
+    }
+
+    function captchaScripts()
+    {
+        wp_enqueue_script('captchaReload', plugins_url('captchaReload.js', __FILE__), array(), filemtime(plugin_dir_path( __FILE__ ).'captchaReload.js'), true);
     }
 }
 

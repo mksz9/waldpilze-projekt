@@ -15,14 +15,14 @@ class gcms_pf_toxicField
         add_filter('pilzformular_addFormField', array($this, 'printHtml'), 25);
     }
 
-    function printHtml($data)
+    function printHtml($htmlForm)
     {
-        echo '<p>';
-        echo __('Toxic or Nontoxic', 'gcms_pilzformular') . '<br />';
-        echo '<input type="radio" id="toxic" name="' . self::input_toxic_name . '" value="giftig"><label for="toxic"> ' . __('Toxic', 'gcms_pilzformular') . '</label><br> ';
-        echo '<input type="radio" id="atoxic" name="' . self::input_toxic_name . '" value="ungiftig"><label for="atoxic">  ' . __('Nontoxic', 'gcms_pilzformular') . '</label><br> ';
-        echo ' </p>';
+        $htmlForm .=  '<p>';
+        $htmlForm .=  __('Toxic or Nontoxic', 'gcms_pilzformular') . '<br />';
+        $htmlForm .=  '<input type="radio" id="toxic" name="' . self::input_toxic_name . '" value="giftig"><label for="toxic"> ' . __('Toxic', 'gcms_pilzformular') . '</label><br> ';
+        $htmlForm .=  '<input type="radio" id="atoxic" name="' . self::input_toxic_name . '" value="ungiftig"><label for="atoxic">  ' . __('Nontoxic', 'gcms_pilzformular') . '</label><br> ';
+        $htmlForm .=  ' </p>';
 
-        return $data;
+        return $htmlForm;
     }
 }

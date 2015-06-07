@@ -20,15 +20,17 @@ class gcms_pf_formManagerHelper
 
     public function printHtmlForm()
     {
-        echo '<form action="' . esc_url($_SERVER['REQUEST_URI']) . '" method="post" enctype="multipart/form-data">';
+        $htmlForm = '<form action="' . esc_url($_SERVER['REQUEST_URI']) . '" method="post" enctype="multipart/form-data">';
 
-        apply_filters('pilzformular_addFormField', $this->formDataArray);
+        $htmlForm = apply_filters('pilzformular_addFormField',$htmlForm, $this->formDataArray);
 
-        echo '<p><input type="submit" name="' . self::input_submit_name . '" value="' . __('Submit mushroom', 'gcms_pilzformular') . '"/></p>';
-        echo '</form>';
+        $htmlForm .= '<p><input type="submit" name="' . self::input_submit_name . '" value="' . __('Submit mushroom', 'gcms_pilzformular') . '"/></p>';
+        $htmlForm .= '</form>';
+
+        echo $htmlForm;
     }
 
-    public function hasSubmited()
+    public function hasFormSubmitted()
     {
         if (isset($_POST[self::input_submit_name])) {
             return true;
@@ -42,7 +44,7 @@ class gcms_pf_formManagerHelper
         $this->formDataArray = apply_filters('pilzformular_getFieldData', $this->formDataArray);
     }
 
-    public function validate()
+    public function validateFieldData()
     {
         $validationResult = new gcms_pf_validationResult();
 

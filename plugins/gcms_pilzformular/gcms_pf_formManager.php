@@ -21,8 +21,8 @@ class gcms_pf_formManager
         ob_start();
 
         $this->helper->readFieldData();
-        if ($this->helper->hasSubmited() === true) {
-            $validationResult = $this->helper->validate();
+        if ($this->helper->hasFormSubmitted() === true) {
+            $validationResult = $this->helper->validateFieldData();
             if ($validationResult->hasError() == true) {
                 $this->helper->printHtmlFormWithValidationError($validationResult->getMessage());
             } else {

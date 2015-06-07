@@ -13,25 +13,25 @@ class gcms_pf_titleAndContentField
 
     function __construct()
     {
-        add_filter('pilzformular_addFormField', array($this, 'printTitleHtml'));
+        add_filter('pilzformular_addFormField', array($this, 'printTitleHtml'), 9,2);
         add_filter('pilzformular_validateInput', array($this, 'validateTitle'), 10, 2);
         add_filter('pilzformular_getFieldData', array($this, 'getTitleData'));
         add_filter('pilzformular_editPost', array($this, 'addTitleToPost'), 10, 2);
 
-        add_filter('pilzformular_addFormField', array($this, 'printContentHtml'));
+        add_filter('pilzformular_addFormField', array($this, 'printContentHtml'),10,2);
         add_filter('pilzformular_validateInput', array($this, 'validateContent'), 10, 2);
         add_filter('pilzformular_getFieldData', array($this, 'getContentData'));
         add_filter('pilzformular_editPost', array($this, 'addContentToPost'), 10, 2);
     }
 
-    function printTitleHtml($data)
+    function printTitleHtml($htmlForm, $data)
     {
-        echo '<p>';
-        echo  __('Name', 'gcms_pilzformular') . ': <br />';
-        echo '<input type="text" name="' . self::input_title_name . '" pattern="[a-zA-Z0-9 öäüÖÜÄ]+" value="' . esc_attr($data[self::input_title_name]) . '" size="40" />';
-        echo '</p>';
+        $htmlForm .= '<p>';
+        $htmlForm .=   __('Name', 'gcms_pilzformular') . ': <br />';
+        $htmlForm .=  '<input type="text" name="' . self::input_title_name . '" pattern="[a-zA-Z0-9 öäüÖÜÄ]+" value="' . esc_attr($data[self::input_title_name]) . '" size="40" />';
+        $htmlForm .=  '</p>';
 
-        return $data;
+        return $htmlForm;
     }
 
     function validateTitle($validationResult, $data)
@@ -51,14 +51,14 @@ class gcms_pf_titleAndContentField
         return $validationResult;
     }
 
-    function  printContentHtml($data)
+    function  printContentHtml($htmlForm, $data)
     {
-        echo '<p>';
-        echo __('Description', 'gcms_pilzformular') . ': <br />';
-        echo '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" size="200" >' . esc_attr($data[self::input_title_content]) . '</textarea>';
-        echo '</p>';
+        $htmlForm .=  '<p>';
+        $htmlForm .=  __('Description', 'gcms_pilzformular') . ': <br />';
+        $htmlForm .=  '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" size="200" >' . esc_attr($data[self::input_title_content]) . '</textarea>';
+        $htmlForm .=  '</p>';
 
-        return $data;
+        return $htmlForm;
     }
 
     function getTitleData($data)

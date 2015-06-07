@@ -33,11 +33,13 @@ class gcms_cap_captcha
         $accessFile = $this->captchaUploadsDir . '.htaccess';
         if (!file_exists($accessFile)) {
             file_put_contents($accessFile, '
+# BEGIN GCMS Captcha Plugin
 Order deny,allow
 Deny from all
 <Files ~ "^[0-9a-z]+\.png$">
     Allow from all
 </Files>
+# End
 
 ');
         }

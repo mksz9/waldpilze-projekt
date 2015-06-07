@@ -22,12 +22,12 @@ class gcms_pf_captchaField
         wp_enqueue_script('captchaScript', plugins_url('captchaScript.js', __FILE__), array(), filemtime(plugin_dir_path( __FILE__ ).'captchaScript.js'), true);
     }
 
-    function printHtml($data)
+    function printHtml($htmlForm)
     {
-        echo '<img id="captchaImage" src="' . esc_url(gcms_cap_captcha::getInstance()->getCaptachaImageUrl()) . '" alt="" />';
-        echo '<p>' . __('Captcha') . ': <br /><input type="text" name="captcha" id="captcha" autocomplete="off" /></p>';
+        $htmlForm .= '<img id="captchaImage" src="' . esc_url(gcms_cap_captcha::getInstance()->getCaptachaImageUrl()) . '" alt="" />';
+        $htmlForm .= '<p>' . __('Captcha') . ': <br /><input type="text" name="captcha" id="captcha" autocomplete="off" /></p>';
 
-        return $data;
+        return $htmlForm;
     }
 
     function validate($validationResult)

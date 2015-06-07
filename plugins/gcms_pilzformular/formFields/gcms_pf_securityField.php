@@ -16,10 +16,10 @@ class gcms_pf_securityField
         add_filter('pilzformular_validateInput',array($this, 'validate'), 5);
     }
 
-    function printHtml($data)
+    function printHtml($htmlForm)
     {
-        wp_nonce_field(gcms_pf_formManagerHelper::input_submit_name, self::input_nonce_filed);
-        return $data;
+        $htmlForm .= wp_nonce_field(gcms_pf_formManagerHelper::input_submit_name, self::input_nonce_filed, true, false);
+        return $htmlForm;
     }
 
     function validate($validationResult)

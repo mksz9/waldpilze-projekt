@@ -6,4 +6,5 @@ if (!function_exists('add_filter')) {
     exit();
 }
 
+
 echo gcms_cap_captcha::getInstance()->getCaptachaImageUrl();

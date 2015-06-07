@@ -34,14 +34,14 @@ class gcms_pf_imageField
         return $postId;
     }
 
-    function printHtml($data)
+    function printHtml($htmlForm)
     {
-        echo '<p>';
-        echo '' . __('Picture', 'gcms_pilzformular') . ': <br />';
-        echo '<input type="file" name="' . self::input_thumbnail . '" multiple="false" />';
-        echo '</p>';
+        $htmlForm .= '<p>';
+        $htmlForm .= '' . __('Picture', 'gcms_pilzformular') . ': <br />';
+        $htmlForm .= '<input type="file" name="' . self::input_thumbnail . '" multiple="false" />';
+        $htmlForm .= '</p>';
 
-        return $data;
+        return $htmlForm;
     }
 
     function validate($validationResult)

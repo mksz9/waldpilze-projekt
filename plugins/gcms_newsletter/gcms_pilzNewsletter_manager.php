@@ -6,12 +6,14 @@ class gcms_pilzNewsletter_manager
     private $newsletterFormPrinterAndReader;
     private $emailSender;
     private $captcha;
+    private $unsubscribeSiteManager;
 
     function __construct()
     {
         $this->databaseManager = new gcms_pilzNewsletter_databaseManager();
         $this->captcha = new gcms_pilzNewsletter_captcha();
-        $this->newsletterFormPrinterAndReader = new gcms_pilzNewsletter_formPrinterAndReader($this->databaseManager, $this->captcha);
+        $this->unsubscribeSiteManager = new gcms_pilzNewsletter_unsubscribeSiteManager();
+        $this->newsletterFormPrinterAndReader = new gcms_pilzNewsletter_formPrinterAndReader($this->databaseManager, $this->captcha, $this->unsubscribeSiteManager);
         $this->emailSender = new gcms_pilzNewsletter_emailSender($this->databaseManager, $this->newsletterFormPrinterAndReader);
 
         if(is_admin())
@@ -20,11 +22,18 @@ class gcms_pilzNewsletter_manager
         }
 
         add_shortcode('newsletterHTMLPrint', array($this, 'handleNewsletterHTMLPrintShortCode'));
+
+
+        if($this->newsletterFormPrinterAndReader->unsubscribeLinkFromEmailClicked())
+        {
+            $this->doUnsubscribe();
+        }
     }
 
     function initializePlugin()
     {
         $this->databaseManager->initialize();
+        $this->unsubscribeSiteManager->addUnsubscribeInfoPageToWordpressPages();
     }
 
     function finalizePlugin()
@@ -40,6 +49,23 @@ class gcms_pilzNewsletter_manager
     function getRandomNumber()
     {
         return rand(0, 99999);
+    }
+
+    function doUnsubscribe()
+    {
+        $emailAddressToUnsubscribe = $this->newsletterFormPrinterAndReader->getEmailAddressToUnsubscribe(); // get email address from get parameter from clicked unsubscribe link in a newsletter
+        $randomNumberToVerifyUnsubscribeSentFromForm = $this->newsletterFormPrinterAndReader->getRandomNumberToVerifyUnsubscribe(); // get the random number from clicked unsubscribe link in a newsletter
+
+        if($this->databaseManager->isEmailAddressToUnsubscribeMatchingWithRandomNumberToVerifyUnsubscribe($emailAddressToUnsubscribe, $randomNumberToVerifyUnsubscribeSentFromForm)) // compare the random number from the unsubscribe link in a newsletter email with the random number (belonging to the email address) saved in the newsletter-recipients-table so not everyone can unsubscribe another email address
+        {
+            $this->databaseManager->deleteRecipient($emailAddressToUnsubscribe); // delete email address from newsletter-recipients-table
+            $this->newsletterFormPrinterAndReader->printSuccessfullUnsubscribeHTML();
+        }
+        else
+        {
+            $this->newsletterFormPrinterAndReader->printUnsuccessfullUnsubscribeHTML();
+        }
+
     }
 
     function handleNewsletterHTMLPrintShortCode()
@@ -104,21 +130,21 @@ class gcms_pilzNewsletter_manager
             }
         }
         // unsubscribe from newsletter link in normal newsletter email clicked => remove email address from newsletterrecipients
-        else if($this->newsletterFormPrinterAndReader->unsubscribeLinkFromEmailClicked())
-        {
-            $emailAddressToUnsubscribe = $this->newsletterFormPrinterAndReader->getEmailAddressToUnsubscribe(); // get email address from get parameter from clicked unsubscribe link in a newsletter
-            $randomNumberToVerifyUnsubscribeSentFromForm = $this->newsletterFormPrinterAndReader->getRandomNumberToVerifyUnsubscribe(); // get the random number from clicked unsubscribe link in a newsletter
-
-            if($this->databaseManager->isEmailAddressToUnsubscribeMatchingWithRandomNumberToVerifyUnsubscribe($emailAddressToUnsubscribe, $randomNumberToVerifyUnsubscribeSentFromForm)) // compare the random number from the unsubscribe link in a newsletter email with the random number (belonging to the email address) saved in the newsletter-recipients-table so not everyone can unsubscribe another email address
-            {
-                $this->databaseManager->deleteRecipient($emailAddressToUnsubscribe); // delete email address from newsletter-recipients-table
-                $this->newsletterFormPrinterAndReader->printSuccessfullUnsubscribeHTML();
-            }
-            else
-            {
-                $this->newsletterFormPrinterAndReader->printUnsuccessfullUnsubscribeHTML();
-            }
-        }
+//        else if($this->newsletterFormPrinterAndReader->unsubscribeLinkFromEmailClicked())
+//        {
+//            $emailAddressToUnsubscribe = $this->newsletterFormPrinterAndReader->getEmailAddressToUnsubscribe(); // get email address from get parameter from clicked unsubscribe link in a newsletter
+//            $randomNumberToVerifyUnsubscribeSentFromForm = $this->newsletterFormPrinterAndReader->getRandomNumberToVerifyUnsubscribe(); // get the random number from clicked unsubscribe link in a newsletter
+//
+//            if($this->databaseManager->isEmailAddressToUnsubscribeMatchingWithRandomNumberToVerifyUnsubscribe($emailAddressToUnsubscribe, $randomNumberToVerifyUnsubscribeSentFromForm)) // compare the random number from the unsubscribe link in a newsletter email with the random number (belonging to the email address) saved in the newsletter-recipients-table so not everyone can unsubscribe another email address
+//            {
+//                $this->databaseManager->deleteRecipient($emailAddressToUnsubscribe); // delete email address from newsletter-recipients-table
+//                $this->newsletterFormPrinterAndReader->printSuccessfullUnsubscribeHTML();
+//            }
+//            else
+//            {
+//                $this->newsletterFormPrinterAndReader->printUnsuccessfullUnsubscribeHTML();
+//            }
+//        }
         else
         {
             $this->newsletterFormPrinterAndReader->printSubscribeForNewsletterHTML();

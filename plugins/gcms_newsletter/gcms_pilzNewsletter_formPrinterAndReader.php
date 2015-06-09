@@ -14,12 +14,14 @@
 
         private $databaseManager;
         private $captcha;
+        private $unsubscribeSiteManager;
 
 
-        function __construct($databaseManager, $captcha)
+        function __construct($databaseManager, $captcha, $unsubscribeSiteManager)
         {
             $this->databaseManager = $databaseManager;
             $this->captcha = $captcha;
+            $this->unsubscribeSiteManager = $unsubscribeSiteManager;
         }
 
         function printSubscribeForNewsletterHTML()
@@ -139,7 +141,10 @@
         function generateUnsubscribeURLForEmail($recipientEmailAddress)
         {
             $randomNumberToVerifyUnsubscribe = $this->databaseManager->getRandomNumberToVerifyUnsubscribeForEmailAddressFromDatabase($recipientEmailAddress);
-            return $this->getURL().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+            return $this->unsubscribeSiteManager->getURLOfUnsubscribeSite().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+
+            //return $this->getURL().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+            //return plugin_dir_url(__FILE__).'gcms_pilzNewsletter_unsubscribe.php?'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
         }
 
         function getURL()
@@ -149,7 +154,18 @@
 
         function generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber)
         {
-            return $this->getURL().'&'.self::getParameter_randomNumberToVerifyAspirant_name.'='.$randomNumber;
+            //return $this->getURL().'&'.self::getParameter_randomNumberToVerifyAspirant_name.'='.$randomNumber;
+            $returnURL = $this->getURL();
+            if(strpos($returnURL, '?'))
+            {
+                $returnURL = $returnURL.'&';
+            }
+            else
+            {
+                $returnURL = $returnURL.'?';
+            }
+            $returnURL = $returnURL.self::getParameter_randomNumberToVerifyAspirant_name.'='.$randomNumber;
+            return $returnURL;
         }
     }
 

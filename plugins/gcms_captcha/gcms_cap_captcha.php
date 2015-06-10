@@ -28,7 +28,8 @@ class gcms_cap_captcha
     {
         add_action('captchaHourlyEvent', 'deleteFilesOlderThenOneHour');
 
-        $this->captchaUploadsDir = wp_upload_dir()['basedir'] . DIRECTORY_SEPARATOR . 'gcms_captcha' . DIRECTORY_SEPARATOR;
+        $wp_upload_dir = wp_upload_dir();
+        $this->captchaUploadsDir = $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'gcms_captcha' . DIRECTORY_SEPARATOR;
 
         $accessFile = $this->captchaUploadsDir . '.htaccess';
         if (!file_exists($accessFile)) {

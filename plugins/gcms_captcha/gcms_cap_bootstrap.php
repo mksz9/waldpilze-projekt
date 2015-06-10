@@ -21,7 +21,7 @@ class gcms_cap_bootstrap
     {
         add_action('init', array($this, 'init'));
         register_activation_hook(__FILE__, array($this, 'pluginActivated'));
-        register_deactivation_hook(__FILE__, 'pluginDeactivation');
+        register_deactivation_hook(__FILE__, array($this, 'pluginDeactivation'));
     }
 
     function init()

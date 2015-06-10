@@ -141,7 +141,24 @@
         function generateUnsubscribeURLForEmail($recipientEmailAddress)
         {
             $randomNumberToVerifyUnsubscribe = $this->databaseManager->getRandomNumberToVerifyUnsubscribeForEmailAddressFromDatabase($recipientEmailAddress);
-            return $this->unsubscribeSiteManager->getURLOfUnsubscribeSite().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+            //return $this->unsubscribeSiteManager->getURLOfUnsubscribeSite().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+
+            $returnURL = $this->unsubscribeSiteManager->getURLOfUnsubscribeSite();
+            if(!strpos($returnURL, '?'))
+            {
+                $returnURL = $returnURL.'?';
+            }
+            else
+            {
+                $returnURL = $returnURL.'&';
+            }
+            $returnURL = $returnURL.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+
+            return $returnURL;
+
+
+
+
 
             //return $this->getURL().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
             //return plugin_dir_url(__FILE__).'gcms_pilzNewsletter_unsubscribe.php?'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;

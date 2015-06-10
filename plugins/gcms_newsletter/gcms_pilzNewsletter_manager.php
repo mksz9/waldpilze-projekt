@@ -28,6 +28,8 @@ class gcms_pilzNewsletter_manager
         {
             $this->doUnsubscribe();
         }
+
+        //echo $this->newsletterFormPrinterAndReader->generateUnsubscribeURLForEmail('Patrick.Sippl@t-online.de');
     }
 
     function initializePlugin()

@@ -11,7 +11,6 @@
 
         function getURLOfUnsubscribeSite()
         {
-            //return get_permalink(get_page_by_path(self::title));
             return get_page_by_path(self::title)->guid;
         }
 
@@ -25,7 +24,6 @@
             $page['post_author']  = $user_ID;
             $page['post_status']  = 'publish';
             $page['post_title']   = self::title;
-            $page = apply_filters('yourplugin_add_new_page', $page, 'teams');
 
             if(!$this->pageAlreadyExists())
             {

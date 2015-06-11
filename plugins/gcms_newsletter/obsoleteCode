@@ -17,3 +17,62 @@
 
 include_once('C:\xampp\htdocs\wordpress_waldpilze\wp-includes\plugin.php');
         do_action('newSubscribe');
+
+
+
+
+
+            //return $this->getURL().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+            //return plugin_dir_url(__FILE__).'gcms_pilzNewsletter_unsubscribe.php?'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
+
+
+
+
+// unsubscribe from newsletter link in normal newsletter email clicked => remove email address from newsletterrecipients
+//        else if($this->newsletterFormPrinterAndReader->unsubscribeLinkFromEmailClicked())
+//        {
+//            $emailAddressToUnsubscribe = $this->newsletterFormPrinterAndReader->getEmailAddressToUnsubscribe(); // get email address from get parameter from clicked unsubscribe link in a newsletter
+//            $randomNumberToVerifyUnsubscribeSentFromForm = $this->newsletterFormPrinterAndReader->getRandomNumberToVerifyUnsubscribe(); // get the random number from clicked unsubscribe link in a newsletter
+//
+//            if($this->databaseManager->isEmailAddressToUnsubscribeMatchingWithRandomNumberToVerifyUnsubscribe($emailAddressToUnsubscribe, $randomNumberToVerifyUnsubscribeSentFromForm)) // compare the random number from the unsubscribe link in a newsletter email with the random number (belonging to the email address) saved in the newsletter-recipients-table so not everyone can unsubscribe another email address
+//            {
+//                $this->databaseManager->deleteRecipient($emailAddressToUnsubscribe); // delete email address from newsletter-recipients-table
+//                $this->newsletterFormPrinterAndReader->printSuccessfullUnsubscribeHTML();
+//            }
+//            else
+//            {
+//                $this->newsletterFormPrinterAndReader->printUnsuccessfullUnsubscribeHTML();
+//            }
+//        }
+
+
+            //return get_permalink(get_page_by_path(self::title));
+
+
+
+    function startScheduledSending()
+    {
+        //$this->addScheduledIntervalToWpSchedules();
+
+        add_action('periodicalSendPilzNewsletterHook', array($this, 'sendNewsletter'));
+
+
+        wp_schedule_event(time(), 'minutes_1', 'periodicalSendPilzNewsletterHook');
+
+    }
+
+    function addScheduledIntervalToWpSchedules()
+    {
+        add_filter('cron_schedules', array($this, 'addNewIntervalToSchedules'));
+    }
+
+    function addNewIntervalToSchedules($schedules)
+    {
+        $schedules['minutes_1'] = array('interval'=>10, 'display'=>'Every 10 seconds');
+        return $schedules;
+    }
+
+    function  stopScheduledSending()
+    {
+        wp_clear_scheduled_hook('periodicalSendPilzNewsletterHook');
+    }

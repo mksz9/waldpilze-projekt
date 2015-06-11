@@ -32,7 +32,7 @@
                     <input type="text" name="<?php echo self::input_email_name ?>" maxlength="30">
 
                     <?php
-                        if(class_exists('gcms_cap_captcha'))
+                        if($this->captcha->isCaptchaPluginActive())
                         {
                             $this->captcha->printCaptcha(self::input_captchaValue_name);
                         }
@@ -74,20 +74,6 @@
         {
             ?>
                 <p>Newsletter confirmation was already sent to the following email address: <?php echo $this->getNewSubscribedMailAdressForNewsletter() ?><br>New confirmation email was sent.</p>
-            <?php
-        }
-
-        function printSuccessfullUnsubscribeHTML()
-        {
-            ?>
-                <p>you successfully unsubscribed the following email address from our newsletter: <?php echo $this->getEmailAddressToUnsubscribe() ?></p>
-            <?php
-        }
-
-        function printUnsuccessfullUnsubscribeHTML()
-        {
-            ?>
-                <p>We couldnt unsubscribe the following email address from our newsletter: <?php echo $this->getEmailAddressToUnsubscribe() ?><br>you are not authorized</p>
             <?php
         }
 
@@ -141,8 +127,6 @@
         function generateUnsubscribeURLForEmail($recipientEmailAddress)
         {
             $randomNumberToVerifyUnsubscribe = $this->databaseManager->getRandomNumberToVerifyUnsubscribeForEmailAddressFromDatabase($recipientEmailAddress);
-            //return $this->unsubscribeSiteManager->getURLOfUnsubscribeSite().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
-
             $returnURL = $this->unsubscribeSiteManager->getURLOfUnsubscribeSite();
             if(!strpos($returnURL, '?'))
             {
@@ -153,15 +137,7 @@
                 $returnURL = $returnURL.'&';
             }
             $returnURL = $returnURL.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
-
             return $returnURL;
-
-
-
-
-
-            //return $this->getURL().'&'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
-            //return plugin_dir_url(__FILE__).'gcms_pilzNewsletter_unsubscribe.php?'.self::getParameter_emailToUnsubscribe_name.'='.$recipientEmailAddress.'&'.self::getParameter_randomNumberToVerifyUnsubscribe_name.'='.$randomNumberToVerifyUnsubscribe;
         }
 
         function getURL()
@@ -171,7 +147,6 @@
 
         function generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber)
         {
-            //return $this->getURL().'&'.self::getParameter_randomNumberToVerifyAspirant_name.'='.$randomNumber;
             $returnURL = $this->getURL();
             if(strpos($returnURL, '?'))
             {
@@ -185,5 +160,8 @@
             return $returnURL;
         }
     }
+
+
+
 
 ?>

@@ -7,13 +7,6 @@
      */
 
 
-
-	 
-	 // input feld auslesen: sanitize_text_field
-	 // esc_attr: html attribute aus variablen zusammenbauen
-	 // sanitize_mail beim auslesen aus post
-
-
 if (!class_exists('gcms_pilzNewsletter'))
 {
     class gcms_pilzNewsletter

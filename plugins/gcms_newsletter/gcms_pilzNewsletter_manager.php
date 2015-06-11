@@ -61,13 +61,7 @@ class gcms_pilzNewsletter_manager
         if($this->databaseManager->isEmailAddressToUnsubscribeMatchingWithRandomNumberToVerifyUnsubscribe($emailAddressToUnsubscribe, $randomNumberToVerifyUnsubscribeSentFromForm)) // compare the random number from the unsubscribe link in a newsletter email with the random number (belonging to the email address) saved in the newsletter-recipients-table so not everyone can unsubscribe another email address
         {
             $this->databaseManager->deleteRecipient($emailAddressToUnsubscribe); // delete email address from newsletter-recipients-table
-            $this->newsletterFormPrinterAndReader->printSuccessfullUnsubscribeHTML();
         }
-        else
-        {
-            $this->newsletterFormPrinterAndReader->printUnsuccessfullUnsubscribeHTML();
-        }
-
     }
 
     function handleNewsletterHTMLPrintShortCode()
@@ -131,22 +125,6 @@ class gcms_pilzNewsletter_manager
                 $this->newsletterFormPrinterAndReader->printUnsuccessfullNewsletterConfirmationHTML();
             }
         }
-        // unsubscribe from newsletter link in normal newsletter email clicked => remove email address from newsletterrecipients
-//        else if($this->newsletterFormPrinterAndReader->unsubscribeLinkFromEmailClicked())
-//        {
-//            $emailAddressToUnsubscribe = $this->newsletterFormPrinterAndReader->getEmailAddressToUnsubscribe(); // get email address from get parameter from clicked unsubscribe link in a newsletter
-//            $randomNumberToVerifyUnsubscribeSentFromForm = $this->newsletterFormPrinterAndReader->getRandomNumberToVerifyUnsubscribe(); // get the random number from clicked unsubscribe link in a newsletter
-//
-//            if($this->databaseManager->isEmailAddressToUnsubscribeMatchingWithRandomNumberToVerifyUnsubscribe($emailAddressToUnsubscribe, $randomNumberToVerifyUnsubscribeSentFromForm)) // compare the random number from the unsubscribe link in a newsletter email with the random number (belonging to the email address) saved in the newsletter-recipients-table so not everyone can unsubscribe another email address
-//            {
-//                $this->databaseManager->deleteRecipient($emailAddressToUnsubscribe); // delete email address from newsletter-recipients-table
-//                $this->newsletterFormPrinterAndReader->printSuccessfullUnsubscribeHTML();
-//            }
-//            else
-//            {
-//                $this->newsletterFormPrinterAndReader->printUnsuccessfullUnsubscribeHTML();
-//            }
-//        }
         else
         {
             $this->newsletterFormPrinterAndReader->printSubscribeForNewsletterHTML();
@@ -156,6 +134,5 @@ class gcms_pilzNewsletter_manager
     }
 
 }
-
 
 ?>

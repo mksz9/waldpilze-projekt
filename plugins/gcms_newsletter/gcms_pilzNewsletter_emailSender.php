@@ -62,44 +62,6 @@ class gcms_pilzNewsletter_emailSender
     {
         return '<br><a href="'.$this->formPrinterAndReader->generateUnsubscribeURLForEmail($recipientEmailAddress).'">Click here to unsubscribe this email address from our newsletter!</a><br>';
     }
-
-
-
-
-
-
-
-
-
-
-
-
-    function startScheduledSending()
-    {
-        //$this->addScheduledIntervalToWpSchedules();
-
-        add_action('periodicalSendPilzNewsletterHook', array($this, 'sendNewsletter'));
-
-
-        wp_schedule_event(time(), 'minutes_1', 'periodicalSendPilzNewsletterHook');
-
-    }
-
-    function addScheduledIntervalToWpSchedules()
-    {
-        add_filter('cron_schedules', array($this, 'addNewIntervalToSchedules'));
-    }
-
-    function addNewIntervalToSchedules($schedules)
-    {
-        $schedules['minutes_1'] = array('interval'=>10, 'display'=>'Every 10 seconds');
-        return $schedules;
-    }
-
-    function  stopScheduledSending()
-    {
-        wp_clear_scheduled_hook('periodicalSendPilzNewsletterHook');
-    }
 }
 
 ?>

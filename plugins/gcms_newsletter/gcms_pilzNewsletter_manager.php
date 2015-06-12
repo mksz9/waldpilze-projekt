@@ -8,6 +8,8 @@ class gcms_pilzNewsletter_manager
     private $captcha;
     private $unsubscribeSiteManager;
 
+
+
     function __construct()
     {
         $this->databaseManager = new gcms_pilzNewsletter_databaseManager();
@@ -15,6 +17,8 @@ class gcms_pilzNewsletter_manager
         $this->unsubscribeSiteManager = new gcms_pilzNewsletter_unsubscribeSiteManager();
         $this->newsletterFormPrinterAndReader = new gcms_pilzNewsletter_formPrinterAndReader($this->databaseManager, $this->captcha, $this->unsubscribeSiteManager);
         $this->emailSender = new gcms_pilzNewsletter_emailSender($this->databaseManager, $this->newsletterFormPrinterAndReader);
+
+
 
         if(is_admin())
         {
@@ -28,6 +32,7 @@ class gcms_pilzNewsletter_manager
         {
             $this->doUnsubscribe();
         }
+
 
         //echo $this->newsletterFormPrinterAndReader->generateUnsubscribeURLForEmail('Patrick.Sippl@t-online.de');
     }

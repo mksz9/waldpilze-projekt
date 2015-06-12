@@ -11,18 +11,30 @@ class gcms_pilzNewsletter_emailSender
         $this->formPrinterAndReader = $formPrinterAndReader;
 
 
-
-        add_action('newPilzContent', array($this, 'sendNewsletter'));
+        add_action('publish_pilze', array($this, 'sendNewsletter'));
     }
 
-    function sendNewsletter()
+    function sendNewsletter($post_ID)
+    {
+        $newPost = get_post($post_ID);
+
+        $this->setEmailContentTypeToHTML();
+
+        foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
+        {
+            $recipientEmailAddress = $recipient->email;
+            wp_mail($recipientEmailAddress, 'new Pilz: '.$newPost->post_title, $this->getContentWithNewPilzToSend($recipientEmailAddress, $newPost->guid));
+        }
+    }
+
+    function sendReminder()
     {
         $this->setEmailContentTypeToHTML();
 
         foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
         {
             $recipientEmailAddress = $recipient->email;
-            wp_mail($recipientEmailAddress, 'Pilz-Newsletter', $this->getContentToSend($recipientEmailAddress));
+            wp_mail($recipientEmailAddress, 'new pilz-content', $this->getReminderContentToSend($recipientEmailAddress));
         }
     }
 
@@ -56,9 +68,15 @@ class gcms_pilzNewsletter_emailSender
         return filter_var($emailAddress, FILTER_VALIDATE_EMAIL);
     }
 
-    function getContentToSend($recipientEmailAddress)
+    function getContentWithNewPilzToSend($recipientEmailAddress, $newPilzURL)
     {
-        $content = '<h1>PilzReminder</h1><br><p>There is new content on our pilz-Site. Visit us again <a href="'.home_url().'">here</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
+        $content = '<p>Dear user, </p><br><p>there is a new pilz on our pilz-site. See the new pilz <a href="'.$newPilzURL.'">here</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
+        return $content;
+    }
+
+    function getReminderContentToSend($recipientEmailAddress)
+    {
+        $content = '<p>Dear user, </p><br><p>there is new pilz-content for you to see under <a href="'.home_url().'">here</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
         return $content;
     }
 

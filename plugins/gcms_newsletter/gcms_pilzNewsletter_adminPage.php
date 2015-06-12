@@ -14,11 +14,11 @@ class gcms_pilzNewsletter_adminPage
 
         if ($this->isNewsletterTriggered())
         {
-            $this->emailSender->sendNewsletter();
+            $this->emailSender->sendReminder();
             $this->printSuccessfullNewsletterAlertBox();
         }
 
-        add_menu_page('Pilz-Newsletter Plugin Page', 'Pilz-Newsletter Administration', 'manage_options', 'pilz-newsletter-plugin', array($this, 'initPilzNewsletterAdminPage'));
+        add_menu_page('Pilz-Newsletter Plugin Page', 'Pilz-Newsletter-Reminder Administration', 'manage_options', 'pilz-newsletter-plugin', array($this, 'initPilzNewsletterAdminPage'));
     }
 
     function isNewsletterTriggered()
@@ -34,7 +34,7 @@ class gcms_pilzNewsletter_adminPage
     function printSuccessfullNewsletterAlertBox()
     {
         ?>
-            <script language="javascript">alert("newsletter successfully sent")</script>'
+            <script language="javascript">alert("Reminder successfully sent")</script>'
         <?php
     }
 
@@ -42,9 +42,9 @@ class gcms_pilzNewsletter_adminPage
     {
         ?>
             <h1>Pilz-Newsletter-Administration</h1>
-            <p>sending the newsletter sends the last 3 posts to all recipients</p>
+            <p>sending the reminder reminds the user to visit the pilz-site again</p>
             <form method="post" action="<?php esc_url($_SERVER['REQUEST_URI']) ?>">
-            <button type="submit" name="<?php echo self::postParameter_sendNewsletter ?>">Newsletter versenden</button>
+            <button type="submit" name="<?php echo self::postParameter_sendNewsletter ?>">send Reminder</button>
             </form>
             </br>
             </br>

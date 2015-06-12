@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="gcms_PilzNewsletter.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gcms_PilzNewsletter.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="178" max-vertical-offset="1071">
-              <caret line="32" column="62" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
+            <state vertical-scroll-proportion="0.858864" vertical-offset="385" max-vertical-offset="1054">
+              <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
               <folding>
                 <element signature="e#10#203#0#PHP" expanded="true" />
               </folding>
@@ -40,7 +40,7 @@
       <file leaf-file-name="gcms_pilzNewsletter_manager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-25.346153" vertical-offset="4" max-vertical-offset="2601">
+            <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="2601">
               <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
@@ -60,7 +60,7 @@
       <file leaf-file-name="gcms_pilzNewsletter_databaseManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-21.26923" vertical-offset="2048" max-vertical-offset="2941">
+            <state vertical-scroll-proportion="0.0" vertical-offset="2048" max-vertical-offset="2941">
               <caret line="153" column="42" selection-start-line="153" selection-start-column="42" selection-end-line="153" selection-end-column="42" />
               <folding>
                 <marker date="1433228232000" expanded="true" signature="1925:1936" placeholder="DROP TABLE $..." />
@@ -79,17 +79,17 @@
       <file leaf-file-name="gcms_pilzNewsletter_unsubscribeSiteManager.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_unsubscribeSiteManager.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="884">
+            <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="884">
               <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gcms_pilzNewsletter_emailSender.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gcms_pilzNewsletter_emailSender.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3909091" vertical-offset="0" max-vertical-offset="1598">
+            <state vertical-scroll-proportion="-19.461538" vertical-offset="718" max-vertical-offset="1598">
               <caret line="72" column="99" selection-start-line="72" selection-start-column="99" selection-end-line="72" selection-end-column="99" />
               <folding />
             </state>
@@ -99,7 +99,7 @@
       <file leaf-file-name="gcms_pilzNewsletter_adminPage.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-24.846153" vertical-offset="136" max-vertical-offset="1190">
+            <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1190">
               <caret line="46" column="105" selection-start-line="46" selection-start-column="105" selection-end-line="46" selection-end-column="105" />
               <folding />
             </state>
@@ -122,11 +122,11 @@
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_unsubscribeSiteManager.php" />
         <option value="$PROJECT_DIR$/obsoleteCode" />
-        <option value="$PROJECT_DIR$/gcms_PilzNewsletter.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_pilzWidget.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_manager.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php" />
         <option value="$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php" />
+        <option value="$PROJECT_DIR$/gcms_PilzNewsletter.php" />
       </list>
     </option>
   </component>
@@ -206,9 +206,6 @@
       <BehatRunner />
       <method />
     </configuration>
-    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
-      <method />
-    </configuration>
     <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
       <node-options />
       <gulpfile />
@@ -216,6 +213,9 @@
       <arguments />
       <pass-parent-envs>true</pass-parent-envs>
       <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
     <list size="0" />
@@ -234,13 +234,13 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -253,9 +253,9 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -693,13 +693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_pilzWidget.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="629">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_formPrinterAndReader.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1623" max-vertical-offset="2924">
@@ -708,19 +701,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="178" max-vertical-offset="1071">
-          <caret line="32" column="62" selection-start-line="32" selection-start-column="62" selection-end-line="32" selection-end-column="62" />
-          <folding>
-            <element signature="e#10#203#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_databaseManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-21.26923" vertical-offset="2048" max-vertical-offset="2941">
+        <state vertical-scroll-proportion="0.0" vertical-offset="2048" max-vertical-offset="2941">
           <caret line="153" column="42" selection-start-line="153" selection-start-column="42" selection-end-line="153" selection-end-column="42" />
           <folding>
             <marker date="1433228232000" expanded="true" signature="1925:1936" placeholder="DROP TABLE $..." />
@@ -737,7 +720,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_unsubscribeSiteManager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.346153" vertical-offset="0" max-vertical-offset="884">
+        <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="884">
           <caret line="25" column="48" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="48" />
           <folding />
         </state>
@@ -745,7 +728,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_manager.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-25.346153" vertical-offset="4" max-vertical-offset="2601">
+        <state vertical-scroll-proportion="0.0" vertical-offset="4" max-vertical-offset="2601">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
@@ -753,7 +736,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_adminPage.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-24.846153" vertical-offset="136" max-vertical-offset="1190">
+        <state vertical-scroll-proportion="0.0" vertical-offset="136" max-vertical-offset="1190">
           <caret line="46" column="105" selection-start-line="46" selection-start-column="105" selection-end-line="46" selection-end-column="105" />
           <folding />
         </state>
@@ -761,9 +744,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/gcms_pilzNewsletter_emailSender.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3909091" vertical-offset="0" max-vertical-offset="1598">
+        <state vertical-scroll-proportion="-19.461538" vertical-offset="718" max-vertical-offset="1598">
           <caret line="72" column="99" selection-start-line="72" selection-start-column="99" selection-end-line="72" selection-end-column="99" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gcms_PilzNewsletter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.858864" vertical-offset="385" max-vertical-offset="1054">
+          <caret line="52" column="53" selection-start-line="52" selection-start-column="53" selection-end-line="52" selection-end-column="53" />
+          <folding>
+            <element signature="e#10#203#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

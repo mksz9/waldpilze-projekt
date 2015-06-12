@@ -33,7 +33,6 @@ if (!class_exists('gcms_pilzNewsletter'))
             include_once('gcms_pilzNewsletter_adminPage.php');
             include_once('gcms_pilzNewsletter_captcha.php');
             include_once('gcms_pilzNewsletter_unsubscribeSiteManager.php');
-            include_once('gcms_pilzNewsletter_pilzWidget.php');
 
             require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
             require_once( ABSPATH . 'wp-includes/pluggable.php' );

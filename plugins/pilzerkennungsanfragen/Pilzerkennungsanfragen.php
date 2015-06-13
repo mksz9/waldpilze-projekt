@@ -9,11 +9,11 @@
 defined( 'ABSPATH' ) or die( 'Zugriff nur innerhalb von Wordpress gestattet.' );
 
 /*
- * Diese Funktion erstellt einen neuen Custom-Post-Type: 'PE-Anfrage'.
+ * Diese Funktion erstellt einen neuen Custom-Post-Type: 'PEAnfrage'.
  */
 add_action( 'init', 'wp_pea_create_post_type');
 function wp_pea_create_post_type() {
-    register_post_type( 'PE-Anfrage',
+    register_post_type( 'PEAnfrage',
         array(
             'labels' => array (
                 'name' => 'Pilzerkennungsanfragen',
@@ -78,7 +78,7 @@ function wp_pea_saveCommentAsSolution($content) {
  */
 add_action( 'add_meta_boxes', 'wp_pea_status_addMetabox');
 function wp_pea_status_addMetabox() {
-    add_meta_box('status', 'Aktueller Status', 'wp_pea_metaboxContent', 'PE-Anfrage', 'side');
+    add_meta_box('status', 'Aktueller Status', 'wp_pea_metaboxContent', 'PEAnfrage', 'side');
 }
 
 /*
@@ -117,9 +117,9 @@ function wp_pea_metaboxContent()  {
  */
 add_action( 'save_post', 'wp_pea_save_metaboxesData');
 function wp_pea_save_metaboxesData() {
-    // Nur für den PostType 'PE-Anfrage'
+    // Nur für den PostType 'PEAnfrage'
     $postType = get_post_type();
-    if(!$postType == 'pe-anfrage')
+    if(!$postType == 'PEAnfrage')
         return;
 
     // Status speichern, gelöst oder nicht gelöst (Checkbox)
@@ -133,7 +133,7 @@ function wp_pea_save_metaboxesData() {
 }
 
 /*
- * In den Kommentaren von 'PE-Anfrage'...
+ * In den Kommentaren von 'PEAnfrage'...
  * 1. Einen Link erstellen mit dem ein Kommentar als richtig markiert und die Anfrage als gelöst werden kann
  * 2. Falls ein Kommentar als gelöst markiert ist, dann dort  eine Information mit Bild hinterlassen
  */
@@ -141,7 +141,7 @@ add_filter( 'comments_array' , 'wp_pea_modify_comments' , 10, 2 ); //TODO 10, 2?
 function wp_pea_modify_comments($comments , $post_id) {
     $postType = get_post_type();
     foreach($comments as $comment){
-        if($postType == 'pe-anfrage'){
+        if($postType == 'PEAnfrage'){
             // 1. Link erstellen, damit ein Kommentar als richtig markiert werden kann
             // Link nur erstellen, falls der 'eingeloggter Benutzer = Ersteller des Posts'
             global $post;
@@ -169,7 +169,7 @@ function wp_pea_modify_comments($comments , $post_id) {
 }
 
 /*
- * Erstellt ein HTML-Formular per Shortcode ins Frontend mit dem Posts vom Typ 'PE-Anfragen' erstellt
+ * Erstellt ein HTML-Formular per Shortcode ins Frontend mit dem Posts vom Typ 'PEAnfragen' erstellt
  * werden können
  */
 add_shortcode( 'pilzerkennungsformular', 'wp_pea_HTML_Form' );
@@ -224,7 +224,7 @@ function wp_pea_HTML_Form( $atts ) {
 }
 
 /*
- * Falls Daten für eine neue 'PE-Anfrage' übermittelt wurden, dann werden diese hier
+ * Falls Daten für eine neue 'PEAnfrage' übermittelt wurden, dann werden diese hier
  * validiert und in die Datenbank abgespeichert
  */
 add_action('the_content','createNewMIPost');
@@ -279,7 +279,7 @@ function createNewMIPost($content) {
                       'post_content'   => $postContent,
                       'post_title'     => $title,
                       'post_status'    => 'publish',
-                      'post_type'      => 'PE-Anfrage',
+                      'post_type'      => 'PEAnfrage',
                       'post_author'    => $currentUserID,
                       'comment_status' => 'open'
         );
@@ -415,7 +415,7 @@ class MiniForumV2_Widget extends WP_Widget {
     function widget( $args, $instance ) {
         // Widget output
         $posts = get_posts(
-            array('post_type' => 'PE-Anfrage',
+            array('post_type' => 'PEAnfrage',
                 'posts_per_page' => $instance['count'],
                 'orderby' => 'date',
                 'paged' => $instance['beginAtPosition'],

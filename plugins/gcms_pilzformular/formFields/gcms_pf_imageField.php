@@ -14,22 +14,26 @@ class gcms_pf_imageField
     function __construct()
     {
         add_filter('pilzformular_addFormField', array($this, 'printHtml'), 20);
+        add_filter('pilzformular_addFormField', array($this, 'changeFormTag'), 4);
         add_filter('pilzformular_validateInput', array($this, 'validate'));
         add_filter('pilzformular_postInserted', array($this, 'insertImage'));
+    }
+
+    function changeFormTag($htmlForm)
+    {
+        return substr_replace($htmlForm, ' onclick="return checkFileSize()"', strlen($htmlForm) - 1, 0);
     }
 
     function insertImage($postId)
     {
         $thumbnailId = $this->createImage();
 
-        if(is_wp_error($thumbnailId))
-        {
+        if (is_wp_error($thumbnailId)) {
             return $thumbnailId;
         }
 
-        if(set_post_thumbnail($postId, $thumbnailId) === false)
-        {
-            return new WP_Error( 'broke', "set post thumbnail Error" );
+        if (set_post_thumbnail($postId, $thumbnailId) === false) {
+            return new WP_Error('broke', "set post thumbnail Error");
         }
         return $postId;
     }
@@ -38,8 +42,24 @@ class gcms_pf_imageField
     {
         $htmlForm .= '<p>';
         $htmlForm .= '' . __('Picture', 'gcms_pilzformular') . ': <br />';
-        $htmlForm .= '<input type="file" name="' . self::input_thumbnail . '" multiple="false" />';
+        $htmlForm .= '<input id="imageImput" type="file" name="' . self::input_thumbnail . '" multiple="false" />';
         $htmlForm .= '</p>';
+
+        $htmlForm .= '
+        <script type="text/javascript">
+        function checkFileSize()
+        {
+            var maxSize = 2000000;
+            var fileInput = document.getElementById("imageImput");
+            if(fileInput.files.length > 0 && fileInput.files[0].size > maxSize)
+            {
+                alert("The image ist to large!");
+                fileInput.value = null;
+                return false
+            }
+            return true;
+        }
+        </script>';
 
         return $htmlForm;
     }

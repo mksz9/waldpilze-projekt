@@ -3,7 +3,7 @@
  * Plugin Name: Pilzerkennungsanfragen
  * Plugin URI: localhost/wordpress
  * Description: Bietet eine Kommunikationsmöglichkeit, wo sich Benutzer gegenseitig helfen können beim Identifizieren und Klassifizieren von Pilzen. Shortcode für das HTML-Formular [pilzerkennungsformular]. Hat außerdem ein Widget.
- * Version: 0.2
+ * Version: 0.3
  */
 
 defined( 'ABSPATH' ) or die( 'Zugriff nur innerhalb von Wordpress gestattet.' );

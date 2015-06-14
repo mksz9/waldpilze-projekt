@@ -232,9 +232,8 @@ function createNewMIPost($content) {
     $title = (isset($_POST["mushroomIdentificationRequestTitle"]) && !empty($_POST["mushroomIdentificationRequestTitle"])) ? $_POST["mushroomIdentificationRequestTitle"] : false;
     $postContent = (isset($_POST["mushroomIdentificationRequestContent"]) && !empty($_POST["mushroomIdentificationRequestContent"])) ? $_POST["mushroomIdentificationRequestContent"] : false;
     $hidden = (isset($_POST["mushroomIdentificationRequestHidden"]) && !empty($_POST["mushroomIdentificationRequestHidden"])) ? $_POST["mushroomIdentificationRequestHidden"] : false;
-    $file = $_FILES["mushroomIdentificationRequestFile"];
-    $captcha = $_POST['captcha'];
-
+	$file = (isset($_FILES["mushroomIdentificationRequestFile"]) && !empty($_FILES["mushroomIdentificationRequestFile"])) ? $_FILES["mushroomIdentificationRequestFile"] : false;
+	$captcha = (isset($_POST["captcha"]) && !empty($_POST["captcha"])) ? $_POST["captcha"] : false;
 
     $result = null;
     if($hidden != false) {

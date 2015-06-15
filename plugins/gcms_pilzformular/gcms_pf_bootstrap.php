@@ -44,11 +44,11 @@ class gcms_pf_bootstrap
         include_once('formFields/gcms_pf_securityField.php');
         include_once('formFields/gcms_pf_titleAndContentField.php');
         include_once('formFields/gcms_pf_imageField.php');
-        include_once('formFields/gcms_pf_toxicField.php');
+        include_once('formFields/gcms_pf_additionalInformationField.php');
         new gcms_pf_securityField();
         new gcms_pf_titleAndContentField();
         new gcms_pf_imageField();
-        new gcms_pf_toxicField();
+        new gcms_pf_additionalInformationField();
     }
 
     private function loadFormManager()

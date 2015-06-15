@@ -41,7 +41,7 @@ class gcms_pf_imageField
     function printHtml($htmlForm)
     {
         $htmlForm .= '<p>';
-        $htmlForm .= '' . __('Picture', 'gcms_pilzformular') . ': <br />';
+        $htmlForm .= '' . __('Picture', 'gcms_pilzformular') . '*: <br />';
         $htmlForm .= '<input id="imageImput" type="file" name="' . self::input_thumbnail . '" multiple="false" />';
         $htmlForm .= '</p>';
 

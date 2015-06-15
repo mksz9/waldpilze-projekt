@@ -30,7 +30,7 @@ class Pilzwidget_Widget_View {
 				while ($this->postObject->have_posts()) {
 					$this->postObject->the_post();
 					
-					echo '<p><a href="'.get_permalink().'">'.get_the_title().'</a></p>';
+					echo '<a class="pilzwidget_link" href="'.get_permalink().'">'.get_the_title().'</a>';
 					
 					if ($this->showThumbnail) {
 						echo '<img src="'.$this->fetchPostThumbnail(get_the_id()).'">';

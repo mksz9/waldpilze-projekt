@@ -3,7 +3,7 @@
  * Plugin Name: Pilzerkennungsanfragen
  * Plugin URI: localhost/wordpress
  * Description: Bietet eine Kommunikationsmöglichkeit, wo sich Benutzer gegenseitig helfen können beim Identifizieren und Klassifizieren von Pilzen. Shortcode für das HTML-Formular [pilzerkennungsformular]. Hat außerdem ein Widget.
- * Version: 0.3
+ * Version: 0.31
  */
 
 defined( 'ABSPATH' ) or die( 'Zugriff nur innerhalb von Wordpress gestattet.' );
@@ -13,7 +13,7 @@ defined( 'ABSPATH' ) or die( 'Zugriff nur innerhalb von Wordpress gestattet.' );
  */
 add_action( 'init', 'wp_pea_create_post_type');
 function wp_pea_create_post_type() {
-    register_post_type( 'PEAnfrage',
+    register_post_type( 'peanfrage',
         array(
             'labels' => array (
                 'name' => 'Pilzerkennungsanfragen',
@@ -31,6 +31,67 @@ function wp_pea_create_post_type() {
             )
         )
     );
+}
+
+/*
+ * Erstellt eine kleine Metabox im Admin-Bereich für den Post-Type 'Pilzerkennungsanfrage'.
+ * Diese Metabox soll aktuelle Status-Informationen über die 'Pilzerkennungsanfrage' ausgeben.
+ * Diese Funktion ruft für den Inhalt der Metabox die Funktion 'wp_pea_metaboxContent' auf.
+ */
+add_action( 'add_meta_boxes', 'wp_pea_status_addMetabox');
+function wp_pea_status_addMetabox() {
+    add_meta_box('status', 'Aktueller Status', 'wp_pea_metaboxContent', 'peanfrage', 'side');
+}
+
+/*
+ * Generiert den Inhalt der Status-Metabox:
+ * 1. Nicht gelöst oder gelöst (als Checkbox)
+ * 2. Falls gelöst, dann ebenfalls die KommentarID als Label
+ * Der Status einer Anfrage ist veränderbar (Gelöst/Nicht gelöst). KommentarID ist fest. Falls eine gelöste Anfrage
+ * als nicht gelöst markiert wird, dann wird die KommentarID gelöscht.
+ */
+function wp_pea_metaboxContent()  {
+    // Aktuellen Status auslesen (Post-Meta-Daten)
+    $status = get_post_meta(get_the_ID(), '_isSolved', true);
+
+    // Ausgabe:
+
+    echo   '<label for="isSolved">';
+    // Gelöst
+    if($status == 'on'){
+        echo '<input type="checkbox" name="isSolved" id="isSolved" checked> Gelöst <br/>
+              </label> <br/>';
+
+        // Falls gelöst, dann gib ebenfalls die KommentarID aus (Post-Meta-Daten auslesen)
+        $solutionCommentID = get_post_meta(get_the_ID(), '_solutionCommentID', true);
+        if($solutionCommentID != "")
+            echo 'Lösung (KommentarID):<br/>' . $solutionCommentID;
+    }
+    // Ungelöst
+    else {
+        echo '<input type="checkbox" name="isSolved" id="isSolved"> Gelöst
+              </label> <br/> <br/>';
+    }
+}
+
+/*
+ * Speichert die Daten die in der Metabox übermittelt wurden in der Datenbank
+ */
+add_action( 'save_post', 'wp_pea_save_metaboxesData');
+function wp_pea_save_metaboxesData() {
+    // Nur für den PostType 'PEAnfrage'
+    $postType = get_post_type();
+    if(!$postType == 'peanfrage')
+        return;
+
+    // Status speichern, gelöst oder nicht gelöst (Checkbox)
+    $postID = $_POST['post_ID'];
+    $solved = $_POST['isSolved'];
+    update_post_meta($postID, '_isSolved', $solved, false);
+
+    // Falls status = 'nicht gelöst' -> dann die KommentarID, die als gelöst markiert war, ebenfalls löschen
+    if($solved == null)
+        update_post_meta($postID, '_solutionCommentID', "", false);
 }
 
 /*
@@ -72,67 +133,6 @@ function wp_pea_saveCommentAsSolution($content) {
 }
 
 /*
- * Erstellt eine kleine Metabox im Admin-Bereich für den Post-Type 'Pilzerkennungsanfrage'.
- * Diese Metabox soll aktuelle Status-Informationen über die 'Pilzerkennungsanfrage' ausgeben.
- * Diese Funktion ruft für den Inhalt der Metabox die Funktion 'wp_pea_metaboxContent' auf.
- */
-add_action( 'add_meta_boxes', 'wp_pea_status_addMetabox');
-function wp_pea_status_addMetabox() {
-    add_meta_box('status', 'Aktueller Status', 'wp_pea_metaboxContent', 'PEAnfrage', 'side');
-}
-
-/*
- * Generiert den Inhalt der Status-Metabox:
- * 1. Nicht gelöst oder gelöst (als Checkbox)
- * 2. Falls gelöst, dann ebenfalls die KommentarID als Label
- * Der Status einer Anfrage ist veränderbar (Gelöst/Nicht gelöst). KommentarID ist fest. Falls eine gelöste Anfrage
- * als nicht gelöst markiert wird, dann wird die KommentarID gelöscht.
- */
-function wp_pea_metaboxContent()  {
-    // Aktuellen Status auslesen (Post-Meta-Daten)
-    $status = get_post_meta(get_the_ID(), '_isSolved', true);
-
-    // Ausgabe:
-
-    echo   '<label for="isSolved">';
-    // Gelöst
-    if($status == 'on'){
-        echo '<input type="checkbox" name="isSolved" id="isSolved" checked> Gelöst <br/>
-              </label> <br/>';
-
-        // Falls gelöst, dann gib ebenfalls die KommentarID aus (Post-Meta-Daten auslesen)
-        $solutionCommentID = get_post_meta(get_the_ID(), '_solutionCommentID', true);
-        if($solutionCommentID != "")
-            echo 'Lösung (KommentarID):<br/>' . $solutionCommentID;
-    }
-    // Ungelöst
-    else {
-        echo '<input type="checkbox" name="isSolved" id="isSolved"> Gelöst
-              </label> <br/> <br/>';
-    }
-}
-
-/*
- * Speichert die Daten die in der Metabox übermittelt wurden in der Datenbank
- */
-add_action( 'save_post', 'wp_pea_save_metaboxesData');
-function wp_pea_save_metaboxesData() {
-    // Nur für den PostType 'PEAnfrage'
-    $postType = get_post_type();
-    if(!$postType == 'PEAnfrage')
-        return;
-
-    // Status speichern, gelöst oder nicht gelöst (Checkbox)
-    $postID = $_POST['post_ID'];
-    $solved = $_POST['isSolved'];
-    update_post_meta($postID, '_isSolved', $solved, false);
-
-    // Falls status = 'nicht gelöst' -> dann die KommentarID, die als gelöst markiert war, ebenfalls löschen
-    if($solved == null)
-        update_post_meta($postID, '_solutionCommentID', "", false);
-}
-
-/*
  * In den Kommentaren von 'PEAnfrage'...
  * 1. Einen Link erstellen mit dem ein Kommentar als richtig markiert und die Anfrage als gelöst werden kann
  * 2. Falls ein Kommentar als gelöst markiert ist, dann dort  eine Information mit Bild hinterlassen
@@ -141,7 +141,7 @@ add_filter( 'comments_array' , 'wp_pea_modify_comments' , 10, 2 ); //TODO 10, 2?
 function wp_pea_modify_comments($comments , $post_id) {
     $postType = get_post_type();
     foreach($comments as $comment){
-        if($postType == 'PEAnfrage'){
+        if($postType == 'peanfrage'){
             // 1. Link erstellen, damit ein Kommentar als richtig markiert werden kann
             // Link nur erstellen, falls der 'eingeloggter Benutzer = Ersteller des Posts'
             global $post;
@@ -278,7 +278,7 @@ function createNewMIPost($content) {
                       'post_content'   => $postContent,
                       'post_title'     => $title,
                       'post_status'    => 'publish',
-                      'post_type'      => 'PEAnfrage',
+                      'post_type'      => 'peanfrage',
                       'post_author'    => $currentUserID,
                       'comment_status' => 'open'
         );
@@ -414,7 +414,7 @@ class MiniForumV2_Widget extends WP_Widget {
     function widget( $args, $instance ) {
         // Widget output
         $posts = get_posts(
-            array('post_type' => 'PEAnfrage',
+            array('post_type' => 'peanfrage',
                 'posts_per_page' => $instance['count'],
                 'orderby' => 'date',
                 'paged' => $instance['beginAtPosition'],

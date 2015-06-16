@@ -8,7 +8,7 @@ get_header();
 get_sidebar();
 
 ?>
-    <div class="col-sm-9 maincontent">
+    <div class="col-sm-9 maincontent lexikon">
         <div class="box">
             <div class="row">
                 <?php
@@ -18,18 +18,14 @@ get_sidebar();
 
                 $letter = '';
 
-                if(isset($_GET['letter']))
-                {
+                if (isset($_GET['letter'])) {
                     $letter = strtoupper($_GET['letter']);
                 }
 
-                if(strlen($letter) === 1)
-                {
-                    $args['letter'] =  $letter;
-                    echo '<div class="col-sm-12"><h2> Pilze mit dem Anfangsbuchstaben '.$letter.'</h2></div>';
-                }
-                else
-                {
+                if (strlen($letter) === 1) {
+                    $args['letter'] = $letter;
+                    echo '<div class="col-sm-12"><h2> Pilze mit dem Anfangsbuchstaben ' . $letter . '</h2></div>';
+                } else {
                     echo '<div class="col-sm-12"><h2>Alle Pilze</h2></div>';
                 }
 
@@ -40,11 +36,11 @@ get_sidebar();
                 while (have_posts()) : the_post();
                     ?>
                     <div class="col-sm-4">
-                        <?php the_title(); ?>
+                        <a class="lexikon_link" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
                         <?php
                         if (has_post_thumbnail()) {
                             the_post_thumbnail('medium', array(
-                                'class' => "img-responsive thumbnail",
+                                'class' => "img-responsive ",
                             ));
                         }
                         ?>

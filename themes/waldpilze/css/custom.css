@@ -31,6 +31,7 @@ body {
     font-size: 15px;
     margin-top: 15px;
     line-height: 60px;
+    border-top: 4px solid #856a4d;
 }
 
 .header li a:hover {
@@ -159,7 +160,7 @@ input, textarea, select {
     color: #000000;
     margin-top: 3px;
     margin-bottom: 3px;
-    padding: 6px 6px;
+    padding: 4px 4px;
 }
 
 input[type=radio] + label {
@@ -178,4 +179,23 @@ input[type=text], textarea, select {
 
 .validationResult {
     color: red;
+}
+
+.lexikon img {
+    border: 1px solid #D9B899;
+    padding: 8px;
+    background: #856a4d;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.lexikon .lexikon_link {
+    font-size: 15px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.lexikon .lexikon_link:before {
+    content: "\00BB \00a0";
+    color: #fff;
 }

@@ -1,7 +1,7 @@
 <?php
     /**
      * Plugin Name: Pilz-Newsletter
-     * Description: Erweiterung f�r Pilz-Website zum verschicken von aktuellen Pilzinformationen
+     * Description: Shortcode zum Einfügen der Newsletter-Funktion in eine Seite: [newsletterHTMLPrint]
      * Version: 0.1
      * Author: Patrick Sippl
      */

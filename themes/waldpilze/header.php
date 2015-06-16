@@ -16,7 +16,7 @@
         <div class="col-sm-6">
           <img src="<?php bloginfo('template_url'); ?>/img/pilz.png">
           <h1>Waldpilze</h1>
-          <p>Slogan hier..</p>
+          <p>Biologisch jünger und gesünder</p>
         </div>
         <div class="col-sm-6">
 

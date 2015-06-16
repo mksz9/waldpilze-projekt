@@ -48,7 +48,7 @@ class gcms_pf_formManagerHelper
     {
         $validationResult = new gcms_pf_validationResult();
 
-        $validationResult->appendErrorMessage('<ul>');
+        $validationResult->appendErrorMessage('<ul class="validationResult">');
 
         $validationResult = apply_filters('pilzformular_validateInput', $validationResult, $this->formDataArray);
 

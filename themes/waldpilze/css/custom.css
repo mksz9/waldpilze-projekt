@@ -1,149 +1,180 @@
 body {
-	font-family: 'Quicksand', sans-serif;
-	font-weight: normal;
-	font-size: 14px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: normal;
+    font-size: 14px;
 }
 
 .header {
-	background: #856a4d;
-	text-transform: uppercase;
-	color: #fff;
-	height: 100px;
+    background: #856a4d;
+    text-transform: uppercase;
+    color: #fff;
+    height: 100px;
 }
 
 .header ul {
-	
+
 }
 
 .header li {
-	display: inline-block;
-	list-style-type: none;
-	margin-right: 15px;
-	text-align: center;
+    display: inline-block;
+    list-style-type: none;
+    margin-right: 15px;
+    text-align: center;
 }
 
 .header li a {
-	color: #fff;
-	text-decoration: none;
-	display: block;
-	width: 110px;
-	font-weight: bold;
-	font-size: 15px;
-	margin-top: 15px;
-	line-height: 60px;
+    color: #fff;
+    text-decoration: none;
+    display: block;
+    width: 110px;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 15px;
+    line-height: 60px;
 }
 
 .header li a:hover {
-	color: #D9B899;
-	border-top: 4px solid #D9B899;
+    color: #D9B899;
+    border-top: 4px solid #D9B899;
 }
 
 .header li:hover {
-	
+
 }
 
 .header .row:first-child {
-	margin-left: 15px;
+    margin-left: 15px;
 }
 
 .header img {
-	float: left;
-	margin-right: 15px;
+    float: left;
+    margin-right: 15px;
 }
 
 .bodywrapper {
-	background: #343434;
+    background: #343434;
 }
 
 .content {
-	margin: 30px 0;
-	color: #fff;
+    margin: 30px 0;
+    color: #fff;
 }
 
 .content h1, .content h2, .content h3, .content h4, .content h5, .content h6 {
-	text-transform: uppercase;
-	border-bottom: 1px solid #fff;
-	padding: 5px 0;
-	margin: 0 0 15px 0;
+    text-transform: uppercase;
+    border-bottom: 1px solid #fff;
+    padding: 5px 0;
+    margin: 0 0 15px 0;
 }
 
 .sidebar {
-	padding-right: 15px;
+    padding-right: 15px;
 }
 
 .sidebar .box {
-	background: #604b4a;
-	border-top: 3px solid #a46254;
-	border-bottom-right-radius: 30px;
-	border-bottom-left-radius: 30px;
-	padding: 20px;
+    background: #604b4a;
+    border-top: 3px solid #a46254;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 20px;
 }
 
 .maincontent {
-	padding-left: 15px;
+    padding-left: 15px;
 }
 
 .maincontent .box {
-	background: #4c3c2d;
-	border-top: 3px solid #a28460;
-	border-bottom-right-radius: 30px;
-	border-bottom-left-radius: 30px;
-	padding: 20px;
+    background: #4c3c2d;
+    border-top: 3px solid #a28460;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    padding: 20px;
 }
 
 .footer {
-	background:#1d2a32;
-	border-top:3px solid #6A7D84;
-	min-height: 150px;
-	color: #fff;
+    background: #1d2a32;
+    border-top: 3px solid #6A7D84;
+    min-height: 150px;
+    color: #fff;
 }
 
 .footer .row {
-	padding: 10px 0;
+    padding: 10px 0;
 }
 
 .footer .col-sm-4 {
-	border-right: 2px solid #6A7D84;
+    border-right: 2px solid #6A7D84;
 }
 
 .footer .col-sm-4:last-child {
-	border: none;
+    border: none;
 }
-
 
 /* CODE FÜR PILZWIDGET */
 .waldpilze_widget .pilzwidget_link:before {
-	font-size: 15px;
-	content: "\00BB \00a0";
+    font-size: 15px;
+    content: "\00BB \00a0";
 }
 
 .waldpilze_widget .pilzwidget_link {
-	display: block;
-	font-size: 15px;
-	color: #fff;
-	text-transform: uppercase;
-	margin: 10px 0 5px 0;
+    display: block;
+    font-size: 15px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 10px 0 5px 0;
 }
 
 .waldpilze_widget .pilzwidget_link {
-	margin-top: 25px;
+    margin-top: 25px;
 }
 
 .waldpilze_widget .pilzwidget_link:first-child {
-	margin: 0;
+    margin: 0;
 }
 
 .waldpilze_widget img {
-	display: block;
-	border: 1px solid #7C5952;
-	padding: 8px;
-	width: 100%;
-	background: #543C3A;
+    display: block;
+    border: 1px solid #7C5952;
+    padding: 8px;
+    width: 100%;
+    background: #543C3A;
 }
 
-.waldpilze_widget p {
-	font-size: 11px;
-	max-height: 70px;
-	overflow-y: hidden;
-	padding: 8px;
+.waldpilze_.widget p {
+    font-size: 11px;
+    max-height: 70px;
+    overflow-y: hidden;
+    padding: 8px;
+}
+
+.pilze img.thumbnail {
+    display: block;
+    border: 1px solid #7C5952;
+    padding: 8px;
+    width: 100%;
+    background: #543C3A;
+}
+
+input, textarea, select {
+    color: #000000;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+input[type=radio] + label {
+    padding-left: 5px;
+}
+
+input[type=file] {
+    color: #fff;
+}
+
+input[type=text], textarea, select {
+    width: 100%;
+    max-width: 400px;
+
+}
+
+.validationResult {
+    color: red;
 }

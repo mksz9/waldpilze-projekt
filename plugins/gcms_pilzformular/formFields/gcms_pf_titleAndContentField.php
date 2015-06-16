@@ -45,7 +45,7 @@ class gcms_pf_titleAndContentField
     {
         $htmlForm .=  '<p>';
         $htmlForm .=  __('Description', 'gcms_pilzformular') . ': <br />';
-        $htmlForm .=  '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" size="200" >' . esc_attr($data[self::input_title_content]) . '</textarea>';
+        $htmlForm .=  '<textarea type="text" name="' . self::input_title_content . '" pattern="[a-zA-Z0-9 ]+" size="200" rows="8" >' . esc_attr($data[self::input_title_content]) . '</textarea>';
         $htmlForm .=  '</p>';
 
         return $htmlForm;

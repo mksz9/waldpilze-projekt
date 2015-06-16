@@ -3,7 +3,7 @@
  * Plugin Name: Pilzerkennungsanfragen
  * Plugin URI: localhost/wordpress
  * Description: Bietet eine Kommunikationsmöglichkeit, wo sich Benutzer gegenseitig helfen können beim Identifizieren und Klassifizieren von Pilzen. Shortcode für das HTML-Formular [pilzerkennungsformular]. Hat außerdem ein Widget.
- * Version: 0.31
+ * Version: 0.32
  */
 
 defined( 'ABSPATH' ) or die( 'Zugriff nur innerhalb von Wordpress gestattet.' );
@@ -22,12 +22,12 @@ function wp_pea_create_post_type() {
                 'add_new_item' => 'Neue Pilzerkennungsanfrage erstellen',
                 'edit_item' => 'Pilzerkennungsanfrage bearbeiten',
             ),
-            'description' => 'Durch Pilzerkennungsanfragen können sich Anwender gegenseitig unterstützen beim Identifizieren von Pilzen.',
+            'description' => 'Durch Pilzerkennungsanfragen können sich Anwender gegenseitig beim Identifizieren von Pilzen unterstützen.',
             'public' => true,
             'show_ui' => true,
             'has_archive' => true,
             'supports' => array(
-                'title', 'editor', 'author', 'comments', 'revisions', 'custom-fields'
+                'title', 'editor', 'author', 'comments', 'revisions'
             )
         )
     );
@@ -85,8 +85,9 @@ function wp_pea_save_metaboxesData() {
         return;
 
     // Status speichern, gelöst oder nicht gelöst (Checkbox)
-    $postID = $_POST['post_ID'];
-    $solved = $_POST['isSolved'];
+
+    $postID =  (isset($_POST["post_ID"]) && !empty($_POST["post_ID"])) ? $_POST["post_ID"] : false;
+    $solved =  (isset($_POST["isSolved"]) && !empty($_POST["isSolved"])) ? $_POST["isSolved"] : false;
     update_post_meta($postID, '_isSolved', $solved, false);
 
     // Falls status = 'nicht gelöst' -> dann die KommentarID, die als gelöst markiert war, ebenfalls löschen

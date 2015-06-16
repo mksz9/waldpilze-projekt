@@ -74,9 +74,9 @@ class gcms_pf_formManagerHelper
         }
 
         if (is_wp_error($postId)) {
-            echo '<h2>' . __('The server encountered an internal error', 'gcms_pilzformular') . '</h2 >';
+            echo '<p>' . __('The server encountered an internal error', 'gcms_pilzformular') . '</p >';
         } else {
-            echo '<h2>' . __('The mushroom was successfully sent', 'gcms_pilzformular') . '</h2>';
+            echo '<p>' . __('The mushroom was successfully sent', 'gcms_pilzformular') . '</p>';
         }
     }
 }

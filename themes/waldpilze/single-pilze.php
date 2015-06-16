@@ -4,10 +4,11 @@ get_sidebar();
 
 function printAddInfo($additionalInformation, $key, $label)
 {
-    $value = esc_html($additionalInformation[$key]);
-    if (strlen($value) > 0)
-        echo '<p><strong >' . $label . ': </strong > ' . $value . '</p>';
-
+    if (isset($additionalInformation[$key])) {
+        $value = esc_html($additionalInformation[$key]);
+        if (strlen($value) > 0)
+            echo '<p><strong >' . $label . ': </strong > ' . $value . '</p>';
+    }
 }
 
 ?>
@@ -28,7 +29,8 @@ function printAddInfo($additionalInformation, $key, $label)
                             ?>
                         </div>
 
-                        <?php $additionalInformation = get_post_meta($post->ID, pilzDb::POST_META_ADD_INFO, true); ?>
+                        <?php $additionalInformation = get_post_meta($post->ID, pilzDb::POST_META_ADD_INFO, true);
+                        print_r($additionalInformation); ?>
 
                         <div class="col-sm-6">
                             <?php

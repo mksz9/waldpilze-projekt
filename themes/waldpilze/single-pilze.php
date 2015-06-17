@@ -6,9 +6,12 @@ function printAddInfo($additionalInformation, $key, $label)
 {
     if (isset($additionalInformation[$key])) {
         $value = esc_html($additionalInformation[$key]);
-        if (strlen($value) > 0)
+        if (strlen($value) > 0) {
             echo '<p><strong >' . $label . ': </strong > ' . $value . '</p>';
+            return;
+        }
     }
+    echo '<p><strong >' . $label . ': </strong >keine  Angaben</p>';
 }
 
 ?>
@@ -29,8 +32,7 @@ function printAddInfo($additionalInformation, $key, $label)
                             ?>
                         </div>
 
-                        <?php $additionalInformation = get_post_meta($post->ID, pilzDb::POST_META_ADD_INFO, true);
-                        print_r($additionalInformation); ?>
+                        <?php $additionalInformation = get_post_meta($post->ID, pilzDb::POST_META_ADD_INFO, true); ?>
 
                         <div class="col-sm-6">
                             <?php

@@ -87,7 +87,8 @@ Deny from all
     public function getCaptachaImageUrl()
     {
         $this->generateCaptchaImage();
-        return esc_url(wp_upload_dir()['baseurl'] . '/gcms_captcha/' . $this->filePrefix . '.png');
+        $wpUploadDir = wp_upload_dir();
+        return esc_url($wpUploadDir['baseurl'] . '/gcms_captcha/' . $this->filePrefix . '.png');
     }
 
     private function generateCaptchaImage()

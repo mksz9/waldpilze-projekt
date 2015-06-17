@@ -108,6 +108,12 @@ function wp_pea_saveCommentAsSolution($content) {
     // Falls beide Variablen übermittelt worden sind und beide nicht leer waren
     if($solutionCommentID !== false && $postID !== false){
         // Entsprechenden Post holen, falls existiert
+		$solutionCommentID_is_numeric = is_numeric($solutionCommentID);
+		$postID_is_numeric = is_numeric($postID);
+		
+		if($solutionCommentID_is_numeric == false || $postID_is_numeric == false)
+			return;
+		
         $post = get_post($postID);
         if($post == null) {
             return 'Die übermittelte PostID existiert nicht. <br/>' . $content;
@@ -175,33 +181,27 @@ function wp_pea_modify_comments($comments , $post_id) {
  */
 add_shortcode( 'pilzerkennungsformular', 'wp_pea_HTML_Form' );
 function wp_pea_HTML_Form( $atts ) {
-    /*global $post;
-    $a = shortcode_atts( array(
-        'count' => 'something',
-        'beginAtPosition' => 'something else',
-    ), $atts );*/
-
     $htmlForm = '';
     if(is_user_logged_in()) {
         // Formular referenziert die aktuelle Seite
         $currentURL = get_permalink();
         // Die aktuelle zulässige Upload-Größe des Servers
-        $maxSizeUploadMB = max_file_upload_in_bytes() / (1024 * 1024);
+        $maxSizeUploadMB = wp_pea_max_file_upload_in_bytes() / (1024 * 1024);
 
         // HTML-Formular erstellen
         $htmlForm = '<form id="mushroomIdentificationRequestID" name="mushroomIdentificationRequest" action="'.$currentURL.'" method="post" enctype="multipart/form-data">
                     <p>
-                        <label>Titel</label>
+                        <label>Titel:</label></br>
                         <input type="text" id="mushroomIdentificationRequestTitleID" name="mushroomIdentificationRequestTitle" size="30" maxlength="30"/>
                     </p>
                     <p>
-                        <label>Inhalt</label>
+                        <label>Inhalt:</label></br>
                         <textarea id="mushroomIdentificationRequestContentID" name="mushroomIdentificationRequestContent" cols="50" rows="10"></textarea>
                     </p>
                     <p>
-                        <label>Anhang</label>
+                        <label>Anhang:</label></br>
                         <input type="file" id="mushroomIdentificationRequestFileID" name="mushroomIdentificationRequestFile[]" multiple> <br/>
-                        <label>Maximale Dateigröße pro Datei: '.$maxSizeUploadMB.' MB</label>
+                        <label>Maximale Dateigröße pro Datei: </br>'.$maxSizeUploadMB.' MB</label>
                     </p>
                     <input type="hidden" name="mushroomIdentificationRequestHidden" value="post" />
                     '.wp_nonce_field( 'mushroomIdentificationRequestNonceID', 'mushroomIdentificationRequestNonce' ).'';
@@ -215,7 +215,7 @@ function wp_pea_HTML_Form( $atts ) {
 
         // HTML-Formular vervollständigen
        $htmlForm = $htmlForm .
-           '<button type="submit">Thread erstellen</button>
+           '<button class="btn btn-default" type="submit">Anfrage erstellen</button>
            </form>';
     }
     else
@@ -228,8 +228,8 @@ function wp_pea_HTML_Form( $atts ) {
  * Falls Daten für eine neue 'PEAnfrage' übermittelt wurden, dann werden diese hier
  * validiert und in die Datenbank abgespeichert
  */
-add_action('the_content','createNewMIPost');
-function createNewMIPost($content) {
+add_action('the_content','wp_pea_createNewPEAPost');
+function wp_pea_createNewPEAPost($content) {
     $title = (isset($_POST["mushroomIdentificationRequestTitle"]) && !empty($_POST["mushroomIdentificationRequestTitle"])) ? $_POST["mushroomIdentificationRequestTitle"] : false;
     $postContent = (isset($_POST["mushroomIdentificationRequestContent"]) && !empty($_POST["mushroomIdentificationRequestContent"])) ? $_POST["mushroomIdentificationRequestContent"] : false;
     $hidden = (isset($_POST["mushroomIdentificationRequestHidden"]) && !empty($_POST["mushroomIdentificationRequestHidden"])) ? $_POST["mushroomIdentificationRequestHidden"] : false;
@@ -276,8 +276,8 @@ function createNewMIPost($content) {
         // Pilzerkennungsanfrage erstellen
         $postContent = $postContent . '<br/> [gallery]';
         $post = array(
-                      'post_content'   => $postContent,
-                      'post_title'     => $title,
+                      'post_content'   => wp_strip_all_tags($postContent),
+                      'post_title'     => wp_strip_all_tags($title),
                       'post_status'    => 'publish',
                       'post_type'      => 'peanfrage',
                       'post_author'    => $currentUserID,
@@ -339,7 +339,7 @@ function createNewMIPost($content) {
 
 
 
-function getUploadErrorMsg($file) {
+function wp_pea_getUploadErrorMsg($file) {
     switch ($file["error"]) {
         case 1: /* Dateigröße (php.ini) */
             return '<p>Die hochgeladene Datei überschreitet die maximal zulässige Dateigröße.<p/>';
@@ -368,13 +368,13 @@ function getUploadErrorMsg($file) {
      * Your upload is only done if it doesn't exeed one of them.
      * Quelle: http://www.kavoir.com/2010/02/php-get-the-file-uploading-limit-max-file-size-allowed-to-upload.html
      */
-function max_file_upload_in_bytes() {
+function wp_pea_max_file_upload_in_bytes() {
     //select maximum upload size
-    $max_upload = return_bytes(ini_get('upload_max_filesize'));
+    $max_upload = wp_pea_return_bytes(ini_get('upload_max_filesize'));
     //select post limit
-    $max_post = return_bytes(ini_get('post_max_size'));
+    $max_post = wp_pea_return_bytes(ini_get('post_max_size'));
     //select memory limit
-    $memory_limit = return_bytes(ini_get('memory_limit'));
+    $memory_limit = wp_pea_return_bytes(ini_get('memory_limit'));
     // return the smallest of them, this defines the real limit
     return min($max_upload, $max_post, $memory_limit);
 }
@@ -383,7 +383,7 @@ function max_file_upload_in_bytes() {
  * Zum Beispiel: "2M" als Eingabe -> Rückgabe "2 * 1024 * 1024"
  * Quelle: http://www.kavoir.com/2010/02/php-get-the-file-uploading-limit-max-file-size-allowed-to-upload.html
  */
-function return_bytes($val) {
+function wp_pea_return_bytes($val) {
     $val = trim($val);
     $last = strtolower($val[strlen($val)-1]);
     switch($last)
@@ -400,16 +400,16 @@ function return_bytes($val) {
 
 
 
-add_action( 'widgets_init', 'miniForumV2_widget' );
-function miniForumV2_widget() {
-    register_widget( 'MiniForumV2_Widget' );
+add_action( 'widgets_init', 'wp_pea_register_widget' );
+function wp_pea_register_widget() {
+    register_widget( 'wp_pea_Widget' );
 }
 
-class MiniForumV2_Widget extends WP_Widget {
+class wp_pea_Widget extends WP_Widget {
 
-    function MiniForumV2_Widget() {
+    function wp_pea_Widget() {
         // Instantiate the parent object
-        parent::__construct( false, 'Neuste MiniForumV2-Beiträge' );
+        parent::__construct( false, 'Pilzerkennungsanfragen' );
     }
 
     function widget( $args, $instance ) {
@@ -478,7 +478,4 @@ class MiniForumV2_Widget extends WP_Widget {
                 </p>';
     }
 }
-
-
-
 ?>

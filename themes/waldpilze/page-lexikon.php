@@ -11,23 +11,11 @@ get_sidebar();
     <div class="col-sm-9 maincontent lexikon">
         <div class="box">
             <div class="row">
+                <div class="col-sm-12"><h2>Alle Pilze</h2></div>
                 <?php
                 $args = array('post_type' => pilzDb::_POST_TYPE_NAME,
                     'orderby' => 'title',
                     'order' => 'ASC');
-
-                $letter = '';
-
-                if (isset($_GET['letter'])) {
-                    $letter = strtoupper($_GET['letter']);
-                }
-
-                if (strlen($letter) === 1) {
-                    $args['letter'] = $letter;
-                    echo '<div class="col-sm-12"><h2> Pilze mit dem Anfangsbuchstaben ' . $letter . '</h2></div>';
-                } else {
-                    echo '<div class="col-sm-12"><h2>Alle Pilze</h2></div>';
-                }
 
                 // The Query
                 query_posts($args);

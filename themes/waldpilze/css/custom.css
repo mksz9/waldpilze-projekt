@@ -1,4 +1,4 @@
-body {
+﻿body {
     font-family: 'Quicksand', sans-serif;
     font-weight: normal;
     font-size: 14px;
@@ -243,4 +243,17 @@ input[type=text], textarea, select {
 .lexikon .lexikon_link:before {
     content: "\00BB \00a0";
     color: #fff;
+}
+
+div.comment:nth-of-type(even) {
+    margin-right:5%;
+    margin-top:10px;
+    padding: 5px;
+}
+
+div.comment:nth-of-type(odd) {
+    background-color: #392d21;
+    margin-right:5%;
+    margin-top:10px;
+    padding: 5px;
 }

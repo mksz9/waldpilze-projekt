@@ -26,17 +26,75 @@ register_nav_menus(
 add_theme_support('post-thumbnails');
 
 
-add_filter('posts_where', 'letter_where');
-
-function letter_where($where)
+function mytheme_customize_register( $wp_customize )
 {
-    global $wp_query;
-    global $wpdb;
+    $wp_customize->add_section('previewPageSettings', array(
+        'title'    => __('Startseite Waldpilze', 'themename'),
+        'description' => '',
+        'priority' => 120,
+    ));
 
-    if (isset($wp_query->query_vars['letter'])) {
-        $where .= " AND $wpdb->posts.post_title LIKE '" . $wp_query->query_vars['letter'] . "%'";
-    }
-    return $where;
+    //  =============================
+    //  = Page Dropdown             =
+    //  =============================
+    $wp_customize->add_setting('fristPage', array(
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+
+    $wp_customize->add_control('fristPageControl', array(
+        'label'      => __('First Page', 'themename'),
+        'section'    => 'previewPageSettings',
+        'type'    => 'dropdown-pages',
+        'settings'   => 'fristPage',
+    ));
+
+    //  =============================
+    //  = Page Dropdown             =
+    //  =============================
+    $wp_customize->add_setting('secondPage', array(
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+
+    $wp_customize->add_control('secondPageControl', array(
+        'label'      => __('Second Page', 'themename'),
+        'section'    => 'previewPageSettings',
+        'type'    => 'dropdown-pages',
+        'settings'   => 'secondPage',
+    ));
+
+    //  =============================
+    //  = Page Dropdown             =
+    //  =============================
+    $wp_customize->add_setting('thirdPage', array(
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+
+    $wp_customize->add_control('thirdPageControl', array(
+        'label'      => __('Third Page', 'themename'),
+        'section'    => 'previewPageSettings',
+        'type'    => 'dropdown-pages',
+        'settings'   => 'thirdPage',
+    ));
+
+    //  =============================
+    //  = Page Dropdown             =
+    //  =============================
+    $wp_customize->add_setting('mainPage', array(
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+
+    $wp_customize->add_control('mainPageControl', array(
+        'label'      => __('Main Page', 'themename'),
+        'section'    => 'previewPageSettings',
+        'type'    => 'dropdown-pages',
+        'settings'   => 'mainPage',
+    ));
 }
+
+add_action( 'customize_register', 'mytheme_customize_register' );
 
 ?>

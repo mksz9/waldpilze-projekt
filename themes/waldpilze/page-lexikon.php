@@ -5,14 +5,24 @@
  **/
 
 get_header();
-get_sidebar();
-
-?>
+get_sidebar(); ?>
     <div class="col-sm-9 maincontent lexikon">
         <div class="box">
             <div class="row">
-                <div class="col-sm-12"><h2>Alle Pilze</h2></div>
+
+                <div class="col-sm-12">
+                <?php if ( have_posts() ) : ?>
+                    <?php while ( have_posts() ) : // The Loop ?>
+                        <?php the_post(); ?>
+                        <h2><?php the_title(); ?></h2>
+                        <?php the_content(); ?>
+                    <?php endwhile; // end of one post ?>
+                <?php endif; // do not delete
+                wp_reset_query();?>
+                </div>
+
                 <?php
+                //Print all Pize
                 $args = array('post_type' => pilzDb::_POST_TYPE_NAME,
                     'orderby' => 'title',
                     'order' => 'ASC');
@@ -42,4 +52,3 @@ get_sidebar();
     </div>
 <?php
 get_footer();
-?>

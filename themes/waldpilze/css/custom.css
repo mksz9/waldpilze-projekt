@@ -90,6 +90,22 @@ body {
     border-bottom-right-radius: 30px;
     border-bottom-left-radius: 30px;
     padding: 20px;
+    margin-bottom: 20px;
+}
+
+.maincontent .box.yellow {
+     background: rgb(103,100,67);
+     border-top-color: rgb(199,185,34);
+ }
+
+.maincontent .box.green {
+    background: rgb(77,102,70);
+    border-top-color:rgb(56,188,68);
+}
+
+.maincontent .box.red {
+    background: rgb(96,75,74);
+    border-top-color:rgb(170,92,72);
 }
 
 .footer {

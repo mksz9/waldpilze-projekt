@@ -11,6 +11,14 @@ body {
     height: 100px;
 }
 
+.header a {
+    color: #fff;
+}
+
+.header a:hover {
+    text-decoration: none;
+}
+
 .header ul {
 
 }

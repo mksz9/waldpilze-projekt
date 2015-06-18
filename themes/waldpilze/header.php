@@ -15,7 +15,7 @@
       <div class="row">
         <div class="col-sm-6">
           <img src="<?php bloginfo('template_url'); ?>/img/pilz.png">
-          <h1>Waldpilze</h1>
+          <a href="<?php echo home_url(); ?>" class="title"><h1>Waldpilze</h1></a>
           <p>Biologisch jünger und gesünder</p>
         </div>
         <div class="col-sm-6">

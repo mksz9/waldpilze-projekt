@@ -424,8 +424,9 @@ class wp_pea_Widget extends WP_Widget {
         );
 
         global $post;
-        echo'<aside id="Pilzerkennungsanfragen" class="widget widget_recent_entries">		<h4 class="widget-title">PE-Anfragen</h4>		<ul>';
+        echo'<aside id="Pilzerkennungsanfragen" class="widget widget_recent_entries">		<h4 class="widget-title">PE-Anfragen</h4>';
         foreach($posts as $post){
+            echo '<div id="okk" style="width:100%;height:20px;">';
             setup_postdata($post);
             $status = get_post_meta(get_the_ID(), '_isSolved', true);
             $picture = '';
@@ -437,10 +438,10 @@ class wp_pea_Widget extends WP_Widget {
                 $pictureURL = plugins_url( 'notsolved.png', __FILE__ );
                 $picture = '<img src="'.$pictureURL.'" align="middle" height="20" width="20"/>';
             }
-            echo $picture . '<a href="'.get_permalink().'">'.get_the_title().'</a><br/>';
+            echo '<div style="margin-right:5px; width:20px; height:20px; float:left;">' . $picture . '</div><div style="width:auto;float:left;"><a href="'.get_permalink().'">'.get_the_title().'</a></div>';
+            echo '</div>';
         }
-        echo'</ul>
-             </aside>';
+        echo'</aside>';
     }
 
     function update( $new_instance, $old_instance ) {

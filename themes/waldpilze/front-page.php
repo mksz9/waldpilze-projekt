@@ -36,7 +36,7 @@ $mainPage = get_post(get_option('mainPage'));
 if (!is_null($mainPage)) : ?>
 
     <div class="col-sm-9 maincontent">
-        <div class="box">
+        <div class="box brown">
             <h2 class="text-center"><?php the_title(); ?></h2>
             <?php the_content(); ?>
         </div>

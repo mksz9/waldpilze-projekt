@@ -26,7 +26,7 @@ body {
     color: #fff;
     text-decoration: none;
     display: block;
-    width: 110px;
+    width: auto;
     font-weight: bold;
     font-size: 15px;
     margin-top: 15px;
@@ -98,14 +98,35 @@ body {
      border-top-color: rgb(199,185,34);
  }
 
+.maincontent .box.yellow a {
+  color: rgb(199,185,34);
+}
+
 .maincontent .box.green {
     background: rgb(77,102,70);
     border-top-color:rgb(56,188,68);
 }
 
+.maincontent .box.green a {
+    color: rgb(56,188,68)
+}
+
 .maincontent .box.red {
     background: rgb(96,75,74);
     border-top-color:rgb(170,92,72);
+}
+
+.maincontent .box.red a {
+    color: rgb(170,92,72)
+}
+
+.maincontent .box.brown {
+    background: #4c3c2d;
+    border-top-color: #856a4d;
+}
+
+.maincontent .box.brown a {
+    color: #856a4d
 }
 
 .footer {

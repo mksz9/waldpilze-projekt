@@ -29,7 +29,7 @@ add_theme_support('post-thumbnails');
 function mytheme_customize_register( $wp_customize )
 {
     $wp_customize->add_section('previewPageSettings', array(
-        'title'    => __('Startseite Waldpilze', 'themename'),
+        'title'    => __('Waldpilze', 'themename'),
         'description' => '',
         'priority' => 120,
     ));
@@ -43,7 +43,7 @@ function mytheme_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('fristPageControl', array(
-        'label'      => __('First Page', 'themename'),
+        'label'      => __('Erste Box', 'themename'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'fristPage',
@@ -58,7 +58,7 @@ function mytheme_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('secondPageControl', array(
-        'label'      => __('Second Page', 'themename'),
+        'label'      => __('_Zweite Box', 'themename'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'secondPage',
@@ -73,7 +73,7 @@ function mytheme_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('thirdPageControl', array(
-        'label'      => __('Third Page', 'themename'),
+        'label'      => __('Dritte Box', 'themename'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'thirdPage',
@@ -88,7 +88,7 @@ function mytheme_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('mainPageControl', array(
-        'label'      => __('Main Page', 'themename'),
+        'label'      => __('Info Box', 'themename'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'mainPage',

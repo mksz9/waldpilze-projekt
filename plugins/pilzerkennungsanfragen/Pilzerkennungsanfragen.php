@@ -310,7 +310,7 @@ function wp_pea_createNewPEAPost($content) {
                     );
 
                     // Jede Datei wird einzeln validiert, bevor sie in die Datenbank übermittelt wird
-                    $uploadError = getUploadErrorMsg($file);
+                    $uploadError = wp_pea_getUploadErrorMsg($file);
                     if($uploadError != "") {
                         wp_delete_post( $result, true );
                         return $uploadError . $content;
@@ -424,7 +424,7 @@ class wp_pea_Widget extends WP_Widget {
         );
 
         global $post;
-        echo'<aside id="miniForumV2-Einträge" class="widget widget_recent_entries">		<h2 class="widget-title">Letzte MiniForumV2-Beiträge</h2>		<ul>';
+        echo'<aside id="Pilzerkennungsanfragen" class="widget widget_recent_entries">		<h4 class="widget-title">PE-Anfragen</h4>		<ul>';
         foreach($posts as $post){
             setup_postdata($post);
             $status = get_post_meta(get_the_ID(), '_isSolved', true);
@@ -457,7 +457,7 @@ class wp_pea_Widget extends WP_Widget {
 
         $instance = wp_parse_args(
             (array) $instance, array(
-                'title' => 'MiniForum-Eintrag',
+                'title' => 'Pilzerkennungsanfrage',
                 'count' => 5,
                 'beginAtPosition' => 0
             )
@@ -468,7 +468,7 @@ class wp_pea_Widget extends WP_Widget {
         $beginAtPosition = intval($instance['beginAtPosition']);
 
         echo '  <p>
-                    <label for="'.$this->get_field_id( 'count' ).'">Anzahl der angezeigten Beiträge</label>
+                    <label for="'.$this->get_field_id( 'count' ).'">Anzahl der angezeigten Anfragen</label>
                     <input type="text" id="'.$this->get_field_id( 'count' ).'" name="'.$this->get_field_name( 'count' ).'" value="'.$count.'" size="3" />
                 </p>';
 

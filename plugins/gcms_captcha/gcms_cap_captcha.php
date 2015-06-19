@@ -26,7 +26,7 @@ class gcms_cap_captcha
 
     private function __construct()
     {
-        add_action('captchaHourlyEvent', 'deleteFilesOlderThenOneHour');
+        add_action('captchaHourlyEvent', array($this, 'deleteFilesOlderThenOneHour'));
 
         $wp_upload_dir = wp_upload_dir();
         $this->captchaUploadsDir = $wp_upload_dir['basedir'] . DIRECTORY_SEPARATOR . 'gcms_captcha' . DIRECTORY_SEPARATOR;
@@ -65,8 +65,12 @@ Deny from all
         $this->filePrefix = $_SESSION[self::sesssion_captchaFileName];
 
         $hashFile = $this->captchaUploadsDir . $this->filePrefix . '.captchaKey';
-
         $fileContent = file_get_contents($hashFile);
+
+        if($fileContent === false)
+        {
+            return false;
+        }
 
         unlink($hashFile);
         unlink($this->captchaUploadsDir . $this->filePrefix . '.png');

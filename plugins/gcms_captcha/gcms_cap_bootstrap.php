@@ -40,7 +40,7 @@ class gcms_cap_bootstrap
             $this->adminPage = new gcms_cap_adminPage(plugin_basename(__FILE__));
 
         if (!wp_next_scheduled('captchaHourlyEvent')) {
-            wp_schedule_event(time(), 'daily', 'captchaHourlyEvent');
+            wp_schedule_event(time(), 'hourly', 'captchaHourlyEvent');
         }
 
         add_filter('template_include', array($this, 'registerCaptchaRelaod'));

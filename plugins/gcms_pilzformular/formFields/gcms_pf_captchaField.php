@@ -25,7 +25,7 @@ class gcms_pf_captchaField
     function printHtml($htmlForm)
     {
         $htmlForm .= '<img id="captchaImage" src="' . esc_url(gcms_cap_captcha::getInstance()->getCaptachaImageUrl()) . '" alt="" />';
-        $htmlForm .= '<p>' . __('Captcha') . '*: <br /><input type="text" name="captcha" id="captcha" autocomplete="off" /></p>';
+        $htmlForm .= '<p>' . __('Captcha', 'gcms_pilzformular') . '*: <br /><input type="text" name="captcha" id="captcha" autocomplete="off" /></p>';
 
         return $htmlForm;
     }

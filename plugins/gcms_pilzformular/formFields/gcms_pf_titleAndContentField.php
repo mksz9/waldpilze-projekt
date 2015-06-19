@@ -54,7 +54,7 @@ class gcms_pf_titleAndContentField
     function getTitleData($data)
     {
         if (isset($_POST[self::input_title_content])) {
-            $data[self::input_title_content] = sanitize_text_field(trim($_POST[self::input_title_content]));
+            $data[self::input_title_content] = sanitize_text_field(wp_strip_all_tags(trim($_POST[self::input_title_content])));
         } else {
             $data[self::input_title_content] = '';
         }

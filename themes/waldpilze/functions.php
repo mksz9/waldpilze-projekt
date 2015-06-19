@@ -6,7 +6,7 @@ function waldpilze_widgets_init()
     register_sidebar(array(
         'name' => __('Widget Bereich'),
         'id' => 'sidebar-1',
-        'description' => __('Fügt Widgets der Sidebar hinzu.'),
+        'description' => __('Fügt Widgets der Sidebar hinzu.', 'gcms_waldpilzTheme'),
         'before_widget' => '<div class="waldpilze_widget">',
         'after_widget' => '</div>',
         'before_title' => '<h4>',
@@ -26,10 +26,10 @@ register_nav_menus(
 add_theme_support('post-thumbnails');
 
 
-function mytheme_customize_register( $wp_customize )
+function waldlpilz_customize_register( $wp_customize )
 {
     $wp_customize->add_section('previewPageSettings', array(
-        'title'    => __('Waldpilze', 'themename'),
+        'title'    => __('Waldpilze', 'gcms_waldpilzTheme'),
         'description' => '',
         'priority' => 120,
     ));
@@ -43,7 +43,7 @@ function mytheme_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('fristPageControl', array(
-        'label'      => __('Erste Box', 'themename'),
+        'label'      => __('Erste Box', 'gcms_waldpilzTheme'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'fristPage',
@@ -58,7 +58,7 @@ function mytheme_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('secondPageControl', array(
-        'label'      => __('_Zweite Box', 'themename'),
+        'label'      => __('_Zweite Box', 'gcms_waldpilzTheme'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'secondPage',
@@ -73,7 +73,7 @@ function mytheme_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('thirdPageControl', array(
-        'label'      => __('Dritte Box', 'themename'),
+        'label'      => __('Dritte Box', 'gcms_waldpilzTheme'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'thirdPage',
@@ -88,13 +88,13 @@ function mytheme_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('mainPageControl', array(
-        'label'      => __('Info Box', 'themename'),
+        'label'      => __('Info Box', 'gcms_waldpilzTheme'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'mainPage',
     ));
 }
 
-add_action( 'customize_register', 'mytheme_customize_register' );
+add_action( 'customize_register', 'waldlpilz_customize_register' );
 
 ?>

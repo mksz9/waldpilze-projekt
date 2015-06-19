@@ -54,7 +54,8 @@ Deny from all
     {
         foreach (array_merge(glob($this->captchaUploadsDir . "*.captchaKey"),
             glob($this->captchaUploadsDir . "*.png")) as $file) {
-            if (filemtime($file) < time() - 86400) {
+            //60 seconds * 60 minutes = 1 hour
+            if (filemtime($file) < time() - 60) {
                 unlink($file);
             }
         }

@@ -3,7 +3,7 @@
 	get_sidebar();
 ?>
         <div class="col-sm-9 maincontent">
-          <div class="box">
+          <div class="box brown">
 			<?php if ( have_posts() ) : ?>
                 <?php while ( have_posts() ) : // The Loop ?>
                     <?php the_post(); ?>

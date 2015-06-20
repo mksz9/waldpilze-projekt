@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"POT-Creation-Date: 2015-06-20 14:22+0100\n"
-"PO-Revision-Date: 2015-06-20 14:42+0100\n"
+"POT-Creation-Date: 2015-06-20 16:08+0100\n"
+"PO-Revision-Date: 2015-06-20 16:13+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de_DE\n"
@@ -198,7 +198,7 @@ msgstr "Only image-formats are allowed."
 
 #: Pilzerkennungsanfragen.php:557
 msgid "Anzahl der angezeigten Anfragen"
-msgstr "Number of shown Reqests"
+msgstr "Number of shown Requests"
 
 #: Pilzerkennungsanfragen.php:563
 msgid "Anfangsposition der Anfragen"
@@ -219,3 +219,70 @@ msgstr "Only unsolved Requests"
 #: Pilzerkennungsanfragen.php:573
 msgid "Kein Filter"
 msgstr "No filter"
+
+#: Pilzerkennungsanfragen.php:728
+msgid "Informationen"
+msgstr "Information"
+
+#: Pilzerkennungsanfragen.php:732
+msgid "Informationen - Pilzerkennungsanfragen"
+msgstr "Information - Mushroom Identification Requests"
+
+#: Pilzerkennungsanfragen.php:733
+msgid ""
+"Auf dieser Seite finden Sie ein paar nützliche Informationen über das Plugin."
+msgstr "On this page you can find some useful Information about the plugin."
+
+#: Pilzerkennungsanfragen.php:734
+msgid "Shortcodes: "
+msgstr "Shortcodes:"
+
+#: Pilzerkennungsanfragen.php:737
+msgid ""
+"Gibt ein HTML-Formular aus mit dem neue Anfragen erstellt werden können."
+msgstr "Creates a HTML-Form which can be used to create new MI-Requests."
+
+#: Pilzerkennungsanfragen.php:738
+msgid "Attribute: keine."
+msgstr "Attribute: None."
+
+#: Pilzerkennungsanfragen.php:740
+msgid "Erstellt eine Übersichtsseite aller PE-Anfragen."
+msgstr "Creates a overview page of all MI-Requests"
+
+#: Pilzerkennungsanfragen.php:741
+msgid ""
+"Attribut:  showunsolvedpostonly=\"true\" - Nur ungelöste Anfragen anzeigen."
+msgstr ""
+"Attribute:  showunsolvedpostonly=\"true\" - Show unsolved Requests only"
+
+#: Pilzerkennungsanfragen.php:742
+msgid "Attribut:  showsolvedpostonly=\"true\" - Nur gelöste Anfragen anzeigen."
+msgstr "Attribute:  showunsolvedpostonly=\"true\" - Show solved Requests only"
+
+#: Pilzerkennungsanfragen.php:743
+msgid ""
+"Attribut:  postsperpage=\"5\" - Anzahl der Anfragen die angezeigt werden "
+"sollen."
+msgstr "Attribute:  postsperpage=\"5\" - Count of shown Requests"
+
+#: Pilzerkennungsanfragen.php:745
+msgid "Widget: "
+msgstr "Widget:"
+
+#: Pilzerkennungsanfragen.php:746
+msgid ""
+"Außerdem ist ein Widget vorhanden, dass ebenfalls PE-Anfragen anzeigen kann."
+msgstr "Plugin contains a widget, which also can be used to Show MI-Requests."
+
+#: Pilzerkennungsanfragen.php:747
+msgid "Lokalisierbar und Sprachen: "
+msgstr "Localisation and Languages:"
+
+#: Pilzerkennungsanfragen.php:748
+msgid ""
+"Das Plugin ist lokalisierbar und verfügt neben der deutschen auch über die "
+"amerikanische Sprache (en_US)."
+msgstr ""
+"Plugin is locatable and contains beside american english also the german "
+"language."

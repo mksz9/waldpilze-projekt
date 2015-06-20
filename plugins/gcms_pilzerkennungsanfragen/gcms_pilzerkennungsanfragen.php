@@ -706,6 +706,11 @@ function wp_pea_getAllRequests($postsPerPage, $beginAtPosition=0) {
     return $posts;
 }
 
+/*
+ * Gibt den Wert aus einem globalen Array zurück, falls dieser gesetzt und nicht leer ist. Im Fehlerfall false.
+ * $name Gibt den Schlüssel aus den gelesen werden soll
+ * $typ Gibt an aus welchen Array gelesen werden soll
+ */
 function wp_pea_getVariable($name, $typ) {
     if($typ == 'POST')
         return (isset($_POST[$name]) && !empty($_POST[$name])) ? $_POST[$name] : false;
@@ -713,6 +718,36 @@ function wp_pea_getVariable($name, $typ) {
         return (isset($_GET[$name]) && !empty($_GET[$name])) ? $_GET[$name] : false;
     else
         return (isset($_FILES[$name]) && !empty($_FILES[$name])) ? $_FILES[$name] : false;
+}
+
+/*
+ * Erstellen einer Informationsseite im Backend
+ */
+add_action('admin_menu', 'wp_pea_register_custom_submenu_page');
+function wp_pea_register_custom_submenu_page() {
+    add_submenu_page( 'edit.php?post_type=peanfrage', __('Informationen', 'wp_pea'), __('Informationen', 'wp_pea'), 'manage_options', __('Informationen', 'wp_pea'), 'wp_pea_createHelpPageBackend' );
+}
+
+function wp_pea_createHelpPageBackend() {
+    $htmlOutput =   '<h2>'. __('Informationen - Pilzerkennungsanfragen', 'wp_pea'). '</h2>' .
+                    '<h4>'. __('Auf dieser Seite finden Sie ein paar nützliche Informationen über das Plugin.', 'wp_pea') . '</br></h4>' .
+                    '<h3>'.__('Shortcodes: ', 'wp_pea') . '</br></h3>' .
+                    '<dl>'.
+                    '<dt>[pilzerkennungsformular]</dt>'.
+                    '<dd>'.__('Gibt ein HTML-Formular aus mit dem neue Anfragen erstellt werden können.', 'wp_pea') . '</dd>'.
+                    '<dd>'.__('Attribute: keine.', 'wp_pea') . '</dd><br/>'.
+                    '<dt>[pilzerkennungsuebersicht]</dt>'.
+                    '<dd>'.__('Erstellt eine Übersichtsseite aller PE-Anfragen.', 'wp_pea') . '</dd>'.
+                    '<dd>'.__('Attribut:  showunsolvedpostonly="true" - Nur ungelöste Anfragen anzeigen.', 'wp_pea') . '</dd>'.
+                    '<dd>'.__('Attribut:  showsolvedpostonly="true" - Nur gelöste Anfragen anzeigen.', 'wp_pea') . '</dd>'.
+                    '<dd>'.__('Attribut:  postsperpage="5" - Anzahl der Anfragen die angezeigt werden sollen.', 'wp_pea') . '</dd><br/>'.
+                    '</dl>'.
+                    '<h3>'.__('Widget: ', 'wp_pea') . '</br></h3>' .
+                    __('Außerdem ist ein Widget vorhanden, dass ebenfalls PE-Anfragen anzeigen kann.', 'wp_pea').
+                    '<h3>'.__('Lokalisierbar und Sprachen: ', 'wp_pea') . '</br></h3>' .
+                    __('Das Plugin ist lokalisierbar und verfügt neben der deutschen auch über die amerikanische Sprache (en_US).', 'wp_pea');
+
+    echo $htmlOutput;
 }
 
 ?>

@@ -23,9 +23,15 @@ class pilzDb
 
     public function __construct()
     {
+        add_action('init', array($this, 'loadLanguage'));
         add_action('init', array($this, 'createCustomPostType'), 1);
         add_action('add_meta_boxes', array($this, 'add_pilz_metaboxes'));
         add_action('save_post', array($this, 'savePilz'), 1, 2);
+    }
+
+    public function loadLanguage()
+    {
+        load_plugin_textdomain('gcms_pilzdb', FALSE, dirname(plugin_basename(__FILE__)) . '/languages/');
     }
 
     public function createCustomPostType()
@@ -63,21 +69,21 @@ class pilzDb
         $additionalInformation = get_post_meta($post->ID, self::POST_META_ADD_INFO, true);
 
         ?>
-        <label for="_toxic">Giftig oder ungiftig:</label>
+        <label for="_toxic"><?php _e('Toxic or Atoxic', 'gcms_pilzdb'); ?>: </label>
         <input type="radio" name="_toxic"
                value="toxic" <?php checked(isset($additionalInformation[self::POST_META_ADD_INFO_TOXIC]) ? esc_attr($additionalInformation[self::POST_META_ADD_INFO_TOXIC]) : '', 'toxic'); ?> >toxic
         <input type="radio" name="_toxic"
                value="atoxic" <?php checked(isset($additionalInformation[self::POST_META_ADD_INFO_TOXIC]) ? esc_attr($additionalInformation[self::POST_META_ADD_INFO_TOXIC]) : '', 'atoxic'); ?> >atoxic
         <br>
-        <label for="_features">Features: </label>
+        <label for="_features"><?php _e('Features', 'gcms_pilzdb'); ?>: </label>
         <input type="text" name="_features"
                value="<?php echo isset($additionalInformation[self::POST_META_ADD_INFO_FEATURES]) ? esc_attr($additionalInformation[self::POST_META_ADD_INFO_FEATURES]) : '' ?>">
         <br>
-        <label for="_locations">Locations: </label>
+        <label for="_locations"><?php _e('Locations', 'gcms_pilzdb'); ?>: </label>
         <input type="text" name="_locations"
                value="<?php echo isset($additionalInformation[self::POST_META_ADD_INFO_LOCATIONS]) ? esc_attr($additionalInformation[self::POST_META_ADD_INFO_LOCATIONS]) : '' ?>">
         <br>
-        <label for="_skinColor">skin color: </label>
+        <label for="_skinColor"><?php _e('Skin Color', 'gcms_pilzdb'); ?>: </label>
         <input type="text" name="_skinColor"
                value="<?php echo isset($additionalInformation[self::POST_META_ADD_INFO_SKINCOLOR]) ? esc_attr($additionalInformation[self::POST_META_ADD_INFO_SKINCOLOR]) : '' ?>">
     <?php

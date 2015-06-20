@@ -43,7 +43,7 @@ function waldlpilz_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('fristPageControl', array(
-        'label'      => __('Erste Box', 'gcms_waldpilzTheme'),
+        'label'      => __('First Box', 'gcms_waldpilzTheme'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'fristPage',
@@ -58,7 +58,7 @@ function waldlpilz_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('secondPageControl', array(
-        'label'      => __('_Zweite Box', 'gcms_waldpilzTheme'),
+        'label'      => __('Second Box', 'gcms_waldpilzTheme'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'secondPage',
@@ -73,7 +73,7 @@ function waldlpilz_customize_register( $wp_customize )
     ));
 
     $wp_customize->add_control('thirdPageControl', array(
-        'label'      => __('Dritte Box', 'gcms_waldpilzTheme'),
+        'label'      => __('Third Box', 'gcms_waldpilzTheme'),
         'section'    => 'previewPageSettings',
         'type'    => 'dropdown-pages',
         'settings'   => 'thirdPage',

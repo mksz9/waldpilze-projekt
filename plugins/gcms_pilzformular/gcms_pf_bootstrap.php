@@ -30,6 +30,8 @@ class gcms_pf_bootstrap
         $this->loadFormManager();
         $this->loadCaptcha();
         $this->loadFormFields();
+
+        load_plugin_textdomain('gcms_pilzformular', FALSE, dirname(plugin_basename(__FILE__)) . '/languages/');
     }
 
     function pluginActivated()

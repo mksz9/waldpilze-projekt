@@ -28,7 +28,7 @@
         {
             ?>
                 <form method="post" action="<?php esc_url($_SERVER['REQUEST_URI']) ?>">
-                    <p>Enter your Email for PilzNewsletter-Registration</p>
+                    <p><?php _e('Enter your Email for PilzNewsletter-Registration', 'gcms_newsletter') ?></p>
                     <input type="text" name="<?php echo self::input_email_name ?>" maxlength="30">
 
                     <?php
@@ -37,7 +37,7 @@
                             $this->captcha->printCaptcha(self::input_captchaValue_name);
                         }
                     ?>
-                    <button type="submit" name="<?php echo self::input_submit_name ?>">Eingaben absenden</button>
+                    <input type="submit" name="<?php echo self::input_submit_name ?>" value="<?php _e('Send', 'gcms_newsletter') ?>" />
                 </form>
             <?php
         }
@@ -45,42 +45,42 @@
         function printEmailToConfirmNewsletterRegistrationSentHTML()
         {
             ?>
-                <p>Email to confirm newsletter registration was sent to the following Email-Address: <?php echo $this->getNewSubscribedMailAdressForNewsletter() ?></p>
+                <p><?php echo __('Email to confirm newsletter registration was sent to the following Email-Address: ', 'gcms_newsletter').$this->getNewSubscribedMailAdressForNewsletter() ?></p>
             <?php
         }
 
         function printSuccessfullySubscribedForNewsletterHTML()
         {
             ?>
-                <p>successfully subscribed for newsletter!</p>
+                <p><?php _e('successfully subscribed for newsletter!', 'gcms_newsletter') ?></p>
             <?php
         }
 
         function printUnsuccessfullNewsletterConfirmationHTML()
         {
             ?>
-                <p>Could not confirm newsletter registration. Maybe you clicked not the latest confirmation email.</p>
+                <p><?php _e('Could not confirm newsletter registration. Maybe you clicked not the latest confirmation email.', 'gcms_newsletter') ?></p>
             <?php
         }
 
         function  printEmailAddressIsAlreadyRecipientHTML()
         {
             ?>
-                <p>This email address is already registered for newsletter</p>
+                <p><?php _e('This email address is already registered for newsletter', 'gcms_newsletter') ?></p>
             <?php
         }
 
         function printEmailIsAlreadyAspirantHTML()
         {
             ?>
-                <p>Newsletter confirmation was already sent to the following email address: <?php echo $this->getNewSubscribedMailAdressForNewsletter() ?><br>New confirmation email was sent.</p>
+                <p><?php echo __('Newsletter confirmation was already sent to the following email address: ', 'gcms_newsletter') . $this->getNewSubscribedMailAdressForNewsletter() ?> <br> <?php _e('New confirmation email was sent.', 'gcms_newsletter') ?></p>
             <?php
         }
 
         function printUnsuccessfullRegistrationHTML()
         {
             ?>
-                <p>We couldnt send the email to complete your registration to the entered email address: <?php echo $this->getNewSubscribedMailAdressForNewsletter() ?></p>
+                <p><?php echo __('We couldnt send the email to complete your registration to the entered email address: ', 'gcms_newsletter') . $this->getNewSubscribedMailAdressForNewsletter() ?></p>
             <?php
         }
 

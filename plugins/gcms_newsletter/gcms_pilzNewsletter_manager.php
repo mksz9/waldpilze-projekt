@@ -18,7 +18,7 @@ class gcms_pilzNewsletter_manager
         $this->newsletterFormPrinterAndReader = new gcms_pilzNewsletter_formPrinterAndReader($this->databaseManager, $this->captcha, $this->unsubscribeSiteManager);
         $this->emailSender = new gcms_pilzNewsletter_emailSender($this->databaseManager, $this->newsletterFormPrinterAndReader);
 
-
+        load_plugin_textdomain('gcms_newsletter', false, dirname(plugin_basename(__FILE__)) . '/languages');
 
         if(is_admin())
         {
@@ -33,13 +33,6 @@ class gcms_pilzNewsletter_manager
             $this->doUnsubscribe();
         }
 
-
-
-
-
-
-
-        //echo $this->newsletterFormPrinterAndReader->generateUnsubscribeURLForEmail('Patrick.Sippl@t-online.de');
     }
 
     function initializePlugin()

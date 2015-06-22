@@ -2,16 +2,17 @@
 
     class gcms_pilzNewsletter_unsubscribeSiteManager
     {
-        const title = 'Unsubscribe';
+        private $title;
 
         function __construct()
         {
-
+            $this->title = 'Unsubscribe';
         }
 
         function getURLOfUnsubscribeSite()
         {
-            return get_page_by_path(self::title)->guid;
+            return get_page_by_path(__($this->title, 'gcms_newsletter'))->guid;
+            //return get_page_by_title(self::title)->guid;
         }
 
         function addUnsubscribeInfoPageToWordpressPages()
@@ -19,11 +20,11 @@
             global $user_ID;
 
             $page['post_type']    = 'page';
-            $page['post_content'] = 'You are no more recipient from our newsletter!';
+            $page['post_content'] = __('You are no more recipient from our newsletter!', 'gcms_newsletter');
             $page['post_parent']  = 0;
             $page['post_author']  = $user_ID;
             $page['post_status']  = 'publish';
-            $page['post_title']   = self::title;
+            $page['post_title']   = __($this->title, 'gcms_newsletter');
 
             if(!$this->pageAlreadyExists())
             {
@@ -33,7 +34,7 @@
 
         function pageAlreadyExists()
         {
-            if(get_page_by_title(self::title) != NULL)
+            if(get_page_by_title(__($this->title, 'gcms_newsletter')) != NULL)
             {
                 return true;
             }

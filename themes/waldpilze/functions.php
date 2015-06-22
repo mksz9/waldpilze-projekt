@@ -25,6 +25,13 @@ register_nav_menus(
 
 add_theme_support('post-thumbnails');
 
+add_action('after_setup_theme', 'setupLanguageOfTheme');
+
+function setupLanguageOfTheme()
+{
+    load_theme_textdomain( 'gcms_waldpilzTheme', get_template_directory() . '/languages' );
+}
+
 
 function waldlpilz_customize_register( $wp_customize )
 {

@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: Sat Jun 20 2015 02:31:25 GMT+0200 (Mitteleuropäische "
 "Sommerzeit)\n"
-"POT-Revision-Date: Sat Jun 20 2015 02:33:05 GMT+0200 (Mitteleuropäische "
+"POT-Revision-Date: Mon Jun 22 2015 23:59:28 GMT+0200 (Mitteleuropäische "
 "Sommerzeit)\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: \n"
@@ -49,22 +49,38 @@ msgstr ""
 msgid "Top Menü"
 msgstr ""
 
-#: ../functions.php:32
+#: ../functions.php:39
 msgid "Waldpilze"
 msgstr ""
 
-#: ../functions.php:46
+#: ../functions.php:53
 msgid "First Box"
 msgstr ""
 
-#: ../functions.php:61
+#: ../functions.php:68
 msgid "Second Box"
 msgstr ""
 
-#: ../functions.php:76
+#: ../functions.php:83
 msgid "Third Box"
 msgstr ""
 
-#: ../functions.php:91
+#: ../functions.php:98
 msgid "Info Box"
+msgstr ""
+
+#: ../single-pilze.php:39
+msgid "Toxicity"
+msgstr ""
+
+#: ../single-pilze.php:40
+msgid "Locations"
+msgstr ""
+
+#: ../single-pilze.php:41
+msgid "Skin Color"
+msgstr ""
+
+#: ../single-pilze.php:42
+msgid "Features"
 msgstr ""

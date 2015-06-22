@@ -36,11 +36,10 @@ function printAddInfo($additionalInformation, $key, $label)
 
                         <div class="col-sm-6">
                             <?php
-                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_TOXIC, 'Giftigkeit');
-                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_TOXIC, 'Giftigkeit');
-                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_LOCATIONS, 'Location');
-                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_SKINCOLOR, 'Hautfarbe');
-                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_FEATURES, 'Besonderheiten');
+                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_TOXIC, __('Toxicity', 'gcms_waldpilzTheme'));
+                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_LOCATIONS, __('Locations', 'gcms_waldpilzTheme'));
+                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_SKINCOLOR, __('Skin Color', 'gcms_waldpilzTheme'));
+                            printAddInfo($additionalInformation, pilzDb::POST_META_ADD_INFO_FEATURES, __('Features', 'gcms_waldpilzTheme'));
                             ?>
                         </div>
                     </div>

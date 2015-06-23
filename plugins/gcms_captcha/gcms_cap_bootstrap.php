@@ -69,7 +69,7 @@ class gcms_cap_bootstrap
     function registerCaptchaRelaod($original_template)
     {
         if (isset($_GET['captchaReload']) && $_GET['captchaReload'] == true) {
-            return plugin_dir_path(__FILE__) . '\gcms_cap_reload.php';
+            return plugin_dir_path(__FILE__) . 'gcms_cap_reload.php';
         } else {
             return $original_template;
         }

@@ -6,12 +6,12 @@
 
         function __construct()
         {
-            $this->title = 'Unsubscribe';
+            $this->title = __('Unsubscribe', 'gcms_newsletter');
         }
 
         function getURLOfUnsubscribeSite()
         {
-            return get_page_by_path(__($this->title, 'gcms_newsletter'))->guid;
+            return get_page_by_path($this->title)->guid;
             //return get_page_by_title(self::title)->guid;
         }
 
@@ -24,7 +24,7 @@
             $page['post_parent']  = 0;
             $page['post_author']  = $user_ID;
             $page['post_status']  = 'publish';
-            $page['post_title']   = __($this->title, 'gcms_newsletter');
+            $page['post_title']   = $this->title;
 
             if(!$this->pageAlreadyExists())
             {
@@ -34,7 +34,7 @@
 
         function pageAlreadyExists()
         {
-            if(get_page_by_title(__($this->title, 'gcms_newsletter')) != NULL)
+            if(get_page_by_title($this->title) != NULL)
             {
                 return true;
             }

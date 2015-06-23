@@ -23,7 +23,7 @@ class gcms_pilzNewsletter_emailSender
         foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
         {
             $recipientEmailAddress = $recipient->email;
-            wp_mail($recipientEmailAddress, 'new Pilz: '.$newPost->post_title, $this->getContentWithNewPilzToSend($recipientEmailAddress, $newPost->guid));
+            wp_mail($recipientEmailAddress, __('new mushroom: ', 'gcms_newsletter').$newPost->post_title, $this->getContentWithNewPilzToSend($recipientEmailAddress, $newPost->guid));
         }
     }
 
@@ -34,7 +34,7 @@ class gcms_pilzNewsletter_emailSender
         foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
         {
             $recipientEmailAddress = $recipient->email;
-            wp_mail($recipientEmailAddress, 'new pilz-content', $this->getReminderContentToSend($recipientEmailAddress));
+            wp_mail($recipientEmailAddress, __('new mushroom-content', 'gcms_newsletter'), $this->getReminderContentToSend($recipientEmailAddress));
         }
     }
 
@@ -58,7 +58,7 @@ class gcms_pilzNewsletter_emailSender
         $mailSuccess = false;
         if($this->isValidEmailAddress($emailAddress))
         {
-            $mailSuccess = wp_mail($emailAddress, 'Confirm your newsletter registration', 'To confirm you newsletter registration please click on the following link<br>' . $this->formPrinterAndReader->generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber));
+            $mailSuccess = wp_mail($emailAddress, __('Confirm your newsletter registration', 'gcms_newsletter'), __('To confirm you newsletter registration please click on the following link', 'gcms_newsletter').'<br>' . $this->formPrinterAndReader->generateURLWithRandomNumberParameteToVerifyAspirant($randomNumber));
         }
         return $mailSuccess;
     }
@@ -70,19 +70,19 @@ class gcms_pilzNewsletter_emailSender
 
     function getContentWithNewPilzToSend($recipientEmailAddress, $newPilzURL)
     {
-        $content = '<p>Dear user, </p><br><p>there is a new pilz on our pilz-site. See the new pilz <a href="'.$newPilzURL.'">here</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
+        $content = '<p>'. __('Dear user, ', 'gcms_newsletter').'</p><br><p>' . __('there is a new pilz on our pilz-site. See the new pilz', 'gcms_newsletter').' <a href="'.$newPilzURL.'">' . __('here', 'gcms_newsletter') . '</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
         return $content;
     }
 
     function getReminderContentToSend($recipientEmailAddress)
     {
-        $content = '<p>Dear user, </p><br><p>there is new pilz-content for you to see under <a href="'.home_url().'">here</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
+        $content = '<p>'. __('Dear user, ', 'gcms_newsletter'). '</p><br><p>' . __('there is new pilz-content for you to see ', 'gcms_newsletter') . '<a href="'.home_url().'">here</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
         return $content;
     }
 
     function getUnsubscribeContentForEmail($recipientEmailAddress)
     {
-        return '<br><a href="'.$this->formPrinterAndReader->generateUnsubscribeURLForEmail($recipientEmailAddress).'">Click here to unsubscribe this email address from our newsletter!</a><br>';
+        return '<br><a href="'.$this->formPrinterAndReader->generateUnsubscribeURLForEmail($recipientEmailAddress).'">' . __('Click here to unsubscribe this email address from our newsletter!', 'gcms_newsletter') . '</a><br>';
     }
 }
 

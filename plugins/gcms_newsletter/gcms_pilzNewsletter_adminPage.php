@@ -18,7 +18,7 @@ class gcms_pilzNewsletter_adminPage
             $this->printSuccessfullNewsletterAlertBox();
         }
 
-        add_menu_page('Pilz-Newsletter Plugin Page', 'Pilz-Newsletter-Reminder Administration', 'manage_options', 'pilz-newsletter-plugin', array($this, 'initPilzNewsletterAdminPage'));
+        add_menu_page('Pilz-Newsletter Plugin Page', __('mushroom-reminder', 'gcms_newsletter'), 'manage_options', 'pilz-newsletter-plugin', array($this, 'initPilzNewsletterAdminPage'));
     }
 
     function isNewsletterTriggered()
@@ -34,21 +34,21 @@ class gcms_pilzNewsletter_adminPage
     function printSuccessfullNewsletterAlertBox()
     {
         ?>
-            <script language="javascript">alert("Reminder successfully sent")</script>'
+            <script language="javascript">alert("<?php _e('Reminder successfully sent', 'gcms_newsletter') ?>")</script>'
         <?php
     }
 
     function initPilzNewsletterAdminPage()
     {
         ?>
-            <h1>Pilz-Newsletter-Administration</h1>
-            <p>sending the reminder reminds the user to visit the pilz-site again</p>
+            <h1><?php _e('mushroom-reminder-administration', 'gcms_newsletter') ?></h1>
+            <p><?php _e('sending the reminder reminds the user to visit the pilz-site again', 'gcms_newsletter') ?></p>
             <form method="post" action="<?php esc_url($_SERVER['REQUEST_URI']) ?>">
-            <button type="submit" name="<?php echo self::postParameter_sendNewsletter ?>">send Reminder</button>
+            <input type="submit" name="<?php echo self::postParameter_sendNewsletter ?>" value="<?php _e('send Reminder', 'gcms_newsletter') ?>" />
             </form>
             </br>
             </br>
-            <h2>current newsletter recipients:</h2>
+            <h2><?php _e('current newsletter recipients:', 'gcms_newsletter') ?></h2>
         <?php
 
         foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)

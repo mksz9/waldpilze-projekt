@@ -12,13 +12,13 @@ class gcms_pilzNewsletter_manager
 
     function __construct()
     {
+        load_plugin_textdomain('gcms_newsletter', false, dirname(plugin_basename(__FILE__)) . '/languages');
+
         $this->databaseManager = new gcms_pilzNewsletter_databaseManager();
         $this->captcha = new gcms_pilzNewsletter_captcha();
         $this->unsubscribeSiteManager = new gcms_pilzNewsletter_unsubscribeSiteManager();
         $this->newsletterFormPrinterAndReader = new gcms_pilzNewsletter_formPrinterAndReader($this->databaseManager, $this->captcha, $this->unsubscribeSiteManager);
         $this->emailSender = new gcms_pilzNewsletter_emailSender($this->databaseManager, $this->newsletterFormPrinterAndReader);
-
-        load_plugin_textdomain('gcms_newsletter', false, dirname(plugin_basename(__FILE__)) . '/languages');
 
         if(is_admin())
         {

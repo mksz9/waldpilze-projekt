@@ -21,8 +21,8 @@ class gcms_pf_additionalInformationField
     {
         $htmlForm .= '<p>';
         $htmlForm .= __('Toxic or Nontoxic', 'gcms_pilzformular') . ':<br />';
-        $htmlForm .= '<input type="radio" name="' . pilzDb::POST_META_ADD_INFO_TOXIC . '" value="toxic" ' . checked($data[pilzDb::POST_META_ADD_INFO_TOXIC], 'toxic') . ' ><label for="toxic"> ' . __('Toxic', 'gcms_pilzformular') . '</label><br> ';
-        $htmlForm .= '<input type="radio" name="' . pilzDb::POST_META_ADD_INFO_TOXIC . '" value="atoxic" ' . checked($data[pilzDb::POST_META_ADD_INFO_TOXIC], 'atoxic') . ' ><label for="atoxic">  ' . __('Nontoxic', 'gcms_pilzformular') . '</label><br> ';
+        $htmlForm .= '<input type="radio" name="' . pilzDb::POST_META_ADD_INFO_TOXIC . '" value="toxic" ' . checked($data[pilzDb::POST_META_ADD_INFO_TOXIC], 'toxic', false) . ' ><label for="toxic"> ' . __('Toxic', 'gcms_pilzformular') . '</label><br> ';
+        $htmlForm .= '<input type="radio" name="' . pilzDb::POST_META_ADD_INFO_TOXIC . '" value="atoxic" ' . checked($data[pilzDb::POST_META_ADD_INFO_TOXIC], 'atoxic', false) . ' ><label for="atoxic">  ' . __('Nontoxic', 'gcms_pilzformular') . '</label><br> ';
         $htmlForm .= ' </p>';
 
         $htmlForm .= '<p>';

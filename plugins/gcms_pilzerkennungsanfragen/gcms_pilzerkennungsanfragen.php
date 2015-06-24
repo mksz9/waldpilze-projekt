@@ -473,7 +473,7 @@ class wp_pea_Widget extends WP_Widget {
             $posts = wp_pea_getAllRequests($postsPerPage, $beginAtPosition);
 
         // HTML-Ausgabe
-        echo '<aside id="Pilzerkennungsanfragen" class="widget widget_recent_entries">'.
+        echo '<div id="Pilzerkennungsanfragen" class="box widget widget_recent_entries">'.
              '<h4 class="widget-title">'.$title.'</h4>';
 
         // Globale post-Variable laden (dadurch können bestimmte Funktionen in der gleich folgenden foreach Schleife verwendet werden)
@@ -502,7 +502,7 @@ class wp_pea_Widget extends WP_Widget {
                  '<div style="width:auto;float:left;"><a href="'.get_permalink().'">'.get_the_title().'</a></div>'.
                  '</div>';
         }
-        echo'</aside></br>';
+        echo'</div>';
     }
 
     /*

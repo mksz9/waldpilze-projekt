@@ -7,8 +7,8 @@ function waldpilze_widgets_init()
         'name' => __('Widget Bereich'),
         'id' => 'sidebar-1',
         'description' => __('Fügt Widgets der Sidebar hinzu.', 'gcms_waldpilzTheme'),
-        'before_widget' => '<div class="waldpilze_widget">',
-        'after_widget' => '</div>',
+        'before_widget' => '<div class="box"><div class="waldpilze_widget">',
+        'after_widget' => '</div></div>',
         'before_title' => '<h4>',
         'after_title' => '</h4>',
     ));

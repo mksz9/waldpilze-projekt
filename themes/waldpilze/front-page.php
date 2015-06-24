@@ -14,13 +14,10 @@ if ($the_query->have_posts()) {
         <div class="col-sm-3 maincontent ">
             <div class="box <?php echo $boxStyle[$pageCounter] ?>">
                 <?php
-                if (has_post_thumbnail()) { ?>
-                    <a href="<?php the_permalink() ?>">
-                        <?php the_post_thumbnail('large', array(
-                            'class' => "img-responsive center-block",
-                        )); ?>
-                    </a>
-                <?php
+                if (has_post_thumbnail()) {
+                    the_post_thumbnail('large', array(
+                        'class' => "img-responsive center-block",
+                    ));
                 }
                 ?>
                 <h2 class="text-center"><?php the_title(); ?></h2>

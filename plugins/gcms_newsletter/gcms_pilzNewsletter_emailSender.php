@@ -9,8 +9,7 @@ class gcms_pilzNewsletter_emailSender
     {
         $this->databaseManager = $databaseManager;
         $this->formPrinterAndReader = $formPrinterAndReader;
-
-
+        
         add_action('publish_pilze', array($this, 'sendNewsletter'));
     }
 
@@ -76,7 +75,7 @@ class gcms_pilzNewsletter_emailSender
 
     function getReminderContentToSend($recipientEmailAddress)
     {
-        $content = '<p>'. __('Dear user, ', 'gcms_newsletter'). '</p><br><p>' . __('there is new pilz-content for you to see ', 'gcms_newsletter') . '<a href="'.home_url().'">here</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
+        $content = '<p>'. __('Dear user, ', 'gcms_newsletter'). '</p><br><p>' . __('there is new pilz-content for you to see ', 'gcms_newsletter') . '<a href="'.home_url().'">'.  __('here', 'gcms_newsletter') .'</a></p>'.$this->getUnsubscribeContentForEmail($recipientEmailAddress);
         return $content;
     }
 

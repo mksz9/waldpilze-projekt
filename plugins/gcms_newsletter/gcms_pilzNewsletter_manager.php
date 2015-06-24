@@ -46,11 +46,6 @@ class gcms_pilzNewsletter_manager
         $this->databaseManager->finalize();
     }
 
-    function triggerNewsletter()
-    {
-        $this->emailSender->sendNewsletter();
-    }
-
     function getRandomNumber()
     {
         return rand(0, 99999);

@@ -61,7 +61,7 @@ get_sidebar(); ?>
                 endwhile;
                 wp_reset_query();
                 ?>
-                </div>
+                </div></div>
             </div>
         </div>
     </div>

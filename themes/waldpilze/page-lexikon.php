@@ -19,7 +19,7 @@ get_sidebar(); ?>
                         <?php endwhile; // end of one post ?>
                     <?php endif; // do not delete
                     wp_reset_query(); ?>
-                </div>
+                
 
                 <?php
                 //Print all Pize
@@ -31,8 +31,12 @@ get_sidebar(); ?>
                 query_posts($args);
 
                 // The Loop
+                $counter = 0;
                 while (have_posts()) : the_post();
+                if ($counter == 0):
                     ?>
+                <div class="row row-lxk">
+                <?php endif; ?>
                     <div class="col-sm-4">
                         <a class="lexikon_link" href="<?php the_permalink() ?>"><?php the_title(); ?></a>
                         <?php
@@ -47,9 +51,17 @@ get_sidebar(); ?>
                         ?>
                     </div>
                 <?php
+                $counter++;
+                if ($counter == 3):
+                    $counter = 0;
+                ?>
+                </div>
+                <?php
+                endif;
                 endwhile;
                 wp_reset_query();
                 ?>
+                </div>
             </div>
         </div>
     </div>

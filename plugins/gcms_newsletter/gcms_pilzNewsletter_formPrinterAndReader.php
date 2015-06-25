@@ -30,14 +30,14 @@
                 <form method="post" action="<?php esc_url($_SERVER['REQUEST_URI']) ?>">
                     <p><?php _e('Enter your Email for PilzNewsletter-Registration', 'gcms_newsletter') ?></p>
                     <input type="text" name="<?php echo self::input_email_name ?>" maxlength="30">
-
-                    <?php
+                    <input type="submit" name="<?php echo self::input_submit_name ?>" value="<?php _e('Send', 'gcms_newsletter') ?>" />
+                    <br><br>
+                                       <?php
                         if($this->captcha->isCaptchaPluginActive())
                         {
                             $this->captcha->printCaptcha(self::input_captchaValue_name);
                         }
                     ?>
-                    <input type="submit" name="<?php echo self::input_submit_name ?>" value="<?php _e('Send', 'gcms_newsletter') ?>" />
                 </form>
             <?php
         }

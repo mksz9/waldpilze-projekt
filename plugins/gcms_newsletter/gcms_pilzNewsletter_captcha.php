@@ -5,8 +5,11 @@
         function printCaptcha($captchaValueName)
         {
             ?>
-                <img src="<?php echo esc_url(gcms_cap_captcha::getInstance()->getCaptachaImageUrl()) ?>" />
-                <p>Captcha:<br /><input name="<?php echo $captchaValueName ?>" type="text" autocomplete="off" /></p>
+                <div> 
+                <p>Captcha:<br /></p>
+                <p><img src="<?php echo esc_url(gcms_cap_captcha::getInstance()->getCaptachaImageUrl()) ?>" /></p>
+                <p><input name="<?php echo $captchaValueName ?>" type="text" autocomplete="off" /></p>
+                </div>
             <?php
         }
 

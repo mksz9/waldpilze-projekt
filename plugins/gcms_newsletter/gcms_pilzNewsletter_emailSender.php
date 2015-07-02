@@ -9,16 +9,13 @@ class gcms_pilzNewsletter_emailSender
     {
         $this->databaseManager = $databaseManager;
         $this->formPrinterAndReader = $formPrinterAndReader;
-        
         add_action('publish_pilze', array($this, 'sendNewsletter'));
     }
 
     function sendNewsletter($post_ID)
     {
         $newPost = get_post($post_ID);
-
         $this->setEmailContentTypeToHTML();
-
         foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
         {
             $recipientEmailAddress = $recipient->email;
@@ -29,19 +26,11 @@ class gcms_pilzNewsletter_emailSender
     function sendReminder()
     {
         $this->setEmailContentTypeToHTML();
-
         foreach($this->databaseManager->getAllNewsletterRecipients() as $recipient)
         {
             $recipientEmailAddress = $recipient->email;
             wp_mail($recipientEmailAddress, __('new mushroom-content', 'gcms_newsletter'), $this->getReminderContentToSend($recipientEmailAddress));
         }
-    }
-
-    function setEmailContentTypeToPlain()
-    {
-        add_filter( 'wp_mail_content_type', function( $content_type ) {
-            return 'text/plain';
-        });
     }
 
     function setEmailContentTypeToHTML()

@@ -29,7 +29,6 @@ class gcms_pilzNewsletter_manager
         {
             $this->doUnsubscribe();
         }
-
     }
 
     function initializePlugin()

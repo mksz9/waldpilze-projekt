@@ -8,8 +8,6 @@ class gcms_pilzNewsletter_manager
     private $captcha;
     private $unsubscribeSiteManager;
 
-
-
     function __construct()
     {
         load_plugin_textdomain('gcms_newsletter', false, dirname(plugin_basename(__FILE__)) . '/languages');
@@ -26,7 +24,6 @@ class gcms_pilzNewsletter_manager
         }
 
         add_shortcode('newsletterHTMLPrint', array($this, 'handleNewsletterHTMLPrintShortCode'));
-
 
         if($this->newsletterFormPrinterAndReader->unsubscribeLinkFromEmailClicked())
         {
@@ -62,6 +59,7 @@ class gcms_pilzNewsletter_manager
         }
     }
 
+    // central algorithm to handle interaction with shortcode
     function handleNewsletterHTMLPrintShortCode()
     {
         ob_start();
@@ -69,7 +67,7 @@ class gcms_pilzNewsletter_manager
         // registration form sent => add email address to newsletteraspirants and send email to confirm registration for user
         if($this->newsletterFormPrinterAndReader->formToSubscribeForNewsletterSent())
         {
-			if($this->captcha->isCaptchaPluginActive() && !$this->newsletterFormPrinterAndReader->isCaptchaValid())
+	if($this->captcha->isCaptchaPluginActive() && !$this->newsletterFormPrinterAndReader->isCaptchaValid())
             {
                 echo 'Invalid captcha';
                 return; //no more actions because of security
